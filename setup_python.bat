@@ -1,0 +1,1 @@
+powershell -NoProfile -ExecutionPolicy Bypass -File "C:\Users\ASUS\Documents\SpotifyBot\setup_python.ps1" pause
