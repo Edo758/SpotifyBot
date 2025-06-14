@@ -1,0 +1,51 @@
+2025/06/07-15:47:39.767 2cb8 Reusing MANIFEST C:\Users\ASUS\Documents\SpotifyBot\UserData\Default\IndexedDB\https_open.spotify.com_0.indexeddb.leveldb/MANIFEST-000001
+2025/06/07-15:47:39.767 2cb8 Recovering log #12
+2025/06/07-15:47:39.768 2cb8 Reusing old log C:\Users\ASUS\Documents\SpotifyBot\UserData\Default\IndexedDB\https_open.spotify.com_0.indexeddb.leveldb/000012.log 
+2025/06/07-15:47:40.612 2cb8 Level-0 table #17: started
+2025/06/07-15:47:40.618 2cb8 Level-0 table #17: 1010625 bytes OK
+2025/06/07-15:47:40.621 2cb8 Delete type=0 #12
+2025/06/07-15:47:42.302 2cb8 Compacting 1@1 + 1@2 files
+2025/06/07-15:47:42.306 2cb8 Generated table #18@1: 351 keys, 58537 bytes
+2025/06/07-15:47:42.306 2cb8 Compacted 1@1 + 1@2 files => 58537 bytes
+2025/06/07-15:47:42.307 2cb8 compacted to: files[ 0 0 1 0 0 0 0 ]
+2025/06/07-15:47:42.307 2cb8 Delete type=2 #14
+2025/06/07-15:47:42.307 2cb8 Delete type=2 #17
+2025/06/07-15:47:52.002 2cb8 Level-0 table #20: started
+2025/06/07-15:47:52.009 2cb8 Level-0 table #20: 1003266 bytes OK
+2025/06/07-15:47:52.011 2cb8 Delete type=0 #16
+2025/06/07-15:47:52.023 2cb8 Compacting 1@1 + 1@2 files
+2025/06/07-15:47:52.027 2cb8 Generated table #21@1: 375 keys, 75167 bytes
+2025/06/07-15:47:52.027 2cb8 Compacted 1@1 + 1@2 files => 75167 bytes
+2025/06/07-15:47:52.027 2cb8 compacted to: files[ 0 0 1 0 0 0 0 ]
+2025/06/07-15:47:52.028 2cb8 Delete type=2 #18
+2025/06/07-15:47:52.028 2cb8 Delete type=2 #20
+2025/06/07-15:48:51.873 71bc Level-0 table #23: started
+2025/06/07-15:48:51.884 71bc Level-0 table #23: 3228493 bytes OK
+2025/06/07-15:48:51.885 71bc Delete type=0 #19
+2025/06/07-15:48:54.449 2cb8 Compacting 1@1 + 1@2 files
+2025/06/07-15:48:54.454 2cb8 Generated table #24@1: 567 keys, 104032 bytes
+2025/06/07-15:48:54.454 2cb8 Compacted 1@1 + 1@2 files => 104032 bytes
+2025/06/07-15:48:54.455 2cb8 compacted to: files[ 0 0 1 0 0 0 0 ]
+2025/06/07-15:51:10.691 3ae0 Level-0 table #26: started
+2025/06/07-15:51:10.704 3ae0 Level-0 table #26: 4011333 bytes OK
+2025/06/07-15:51:10.706 3ae0 Delete type=2 #21
+2025/06/07-15:51:10.706 3ae0 Delete type=0 #22
+2025/06/07-15:51:10.706 3ae0 Delete type=2 #23
+2025/06/07-15:51:10.813 2cb8 Compacting 1@1 + 1@2 files
+2025/06/07-15:51:10.821 2cb8 Generated table #27@1: 654 keys, 93972 bytes
+2025/06/07-15:51:10.821 2cb8 Compacted 1@1 + 1@2 files => 93972 bytes
+2025/06/07-15:51:10.821 2cb8 compacted to: files[ 0 0 1 0 0 0 0 ]
+2025/06/07-15:53:22.332 3ae0 Level-0 table #29: started
+2025/06/07-15:53:22.343 3ae0 Level-0 table #29: 4006976 bytes OK
+2025/06/07-15:53:22.345 3ae0 Delete type=2 #24
+2025/06/07-15:53:22.345 3ae0 Delete type=0 #25
+2025/06/07-15:53:22.345 3ae0 Delete type=2 #26
+2025/06/07-15:53:22.561 2cb8 Compacting 1@1 + 1@2 files
+2025/06/07-15:53:22.567 2cb8 Generated table #30@1: 736 keys, 119198 bytes
+2025/06/07-15:53:22.567 2cb8 Compacted 1@1 + 1@2 files => 119198 bytes
+2025/06/07-15:53:22.568 2cb8 compacted to: files[ 0 0 1 0 0 0 0 ]
+2025/06/07-15:53:22.568 2cb8 Delete type=2 #27
+2025/06/07-15:53:22.568 2cb8 Delete type=2 #29
+2025/06/07-15:54:36.094 71bc Level-0 table #32: started
+2025/06/07-15:54:36.107 71bc Level-0 table #32: 4042349 bytes OK
+2025/06/07-15:54:36.108 71bc Delete type=0 #28

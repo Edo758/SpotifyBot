@@ -1,0 +1,1 @@
+{"version":3,"file":"styles/redirect.css","mappings":";;;;AAAA,UACE,YACA,WACA,SACA,U","sources":["webpack://extension/./app/styles/redirect.scss"],"sourcesContent":["html, body {\n  height: 100%;\n  width: 100%;\n  margin: 0;\n  padding: 0;\n}\n"],"names":[],"sourceRoot":""}

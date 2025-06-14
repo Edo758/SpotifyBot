@@ -1,0 +1,50 @@
+{
+   "action": {
+      "default_icon": {
+         "19": "images/icon-19.png",
+         "36": "images/icon-36.png"
+      },
+      "default_title": "__MSG_BROWSER_ACTION_TITLE__"
+   },
+   "background": {
+      "service_worker": "scripts/background.js"
+   },
+   "content_scripts": [ {
+      "js": [ "scripts/render.js" ],
+      "matches": [ "\u003Call_urls>" ],
+      "run_at": "document_end"
+   }, {
+      "js": [ "scripts/before-load.js" ],
+      "matches": [ "\u003Call_urls>" ],
+      "run_at": "document_start"
+   }, {
+      "css": [ "assets/inject.css" ],
+      "matches": [ "\u003Call_urls>" ]
+   } ],
+   "content_security_policy": {
+      "extension_pages": "default-src 'self'; connect-src ws: http: localhost:54789; script-src 'self'; style-src data: 'unsafe-inline' https://fonts.googleapis.com http://localhost:54789; img-src * data:; font-src data: https://fonts.gstatic.com http://localhost:54789; worker-src 'self';"
+   },
+   "default_locale": "en",
+   "description": "__MSG_APP_DESCRIPTION__",
+   "externally_connectable": {
+      "matches": [ "https://open.sessionbox.dev/*" ]
+   },
+   "host_permissions": [ "\u003Call_urls>" ],
+   "icons": {
+      "128": "images/icon-128.png",
+      "16": "images/icon-16.png",
+      "36": "images/icon-36.png"
+   },
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAuGvzMzF8EDp8+0a6Pb3l7nJX2WeNBXCekTQm8NIFOP39e30yCPXEJQIxZf0GwB43wd7nNvGf6QBhWqmf8BnUzrI3cwsXt0Jvf648aSe0T78C6DNNHolMaoT2bg4rcAgsaNXntF2Zi0xraZH7SNgiKuKf00vPUJI3Ompg8qiPV1livk25MmWRUILy2HesC/29V0sdzN+fUVmzxuhVe9e6R/dd4dk/x90+l0UKgJ10d/ClLUhMuyjFe3xEdUlfJWS0u9Lq6QUoLQoTpYh+un22K7aKmExv5DWe0zCjIjkSLP3gtjdjq1NBH3BdANt87PquIe1fWOk/MsWiS5ClsvWjFwIDAQAB",
+   "manifest_version": 3,
+   "name": "__MSG_APP_NAME__",
+   "permissions": [ "tabs", "webNavigation", "storage", "declarativeNetRequest", "webRequest", "contextMenus", "offscreen" ],
+   "short_name": "__MSG_APP_SHORT_NAME__",
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "4.7.4",
+   "web_accessible_resources": [ {
+      "matches": [ "\u003Call_urls>" ],
+      "resources": [ "pages/communication.html", "pages/frame.html", "pages/render.html", "pages/redirect.html", "styles/render.css", "scripts/relay-worker.js", "scripts/unregister-sw.js" ],
+      "use_dynamic_url": false
+   } ]
+}

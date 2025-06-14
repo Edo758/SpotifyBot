@@ -1,0 +1,26 @@
+{
+   "APP_DESCRIPTION": {
+      "message": "Multi login application."
+   },
+   "APP_HAS_TO_BE_INSTALLED": {
+      "message": "Please make sure SessionBox Application is installed and running on your computer."
+   },
+   "APP_HAS_TO_BE_INSTALLED_DESCRIPTION": {
+      "message": "SessionBox One requires a desktop application called SessionBox Application to operate. We cannot detect the application on your computer. If you have the application installed please make sure it is running."
+   },
+   "APP_NAME": {
+      "message": "SessionBox One"
+   },
+   "APP_SHORT_NAME": {
+      "message": "SessionBox"
+   },
+   "BROWSER_ACTION_TITLE": {
+      "message": "SessionBox One"
+   },
+   "INSTALL_APPLICATION": {
+      "message": "Install Application"
+   },
+   "TROUBLESHOOTING": {
+      "message": "Troubleshooting"
+   }
+}

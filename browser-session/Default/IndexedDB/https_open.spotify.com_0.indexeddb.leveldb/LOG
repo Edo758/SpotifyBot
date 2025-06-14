@@ -1,0 +1,50 @@
+2025/06/07-14:35:51.213 738 Reusing MANIFEST C:\Users\ASUS\Documents\SpotifyBot\browser-session\Default\IndexedDB\https_open.spotify.com_0.indexeddb.leveldb/MANIFEST-000001
+2025/06/07-14:35:51.213 738 Recovering log #121
+2025/06/07-14:35:51.226 738 Reusing old log C:\Users\ASUS\Documents\SpotifyBot\browser-session\Default\IndexedDB\https_open.spotify.com_0.indexeddb.leveldb/000121.log 
+2025/06/07-14:35:51.226 738 Delete type=2 #120
+2025/06/07-14:35:51.226 738 Delete type=2 #122
+2025/06/07-14:35:56.923 4110 Level-0 table #126: started
+2025/06/07-14:35:56.946 4110 Level-0 table #126: 1119435 bytes OK
+2025/06/07-14:35:56.949 4110 Delete type=0 #121
+2025/06/07-14:35:56.950 5d10 Compacting 1@1 + 1@2 files
+2025/06/07-14:35:56.961 5d10 Generated table #127@1: 1816 keys, 179729 bytes
+2025/06/07-14:35:56.962 5d10 Compacted 1@1 + 1@2 files => 179729 bytes
+2025/06/07-14:35:56.962 5d10 compacted to: files[ 0 0 1 0 0 0 0 ]
+2025/06/07-14:35:57.627 738 Level-0 table #129: started
+2025/06/07-14:35:57.656 738 Level-0 table #129: 1156776 bytes OK
+2025/06/07-14:35:57.658 738 Delete type=2 #123
+2025/06/07-14:35:57.658 738 Delete type=0 #125
+2025/06/07-14:35:57.658 738 Delete type=2 #126
+2025/06/07-14:36:00.325 5d10 Compacting 1@1 + 1@2 files
+2025/06/07-14:36:00.369 5d10 Generated table #130@1: 1854 keys, 182123 bytes
+2025/06/07-14:36:00.369 5d10 Compacted 1@1 + 1@2 files => 182123 bytes
+2025/06/07-14:36:00.370 5d10 compacted to: files[ 0 0 1 0 0 0 0 ]
+2025/06/07-14:36:01.717 4110 Level-0 table #132: started
+2025/06/07-14:36:01.751 4110 Level-0 table #132: 1151911 bytes OK
+2025/06/07-14:36:01.752 4110 Delete type=2 #127
+2025/06/07-14:36:01.753 4110 Delete type=0 #128
+2025/06/07-14:36:01.753 4110 Delete type=2 #129
+2025/06/07-14:36:01.754 4110 Compacting 1@1 + 1@2 files
+2025/06/07-14:36:01.810 4110 Generated table #133@1: 1920 keys, 201112 bytes
+2025/06/07-14:36:01.810 4110 Compacted 1@1 + 1@2 files => 201112 bytes
+2025/06/07-14:36:01.811 4110 compacted to: files[ 0 0 1 0 0 0 0 ]
+2025/06/07-14:36:02.094 4110 Level-0 table #135: started
+2025/06/07-14:36:02.112 4110 Level-0 table #135: 1138115 bytes OK
+2025/06/07-14:36:02.113 4110 Delete type=2 #130
+2025/06/07-14:36:02.113 4110 Delete type=0 #131
+2025/06/07-14:36:02.113 4110 Delete type=2 #132
+2025/06/07-14:36:02.188 5d10 Compacting 1@1 + 1@2 files
+2025/06/07-14:36:02.197 5d10 Generated table #136@1: 1972 keys, 204747 bytes
+2025/06/07-14:36:02.197 5d10 Compacted 1@1 + 1@2 files => 204747 bytes
+2025/06/07-14:36:02.198 5d10 compacted to: files[ 0 0 1 0 0 0 0 ]
+2025/06/07-14:36:02.198 5d10 Delete type=2 #133
+2025/06/07-14:36:02.199 5d10 Delete type=2 #135
+2025/06/07-14:36:02.292 5d10 Level-0 table #138: started
+2025/06/07-14:36:02.335 5d10 Level-0 table #138: 1165646 bytes OK
+2025/06/07-14:36:02.336 5d10 Delete type=0 #134
+2025/06/07-14:36:02.340 738 Compacting 1@1 + 1@2 files
+2025/06/07-14:36:02.394 738 Generated table #139@1: 1975 keys, 191520 bytes
+2025/06/07-14:36:02.394 738 Compacted 1@1 + 1@2 files => 191520 bytes
+2025/06/07-14:36:02.395 738 compacted to: files[ 0 0 1 0 0 0 0 ]
+2025/06/07-14:36:02.395 738 Delete type=2 #136
+2025/06/07-14:36:02.395 738 Delete type=2 #138

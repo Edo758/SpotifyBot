@@ -1,0 +1,1322 @@
+{
+   "ADD": {
+      "message": "Add"
+   },
+   "ADD_MEMBER": {
+      "message": "Invite"
+   },
+   "ADD_URL": {
+      "message": "Add URL"
+   },
+   "AFFILIATE": {
+      "message": "Earn 30% commission with our \u003ClinkText>affiliate\u003C/linkText> program"
+   },
+   "ALLOW": {
+      "message": "Allow"
+   },
+   "API_ACCESS_CONFIRM_CONTENT": {
+      "message": "You are about to generate a direct link, but your API access is currently disabled. In order to create the direct link, we must enable API access. You can revoke this access at any time in your settings.\nWould you like to proceed anyway?"
+   },
+   "API_ACCESS_CONFIRM_TITLE": {
+      "message": "Permission needed"
+   },
+   "API_ACCESS_OK": {
+      "message": "Create"
+   },
+   "API_KEY": {
+      "message": "API Key"
+   },
+   "APP_DESCRIPTION": {
+      "message": "Elevate multitasking: Unleash SessionBox One's power for managing multiple accounts across all sites."
+   },
+   "APP_HAS_TO_BE_INSTALLED": {
+      "message": "Please make sure SessionBox Application is installed and running on your computer."
+   },
+   "APP_HAS_TO_BE_INSTALLED_DESCRIPTION": {
+      "message": "SessionBox One requires a desktop application to operate. We cannot detect the application on your computer. If you have the application installed, please make sure it is running."
+   },
+   "APP_NAME": {
+      "message": "SessionBox One - Multi-Login Anti-Detect Tool"
+   },
+   "APP_SHORT_NAME": {
+      "message": "SessionBox One"
+   },
+   "APP_WELCOME_CLOSE": {
+      "message": "Setup your browser"
+   },
+   "APP_WELCOME_DESCRIPTION": {
+      "message": "You're currently see SessionBox One application window and you can start using it right away."
+   },
+   "APP_WELCOME_DESCRIPTION_EXTENSION": {
+      "message": "You can access this window anytime by clicking on the SessionBox icon in the system tray, or using SessionBox One extension."
+   },
+   "APP_WELCOME_DESCRIPTION_WORKSTATION": {
+      "message": "You're currently seeing SessionBox One application window, you can access it anytime by clicking on the SessionBox icon in the system tray. This window allows you to manage your profiles easily."
+   },
+   "APP_WELCOME_DESCRIPTION_WORKSTATION_1": {
+      "message": "Open \u003Cstrong>SessionBox Workstation\u003C/strong> by right-clicking on the SessionBox icon in the system tray."
+   },
+   "APP_WELCOME_TITLE": {
+      "message": "Always access your profiles here"
+   },
+   "AUTO_HIDE_OFF": {
+      "message": "Turn off auto hide"
+   },
+   "AUTO_HIDE_ON": {
+      "message": "Turn on auto hide"
+   },
+   "BACK": {
+      "message": "Back"
+   },
+   "BRIGHT_DATA_CONTINUE": {
+      "message": "Continue"
+   },
+   "BRIGHT_DATA_DESCRIPTION1": {
+      "message": "Discover high quality proxies provided by Bright Data"
+   },
+   "BRIGHT_DATA_DESCRIPTION2": {
+      "message": "Please choose the desired country and white list IP address"
+   },
+   "BRIGHT_DATA_ERROR2_DESCRIPTION": {
+      "message": "We know you cannot wait to use your Bright Data proxy. Unfortunaletly, we could not generate it for you this time. Please try again later! "
+   },
+   "BRIGHT_DATA_ERROR2_TITLE": {
+      "message": "Uh oh, something went wrong"
+   },
+   "BRIGHT_DATA_ERROR_DESCRIPTION": {
+      "message": "Hey, I know you'd like to use that proxy from Bright Data. We test all proxies before providing them for you and unfortunately, there was an error with yours. But do not worry. We will fix it for you as soon as possible and send you a notification when the proxy is fixed."
+   },
+   "BRIGHT_DATA_ERROR_TITLE": {
+      "message": "Error - We are working on it!"
+   },
+   "BRIGHT_DATA_LIMIT_DESCRIPTION": {
+      "message": "With our partner Bright Data you get the best proxies to use with SessionBox One. Tested and approved by our team and 20,000 users worldwide."
+   },
+   "BRIGHT_DATA_LIMIT_LINK": {
+      "message": "Visit Bright Data"
+   },
+   "BRIGHT_DATA_LIMIT_TITLE": {
+      "message": "You ran out of you 1 GB Proxy"
+   },
+   "BRIGHT_DATA_NEXT_BUTTON": {
+      "message": "1 GB FREE PROXY"
+   },
+   "BRIGHT_DATA_OPEN_TUTORIAL": {
+      "message": "Learn About Proxies"
+   },
+   "BRIGHT_DATA_SUCCESS_DECRIPTION": {
+      "message": "Your proxy is ready to use now! If you are not sure about how proxies work in SessionBox, hit the button below for a short tutorial."
+   },
+   "BRIGHT_DATA_SUCCESS_TITLE": {
+      "message": "Enjoy your free proxy!"
+   },
+   "BRIGHT_DATA_TEXT1": {
+      "message": "With Bright Data, we give you the opportunity to protect your privacy & security online by preventing websites from tracking you and collecting your personal information."
+   },
+   "BRIGHT_DATA_TITLE1": {
+      "message": "Enhance your confidentiality"
+   },
+   "BRIGHT_DATA_TITLE2": {
+      "message": "Proxy Settings"
+   },
+   "BRIGHT_DATA_WINDOW_CLOSE_CANCEL": {
+      "message": "Get Proxy"
+   },
+   "BRIGHT_DATA_WINDOW_CLOSE_DESCRIPTION": {
+      "message": "You can still access yout free proxy in the user menu"
+   },
+   "BRIGHT_DATA_WINDOW_CLOSE_TITLE": {
+      "message": "Are you sure?"
+   },
+   "BROWSER_ACTION_TITLE": {
+      "message": "SessionBox One"
+   },
+   "CANCEL": {
+      "message": "Cancel"
+   },
+   "CANNOT_LOAD": {
+      "message": "We cannot load this site"
+   },
+   "CANVAS_FINGERPRINT": {
+      "message": "Canvas fingerprint generation"
+   },
+   "CANVAS_FINGERPRINT_DESCRIPTION": {
+      "message": "Generates different canvas fingerprint for each profile"
+   },
+   "CART_TIMER": {
+      "message": "Cart timer"
+   },
+   "CART_TIMER_DESCRIPTION": {
+      "message": "Display web-shop timers on tabs"
+   },
+   "CHECK_TYPO": {
+      "message": "Check if there is a typo in {{url}}."
+   },
+   "COLOR": {
+      "message": "Color"
+   },
+   "CONFIGURE_BROWSERS": {
+      "message": "Configure browsers"
+   },
+   "CONFIGURE_PROXY_LIST": {
+      "message": "Manage proxies"
+   },
+   "CONFIGURE_TEAM_LIST": {
+      "message": "Manage spaces"
+   },
+   "CONFIRM_SESSION_MOVE": {
+      "message": "Would you like to share the following profile: {{sessionName}} with {{teamName}}? This will share all passwords and urls related to this profile."
+   },
+   "CONFIRM_SESSION_MOVE_NO": {
+      "message": "No"
+   },
+   "CONFIRM_SESSION_MOVE_TITLE": {
+      "message": "Move profile"
+   },
+   "CONFIRM_SESSION_MOVE_YES": {
+      "message": "Yes"
+   },
+   "COOKIES": {
+      "message": "Cookies"
+   },
+   "CREATE": {
+      "message": "Create"
+   },
+   "CREATE_DIRECT_LINK": {
+      "message": "Create direct link"
+   },
+   "CREATE_PROFILE": {
+      "message": "Create profile"
+   },
+   "CREATE_PROFILE_MENU": {
+      "message": "Create profile..."
+   },
+   "CREATE_PROXY": {
+      "message": "Create proxy"
+   },
+   "CSV_TEXT": {
+      "message": "Enter your proxies here. One in each line in \u003Ccode>ip:port:name\u003C/code> or \u003Ccode>ip:port:name:username:password\u003C/code> format. The \u003Ccode>name\u003C/code> parameter is optional."
+   },
+   "CSV_TEXT_REQUIRED": {
+      "message": "Add at least one proxy"
+   },
+   "DARK_THEME": {
+      "message": "Dark"
+   },
+   "DEFAULT_GROUP": {
+      "message": "Default group"
+   },
+   "DEFAULT_GROUP_DESCRIPTION": {
+      "message": "Newly created profiles will be placed in this group"
+   },
+   "DEFAULT_THEME": {
+      "message": "Light"
+   },
+   "DELETE": {
+      "message": "Delete"
+   },
+   "DELETE_PROFILE": {
+      "message": "Delete profile"
+   },
+   "DELETE_PROFILE_CONFIRM": {
+      "message": "Are you sure you want to delete this profile? This will remove all associated URLs."
+   },
+   "DELETE_PROXY": {
+      "message": "Delete"
+   },
+   "DELETE_TEAM": {
+      "message": "Delete space"
+   },
+   "DELETE_TEAM_CONFIRM": {
+      "message": "Are you sure you want to delete '{{teamName}}'? This will remove all associated profiles, proxies, credentials."
+   },
+   "DENY": {
+      "message": "Deny"
+   },
+   "DESKTOP_APP": {
+      "message": "Desktop app"
+   },
+   "DEVICE_ENUMERATION": {
+      "message": "Disable media device enumeration"
+   },
+   "DEVICE_ENUMERATION_DESCRIPTION": {
+      "message": "Prevents fingerprinting by media device ids"
+   },
+   "DIRECT_LINK_GENERATED": {
+      "message": "Copied to clipboard"
+   },
+   "EDIT_PROFILE": {
+      "message": "Edit profile"
+   },
+   "EDIT_PROFILE_MENU": {
+      "message": "Edit profile..."
+   },
+   "EDIT_PROXY": {
+      "message": "Edit"
+   },
+   "EDIT_PROXY_TITLE": {
+      "message": "Edit proxy"
+   },
+   "EDIT_SHARED_PROFILE": {
+      "message": "Edit share"
+   },
+   "EDIT_TEAM": {
+      "message": "Edit space"
+   },
+   "EDIT_URL": {
+      "message": "Edit URL"
+   },
+   "EMAIL_FIELD": {
+      "message": "Email"
+   },
+   "EMAIL_VERIFICATION_DESCRIPTION": {
+      "message": "You haven't verify your email address, please check your inbox and click on the verification link to start using SessionBox One."
+   },
+   "EMAIL_VERIFICATION_DESCRIPTION2": {
+      "message": "If you don't find the email, please check the junk/spam folder as well or re-send the verification email."
+   },
+   "EMAIL_VERIFICATION_SIGN_OUT": {
+      "message": "Sign out"
+   },
+   "EMAIL_VERIFICATION_TITLE": {
+      "message": "Verify your email address"
+   },
+   "EMULATE_SCREEN_SIZE": {
+      "message": "Emulate screen size (experimental)"
+   },
+   "EMULATE_SCREEN_SIZE_DESCRIPTION": {
+      "message": "Emulate different screen size for profiles"
+   },
+   "ENCRYPTED_SESSION_CACHE": {
+      "message": "Encryption for loaded profile cache"
+   },
+   "ENCRYPTED_SESSION_CACHE_DESCRIPTION": {
+      "message": "Active profiles cache will be stored encrypted(Profile operations could be slower)"
+   },
+   "ENDPOINT": {
+      "message": "API endpoint"
+   },
+   "ERROR_MESSAGE": {
+      "message": "Error: {{error}}"
+   },
+   "EXPORT_COOKIES_ERROR": {
+      "message": "Failed to export cookies"
+   },
+   "EXPORT_COOKIES_SUCCESS": {
+      "message": "Cookies copied to clipboard"
+   },
+   "EXPORT_COOKIES_TITLE": {
+      "message": "Export cookies"
+   },
+   "EXTENSION": {
+      "message": "Extension"
+   },
+   "EXTENSION_NOT_INSTALLED": {
+      "message": "Extension not installed"
+   },
+   "EXTENSION_NOT_INSTALLED_DESCRIPTION": {
+      "message": "You have to install SessionBox One extension to enable this browser."
+   },
+   "FEEDBACK_QUESTION": {
+      "message": "What improvement would make you give us a better rating?"
+   },
+   "FEEDBACK_RATE_QUESTION": {
+      "message": "How satisfied are you with SessionBox One so far?"
+   },
+   "FEEDBACK_TITLE": {
+      "message": "We value your feedback"
+   },
+   "FOLLOW_US": {
+      "message": "Follow us on \u003ClinkDiscord>Discord\u003C/linkDiscord>, \u003ClinkFacebook>Facebook\u003C/linkFacebook>, \u003ClinkTwitter>Twitter\u003C/linkTwitter>, or \u003ClinkLinkedIn>LinkedIn\u003C/linkLinkedIn> for all the latest news and exciting announcements."
+   },
+   "FORCE_UPDATE_DESCRIPTION": {
+      "message": "To enjoy the latest features, improvements, and bug fixes, please download the latest version from our website."
+   },
+   "FORCE_UPDATE_DOWNLOAD": {
+      "message": "Download"
+   },
+   "FORCE_UPDATE_TITLE": {
+      "message": "Your app is outdated"
+   },
+   "GROUP": {
+      "message": "Group"
+   },
+   "GROUP_REQUIRED": {
+      "message": "Group is required"
+   },
+   "HOUR_1": {
+      "message": "1 hour"
+   },
+   "HOUR_24": {
+      "message": "24 hours"
+   },
+   "HOUR_6": {
+      "message": "6 hours"
+   },
+   "IMPORT": {
+      "message": "Import"
+   },
+   "IMPORT_COOKIES_ERROR": {
+      "message": "Failed to import cookies"
+   },
+   "IMPORT_COOKIES_SUCCESS": {
+      "message": "Cookies imported successfully"
+   },
+   "IMPORT_COOKIES_TITLE": {
+      "message": "Import cookies"
+   },
+   "IMPORT_MULTIPLE_PROXIES": {
+      "message": "Import proxies"
+   },
+   "INSTALLED": {
+      "message": "installed"
+   },
+   "INSTALLED_EXTENSION": {
+      "message": "extension installed"
+   },
+   "INSTALL_APPLICATION": {
+      "message": "Install Application"
+   },
+   "INSTALL_EXTENSION": {
+      "message": "Install"
+   },
+   "INSTALL_EXTENSION_BROWSER": {
+      "message": "please install"
+   },
+   "INSTALL_NOW": {
+      "message": "Install Now"
+   },
+   "INVALID_API_KEY": {
+      "message": "Invalid API key"
+   },
+   "INVALID_API_KEY_DESCRIPTION": {
+      "message": "The provided api key is not valid. Make sure you are using the correct key the application. Please note keys are different for each user."
+   },
+   "INVALID_EMAIL": {
+      "message": "Not a valid email"
+   },
+   "INVALID_TOKEN": {
+      "message": "Invalid token"
+   },
+   "INVALID_TOKEN_DESCRIPTION": {
+      "message": "The token you provided is invalid. Maybe this url was generated in different SessionBox One instance."
+   },
+   "ISSUE_API_KEY": {
+      "message": "Issue API key"
+   },
+   "ISSUE_API_KEY_DESCRIPTION": {
+      "message": "Issue API key for programmatic access. This key is related to your user account."
+   },
+   "KEYBOARD_SHORTCUTS": {
+      "message": "Manage Shortcuts"
+   },
+   "KEYBOARD_SHORTCUTS_GLOBAL_TITLE": {
+      "message": "Global Shortcuts"
+   },
+   "KEYBOARD_SHORTCUTS_WORKSTATION_TITLE": {
+      "message": "Workstation Shortcuts"
+   },
+   "LEARNING_SITE": {
+      "message": "SessionBox Learning"
+   },
+   "LEARNING_SITE_DESCRIPTION": {
+      "message": "Learn how to use SessionBox, from basic to advanced."
+   },
+   "LEAVE": {
+      "message": "Leave"
+   },
+   "LEAVE_CANCEL": {
+      "message": "Cancel"
+   },
+   "LEAVE_TEAM": {
+      "message": "Leave space"
+   },
+   "LEAVE_TEAM_CONFIRM": {
+      "message": "Are you sure you want to leave {{teamName}}? You won't be able to access profiles, proxies, or credentials associated with this space."
+   },
+   "LOADING_PROFILE": {
+      "message": "Loading profile..."
+   },
+   "LOADING_WEB_PAGE": {
+      "message": "Loading web page..."
+   },
+   "LOCAL": {
+      "message": "Locally stored"
+   },
+   "LOCAL_DESCRIPTION": {
+      "message": "Your profile will be stored locally and will be available only on your current device."
+   },
+   "LOGIN": {
+      "message": "Login or Create Account"
+   },
+   "LOGIN_REQUIRED": {
+      "message": "To start using SessionBox One please login to your SessionBox account."
+   },
+   "LOGOUT": {
+      "message": "sign out"
+   },
+   "MINUTES_30": {
+      "message": "30 minutes"
+   },
+   "MOCK_FONTS": {
+      "message": "Mock fonts"
+   },
+   "MOCK_FONTS_DESCRIPTION": {
+      "message": "Prevents font fingerprinting"
+   },
+   "MOVE_TO_TEAM": {
+      "message": "Move to space"
+   },
+   "MY_PROFILE": {
+      "message": "My Profile"
+   },
+   "NAME": {
+      "message": "Name"
+   },
+   "NAME_REQUIRED": {
+      "message": "Name is required"
+   },
+   "NEW_MULTIPLE_PROXY": {
+      "message": "Import proxies"
+   },
+   "NEW_PROFILE_TEAM_SELECT": {
+      "message": "Save to..."
+   },
+   "NEW_PROXY": {
+      "message": "Add proxy"
+   },
+   "NEW_TEAM": {
+      "message": "Create space"
+   },
+   "NOT_SUPPORTED_BROWSER": {
+      "message": "Not supported browser"
+   },
+   "NOT_SUPPORTED_BROWSER_SUBTITLE": {
+      "message": "Your browser is not supported. Please use Chrome, Edge or Firefox."
+   },
+   "NO_FEATURE_BACK": {
+      "message": "Back"
+   },
+   "NO_FEATURE_DESCRIPTION": {
+      "message": "This feature is not available in your subscription. Please check out our available packages."
+   },
+   "NO_FEATURE_TITLE": {
+      "message": "Upgrade your account!"
+   },
+   "NO_FEATURE_UPGRADE": {
+      "message": "Upgrade"
+   },
+   "NO_INVITATIONS": {
+      "message": "No invitations"
+   },
+   "NO_PROXY": {
+      "message": "No proxy"
+   },
+   "NO_SUBSCRIPTION_DESCRIPTION": {
+      "message": "Please check out our available packages."
+   },
+   "NO_SUBSCRIPTION_LOGGED_IN": {
+      "message": "Logged in as {{email}}"
+   },
+   "NO_SUBSCRIPTION_PURCHASE": {
+      "message": "Purchase"
+   },
+   "NO_SUBSCRIPTION_SIGN_OUT": {
+      "message": "Sign out"
+   },
+   "NO_SUBSCRIPTION_TITLE": {
+      "message": "You currently do not have \u003Ctext>an active\u003C/text> subscription\u003Ctext>.\u003C/text>"
+   },
+   "NUMBER_OF_SESSIONS": {
+      "message": "Create multiple temporary profiles"
+   },
+   "ONBOARDING_DONE": {
+      "message": "Done"
+   },
+   "ONBOARDING_FINISH": {
+      "message": "Finish"
+   },
+   "ONBOARDING_GUIDE": {
+      "message": "Open productivity guide"
+   },
+   "ONBOARDING_LEARN_MORE": {
+      "message": "Learn more"
+   },
+   "ONBOARDING_NEXT": {
+      "message": "Next"
+   },
+   "ONBOARDING_START_AGAIN": {
+      "message": "Start again"
+   },
+   "ONBOARDING_STEP_1_DESC_1": {
+      "message": "\u003Ctext>Discover\u003C/text> SessionBox One\u003Ctext>.\u003C/text>"
+   },
+   "ONBOARDING_STEP_1_DESC_2": {
+      "message": "\u003Ctext>Use Workstation\u003C/text> built-in browser\u003Ctext>.\u003C/text>"
+   },
+   "ONBOARDING_STEP_1_DESC_3": {
+      "message": "\u003Ctext>Use your\u003C/text> favourite browser\u003Ctext>.\u003C/text>"
+   },
+   "ONBOARDING_STEP_1_DESC_4": {
+      "message": "\u003Ctext>Be more productive\u003C/text> with hot keys\u003Ctext>.\u003C/text>"
+   },
+   "ONBOARDING_STEP_1_TITLE": {
+      "message": "Let's go through"
+   },
+   "ONBOARDING_STEP_1_TITLE_1": {
+      "message": "\u003Ctext>These\u003C/text> steps\u003Ctext>.\u003C/text>"
+   },
+   "ONBOARDING_STEP_2_DESC_1": {
+      "message": "Anytime you want to open the application,"
+   },
+   "ONBOARDING_STEP_2_DESC_2": {
+      "message": "just \u003Ctext>click on the SessionBox One icon\u003C/text>"
+   },
+   "ONBOARDING_STEP_2_DESC_3": {
+      "message": "on your taskbar\u003Ctext>.\u003C/text>"
+   },
+   "ONBOARDING_STEP_2_DESC_4": {
+      "message": "You can \u003Ctext>create individual profiles\u003C/text> there \u003Ctext>.\u003C/text>"
+   },
+   "ONBOARDING_STEP_2_TITLE": {
+      "message": "Discover"
+   },
+   "ONBOARDING_STEP_2_TITLE_1": {
+      "message": "\u003Ctext>SessionBox\u003C/text> One\u003Ctext>.\u003C/text>"
+   },
+   "ONBOARDING_STEP_3_DESC_1": {
+      "message": "It is a \u003Ctext>fast\u003C/text> and \u003Ctext>secure browser\u003C/text> that is"
+   },
+   "ONBOARDING_STEP_3_DESC_2": {
+      "message": "designed to \u003Ctext>work with your profiles\u003C/text> individually"
+   },
+   "ONBOARDING_STEP_3_DESC_3": {
+      "message": "or manage them within your space\u003Ctext>.\u003C/text>"
+   },
+   "ONBOARDING_STEP_3_TITLE": {
+      "message": "Use Workstation"
+   },
+   "ONBOARDING_STEP_3_TITLE_1": {
+      "message": "\u003Ctext>built-in\u003C/text> browser\u003Ctext>.\u003C/text>"
+   },
+   "ONBOARDING_STEP_4_DESC_1": {
+      "message": "You can use \u003Ctext>SessionBox profiles\u003C/text> in your favourite"
+   },
+   "ONBOARDING_STEP_4_DESC_2": {
+      "message": "\u003Ctext> browser\u003C/text>. Just select the profile you want to use"
+   },
+   "ONBOARDING_STEP_4_DESC_3": {
+      "message": " and open it \u003Ctext>in your system\u003C/text>"
+   },
+   "ONBOARDING_STEP_4_DESC_4": {
+      "message": "\u003Ctext>default browser\u003C/text>."
+   },
+   "ONBOARDING_STEP_4_TITLE": {
+      "message": "Use your"
+   },
+   "ONBOARDING_STEP_4_TITLE_1": {
+      "message": "\u003Ctext>favorite\u003C/text> browser\u003Ctext>.\u003C/text>"
+   },
+   "ONBOARDING_STEP_5_DESC_1": {
+      "message": "Press \u003Ctext>{{hotkey}}\u003C/text> to open SessionBox menu"
+   },
+   "ONBOARDING_STEP_5_DESC_2": {
+      "message": "SessionBox \u003Ctext>One\u003C/text> menu"
+   },
+   "ONBOARDING_STEP_5_TITLE": {
+      "message": "Be more productive"
+   },
+   "ONBOARDING_STEP_5_TITLE_1": {
+      "message": "\u003Ctext>with\u003C/text> hot keys\u003Ctext>.\u003C/text>"
+   },
+   "ONBOARDING_STEP_6_DESC_1": {
+      "message": "or \u003Ctext>{{hotkey}}\u003C/text> to open"
+   },
+   "ONBOARDING_STEP_6_DESC_2": {
+      "message": "SessionBox \u003Ctext>Workstation\u003C/text>."
+   },
+   "ONE": {
+      "message": "One"
+   },
+   "OPEN_IN_BROWSER": {
+      "message": "Open in browser"
+   },
+   "OPEN_SITE_LETS_GET_STARTED": {
+      "message": "Let's get started"
+   },
+   "OPEN_SITE_WELCOME_TEXT": {
+      "message": "It's so nice to have you here!"
+   },
+   "OPEN_WORKSTATION_ON_START": {
+      "message": "Open SessionBox Workstation on start"
+   },
+   "OPEN_WORKSTATION_ON_START_DESCRIPTION": {
+      "message": "Open SessionBox Workstation desktop application on application start"
+   },
+   "OS_DEFAULT_BROWSER": {
+      "message": "Operation system default"
+   },
+   "PERMISSION_EXTENSION_CONNECT": {
+      "message": "New extension would like to connect to your account"
+   },
+   "PERMISSION_EXTENSION_CONNECT_DESCRIPTION": {
+      "message": "Only allow access for official SessionBox One extension. Do you want to allow this extension to access your data?"
+   },
+   "PERSONAL_ACCOUNT": {
+      "message": "Personal space"
+   },
+   "PERSONAL_TEAM": {
+      "message": "Personal space"
+   },
+   "POPUP_DOCKED_STATE": {
+      "message": "Undock window"
+   },
+   "POPUP_TOUR_FINISH": {
+      "message": "Congratulations!"
+   },
+   "POPUP_TOUR_FINISH_DESCRIPTION": {
+      "message": "You have created your first profile. In a second, it will be opened in your selected primary browser."
+   },
+   "POPUP_UNDOCKED_STATE": {
+      "message": "Dock window"
+   },
+   "PRIMARY_BROWSER": {
+      "message": "Primary browser"
+   },
+   "PRIMARY_BROWSER_DESCRIPTION": {
+      "message": "Profiles will open in this browser"
+   },
+   "PROFILE_DEBUG_MENU": {
+      "message": "Open debug console"
+   },
+   "PROFILE_SHARE_EDITOR_USER_NOT_EXIST": {
+      "message": "User does not exists ({{email}})"
+   },
+   "PROFILE_SHARE_EDITOR_WENT_WRONG": {
+      "message": "Something went wrong"
+   },
+   "PROFILE_TOOLS_MENU": {
+      "message": "Profile tools"
+   },
+   "PROFILE_TYPE": {
+      "message": "Storage type"
+   },
+   "PROXY": {
+      "message": "Proxy"
+   },
+   "PROXY_ADDRESS": {
+      "message": "Address"
+   },
+   "PROXY_ADDRESS_REQUIRED": {
+      "message": "Proxy address is required"
+   },
+   "PROXY_AUTO_ASSIGN": {
+      "message": "Proxy auto-assign"
+   },
+   "PROXY_AUTO_ASSIGN_DESCRIPTION": {
+      "message": "Assign proxy from your proxy automatically to new profiles"
+   },
+   "PROXY_AUTO_ASSIGN_NOT_REUSE": {
+      "message": "Do not reuse active"
+   },
+   "PROXY_AUTO_ASSIGN_REUSE_STORED": {
+      "message": "Do not reuse if a stored profile has it"
+   },
+   "PROXY_AUTO_ASSIGN_STRATEGY": {
+      "message": "Proxy auto-assign strategy"
+   },
+   "PROXY_AUTO_ASSIGN_STRATEGY_DESCRIPTION": {
+      "message": "Select a strategy to assign proxies for new sessions"
+   },
+   "PROXY_LIST": {
+      "message": "My proxies"
+   },
+   "PROXY_LOCALE": {
+      "message": "Auto set locale"
+   },
+   "PROXY_LOCALE_DESCRIPTION": {
+      "message": "Always use appropriate locale for your proxy"
+   },
+   "PROXY_NAME": {
+      "message": "Name"
+   },
+   "PROXY_NAME_REQUIRED": {
+      "message": "Proxy name is required"
+   },
+   "PROXY_PASSWORD": {
+      "message": "Password"
+   },
+   "PROXY_PORT": {
+      "message": "Port"
+   },
+   "PROXY_PORT_REQUIRED": {
+      "message": "Proxy port is required"
+   },
+   "PROXY_TIMEZONE": {
+      "message": "Auto set proxy timezone"
+   },
+   "PROXY_TIMEZONE_DESCRIPTION": {
+      "message": "Always use appropriate timezone for your proxy"
+   },
+   "PROXY_TYPE": {
+      "message": "Type"
+   },
+   "PROXY_TYPE_HTTP": {
+      "message": "HTTP"
+   },
+   "PROXY_TYPE_HTTPS": {
+      "message": "HTTPS"
+   },
+   "PROXY_TYPE_SOCKS": {
+      "message": "SOCKS5"
+   },
+   "PROXY_TYPE_SOCKS4": {
+      "message": "SOCKS4"
+   },
+   "PROXY_USERNAME": {
+      "message": "Username"
+   },
+   "QUICK_CREATE_PROFILE_MENU": {
+      "message": "Quick create profile"
+   },
+   "REFRESH_PROXY": {
+      "message": "Test proxy"
+   },
+   "REGENERATE_API_KEY": {
+      "message": "Regenerate API key"
+   },
+   "REGENERATE_API_KEY_DESCRIPTION": {
+      "message": "This change will affect all devices where this user account is logged in."
+   },
+   "REMOVE": {
+      "message": "Remove"
+   },
+   "REMOVE_SHARE": {
+      "message": "Remove share"
+   },
+   "REMOVE_SHARE_CONFIRM_CONTENT": {
+      "message": "Would you like to remove a shared profile: {{sessionName}}? You won't be able to access to this profile."
+   },
+   "REMOVE_SHARE_CONFIRM_TITLE": {
+      "message": "Remove share"
+   },
+   "REMOVE_URL": {
+      "message": "Remove URL"
+   },
+   "REMOVE_URL_CONFIRM": {
+      "message": "Are you sure you want to remove this URL?"
+   },
+   "RENAME_TAB": {
+      "message": "Display profile name in tab's title"
+   },
+   "RENEW_FINGERPRINT": {
+      "message": "Re-new fingerprint"
+   },
+   "REVOKE": {
+      "message": "Revoke"
+   },
+   "REVOKE_ACCESS": {
+      "message": "Revoke access"
+   },
+   "REVOKE_API_KEY": {
+      "message": "Revoke API key"
+   },
+   "REVOKE_API_KEY_DESCRIPTION": {
+      "message": "Disable programmatic access. This change will affect all devices where this user account is logged in."
+   },
+   "REVOKE_SHARE_CONFIRM_CONTENT": {
+      "message": "Would you like to revoke access from profile: {{sessionName}} Invited users won't be able to access to this profile."
+   },
+   "REVOKE_SHARE_CONFIRM_TITLE": {
+      "message": "Revoke access"
+   },
+   "SAVE": {
+      "message": "Save"
+   },
+   "SCREEN_SIZE_TITLE": {
+      "message": "Screen size"
+   },
+   "SEARCH_PROFILES": {
+      "message": "Search in Profiles or Groups"
+   },
+   "SEARCH_PROXIES": {
+      "message": "Search in proxies"
+   },
+   "SEARCH_TEAMS": {
+      "message": "Search in spaces"
+   },
+   "SERVER_MISSING": {
+      "message": "We cannot connect to the SessionBox One service"
+   },
+   "SERVER_MISSING_DESCRIPTION": {
+      "message": "Make sure the SessionBox One application is running on your computer."
+   },
+   "SESSIONBOX": {
+      "message": "SessionBox "
+   },
+   "SESSIONBOX_TRIAL_POPUP_7DAY": {
+      "message": "Your 7-day trial  "
+   },
+   "SESSIONBOX_TRIAL_POPUP_ABS": {
+      "message": "Absolutely! "
+   },
+   "SESSIONBOX_TRIAL_POPUP_ALL": {
+      "message": "Most of Professional features "
+   },
+   "SESSIONBOX_TRIAL_POPUP_ARE": {
+      "message": "Are you enjoying the trial so far? "
+   },
+   "SESSIONBOX_TRIAL_POPUP_COLLAB": {
+      "message": "Collaboration (Shared Spaces) "
+   },
+   "SESSIONBOX_TRIAL_POPUP_CONTINUE": {
+      "message": "Continue to enjoy all the perks of Professional package "
+   },
+   "SESSIONBOX_TRIAL_POPUP_DAYS": {
+      "message": "Days "
+   },
+   "SESSIONBOX_TRIAL_POPUP_ENDED": {
+      "message": "Ended "
+   },
+   "SESSIONBOX_TRIAL_POPUP_END_OF": {
+      "message": "End of trial "
+   },
+   "SESSIONBOX_TRIAL_POPUP_ENJOY": {
+      "message": "Enjoy the perks of our Professional package "
+   },
+   "SESSIONBOX_TRIAL_POPUP_EXPAND": {
+      "message": "Expand your profiles "
+   },
+   "SESSIONBOX_TRIAL_POPUP_KEEP": {
+      "message": "Keep choosing Pro "
+   },
+   "SESSIONBOX_TRIAL_POPUP_LEFT": {
+      "message": "left of your trial "
+   },
+   "SESSIONBOX_TRIAL_POPUP_LOSING": {
+      "message": "Losing all Professional features "
+   },
+   "SESSIONBOX_TRIAL_POPUP_NOT_ALL": {
+      "message": "Not at all "
+   },
+   "SESSIONBOX_TRIAL_POPUP_SEATS": {
+      "message": "2 assignable seats "
+   },
+   "SESSIONBOX_TRIAL_POPUP_STARTED": {
+      "message": "Started "
+   },
+   "SESSIONBOX_TRIAL_POPUP_STAY": {
+      "message": "On the trial "
+   },
+   "SESSIONBOX_TRIAL_POPUP_SUB_ENJOY": {
+      "message": "Enjoy perks till "
+   },
+   "SESSIONBOX_TRIAL_POPUP_TITLE": {
+      "message": "Sessionbox one trial"
+   },
+   "SESSIONBOX_TRIAL_POPUP_UNLIMITED": {
+      "message": "Unlimited cloud profiles "
+   },
+   "SESSIONBOX_TRIAL_POPUP_WHERE": {
+      "message": "Where should we improve? "
+   },
+   "SETTINGS": {
+      "message": "Settings"
+   },
+   "SETUP_PRIMARY_BROWSER": {
+      "message": "Setup primary browser"
+   },
+   "SETUP_PRIMARY_BROWSER_DESCRIPTION": {
+      "message": "Open profiles in the browser you select. You can change this at any time in settings."
+   },
+   "SET_TO_DEFAULT": {
+      "message": "Set to default"
+   },
+   "SHARED_WITH": {
+      "message": "Shared with"
+   },
+   "SHARE_PROFILE": {
+      "message": "Share profile"
+   },
+   "SHARE_WARNING": {
+      "message": "Sharing this profile poses potential privacy risks. Other members will have access to any sites you have signed into using this profile. Please think carefully before sharing."
+   },
+   "SHORTCUT": {
+      "message": "Manage Shortcuts"
+   },
+   "SIGNED_IN": {
+      "message": "Signed in:"
+   },
+   "SITE_CANT_BE_REACHED": {
+      "message": "This site can't be reached"
+   },
+   "SPECIFIC_SHORTCUT": {
+      "message": "{{ shortcutType }} shortcuts"
+   },
+   "STARTING_TRIAL": {
+      "message": "Starting trial"
+   },
+   "START_TRIAL": {
+      "message": "start free 3-day trial"
+   },
+   "STEP_ONE": {
+      "message": "Step 1"
+   },
+   "STEP_TWO": {
+      "message": "Step 2"
+   },
+   "STORED": {
+      "message": "Cloud stored"
+   },
+   "STORED_DESCRIPTION": {
+      "message": "Your profile will be stored in the cloud and will be available on all your devices."
+   },
+   "SUBMIT_FEEDBACK": {
+      "message": "Submit"
+   },
+   "SUPPORT_SITE": {
+      "message": "Support"
+   },
+   "SUPPORT_SITE_DESCRIPTION": {
+      "message": "Having difficulties? Let us help you solve your issue."
+   },
+   "TEAM_CANCEL": {
+      "message": "Cancel"
+   },
+   "TEAM_COLOR": {
+      "message": "Color"
+   },
+   "TEAM_COLOR_REQUIRED": {
+      "message": "Color is required"
+   },
+   "TEAM_CREATE": {
+      "message": "Create space"
+   },
+   "TEAM_EDIT": {
+      "message": "Edit space"
+   },
+   "TEAM_INVITE": {
+      "message": "Invite"
+   },
+   "TEAM_INVITED": {
+      "message": "invited"
+   },
+   "TEAM_INVITE_MEMBERS": {
+      "message": "Invite members"
+   },
+   "TEAM_LIST": {
+      "message": "My spaces"
+   },
+   "TEAM_MEMBER": {
+      "message": "member"
+   },
+   "TEAM_MEMBERS": {
+      "message": "Members"
+   },
+   "TEAM_NAME": {
+      "message": "Name"
+   },
+   "TEAM_NAME_REQUIRED": {
+      "message": "Name is required"
+   },
+   "TEAM_NO_MEMBERS": {
+      "message": "No members"
+   },
+   "TEAM_OWNER": {
+      "message": "owner"
+   },
+   "TEAM_SAVE": {
+      "message": "Save"
+   },
+   "TEAM_USER_NOT_EXISTS": {
+      "message": "User does not exist!"
+   },
+   "TEMPORARY": {
+      "message": "Temporary"
+   },
+   "TEMPORARY_DESCRIPTION": {
+      "message": "Your profile will be stored only on this device and will be deleted after you close the browser."
+   },
+   "TIME_LIMIT": {
+      "message": "Time limit"
+   },
+   "TOUR_COLOR_STEP": {
+      "message": "Color indicator"
+   },
+   "TOUR_COLOR_STEP_DESCRIPTION": {
+      "message": "On the browser tab you will see this color next to the profile name"
+   },
+   "TOUR_CREATE_STEP": {
+      "message": "Create a new profile"
+   },
+   "TOUR_CREATE_STEP_DESCRIPTION": {
+      "message": "Let’s create a new profile by clicking here"
+   },
+   "TOUR_FINISH_STEP": {
+      "message": "All done"
+   },
+   "TOUR_FINISH_STEP_DESCRIPTION": {
+      "message": "Great work! After finishing the creation, your profile will be opened immediately!"
+   },
+   "TOUR_GROUP_STEP": {
+      "message": "Group for your profile"
+   },
+   "TOUR_GROUP_STEP_DESCRIPTION": {
+      "message": "Select an existing group or create a new one"
+   },
+   "TOUR_NAME_STEP": {
+      "message": "Profile name"
+   },
+   "TOUR_NAME_STEP_DESCRIPTION": {
+      "message": "You can change this anytime in the profile settings"
+   },
+   "TOUR_NEXT": {
+      "message": "Next"
+   },
+   "TOUR_PROXY_STEP": {
+      "message": "Assign a proxy"
+   },
+   "TOUR_PROXY_STEP_DESCRIPTION": {
+      "message": "If you have proxies you can assign one to this profile"
+   },
+   "TOUR_STORAGE_TYPE_STEP": {
+      "message": "Storage options"
+   },
+   "TOUR_STORAGE_TYPE_STEP_DESCRIPTION": {
+      "message": "You can choose cloud, local or temporary storage"
+   },
+   "TOUR_URL_STEP": {
+      "message": "Default url"
+   },
+   "TOUR_URL_STEP_DESCRIPTION": {
+      "message": "When you open a profile you will be redirected to this url"
+   },
+   "TROUBLESHOOTING": {
+      "message": "Troubleshooting"
+   },
+   "UNLIMITED": {
+      "message": "Unlimited"
+   },
+   "UPGRADE_INFO": {
+      "message": "Please \u003ClinkText>upgrade\u003C/linkText> your account to use this feature!"
+   },
+   "UPGRADE_LIMIT_INFO": {
+      "message": "You have reached the limit of {{feature}}. Please \u003ClinkText>upgrade\u003C/linkText> your subscription to use it."
+   },
+   "URL": {
+      "message": "URL"
+   },
+   "URL_REQUIRED": {
+      "message": "Please enter valid URL"
+   },
+   "USER_AGENT_TITLE": {
+      "message": "User agent"
+   },
+   "USER_REVIEW": {
+      "message": "Tell us more about your Sessionbox One experience"
+   },
+   "USER_REVIEW_ADDITIONAL": {
+      "message": "Why do you feel that way in this topic?  Let us know"
+   },
+   "USER_REVIEW_CLOSE_BTN": {
+      "message": "Stay"
+   },
+   "USER_REVIEW_CLOSE_BTN2": {
+      "message": "Close"
+   },
+   "USER_REVIEW_CLOSE_DESC": {
+      "message": "If you do so, you will not receive a discount on your subscription."
+   },
+   "USER_REVIEW_CLOSE_TITLE": {
+      "message": "Are you sure you want to skip this survey?"
+   },
+   "USER_REVIEW_DROPDOWN1": {
+      "message": "What use case describes you the best?  "
+   },
+   "USER_REVIEW_DROPDOWN2": {
+      "message": "What is your current domain of activity?"
+   },
+   "USER_REVIEW_FINAL_BTN": {
+      "message": "Hurray!"
+   },
+   "USER_REVIEW_FINAL_DESC": {
+      "message": "Here is a reward that we’ve just added to your account"
+   },
+   "USER_REVIEW_FINAL_DESC_TRIAL": {
+      "message": "Here is a reward that will be applied to your upcoming purchase:"
+   },
+   "USER_REVIEW_FINAL_TITLE": {
+      "message": "Superb!"
+   },
+   "USER_REVIEW_FINAL_TITLE2": {
+      "message": "Let us honor your kindness:"
+   },
+   "USER_REVIEW_FORM_TITLE": {
+      "message": "Tell us more about your Sessionbox One  experience"
+   },
+   "USER_REVIEW_LIKE": {
+      "message": "very likely"
+   },
+   "USER_REVIEW_NOT_LIKE": {
+      "message": "not likely"
+   },
+   "USER_REVIEW_OPTION1": {
+      "message": "Technology and Computing"
+   },
+   "USER_REVIEW_OPTION2": {
+      "message": "Media and Communication"
+   },
+   "USER_REVIEW_OPTION3": {
+      "message": "Engineering and Architecture"
+   },
+   "USER_REVIEW_OPTION4": {
+      "message": "Business and Entrepreneurship "
+   },
+   "USER_REVIEW_OPTION5": {
+      "message": "Education and Training"
+   },
+   "USER_REVIEW_OPTION6": {
+      "message": "Other..."
+   },
+   "USER_REVIEW_PLACEHOLDER1": {
+      "message": "The best feature is..."
+   },
+   "USER_REVIEW_PLACEHOLDER2": {
+      "message": "The feature which would be good is..."
+   },
+   "USER_REVIEW_PLACEHOLDER3": {
+      "message": "The best feature is..."
+   },
+   "USER_REVIEW_PLACEHOLDER4": {
+      "message": "I would suggest that..."
+   },
+   "USER_REVIEW_PLACEHOLDER5": {
+      "message": "I would love to see..."
+   },
+   "USER_REVIEW_QUESTION1": {
+      "message": "How satisfied are you with SessionBox One?"
+   },
+   "USER_REVIEW_QUESTION10": {
+      "message": "Are there any issues with sepcific websites?"
+   },
+   "USER_REVIEW_QUESTION11": {
+      "message": "How likely are you to recommend Sessionbox One to a friend or collague?"
+   },
+   "USER_REVIEW_QUESTION12": {
+      "message": "What would you say is the standout feature of Sessionbox One that makes you recommend it?"
+   },
+   "USER_REVIEW_QUESTION13": {
+      "message": "In what ways do you think Sessionbox One could be improved?"
+   },
+   "USER_REVIEW_QUESTION14": {
+      "message": "Are there any specific features or changes you would like to see in future updates?"
+   },
+   "USER_REVIEW_QUESTION2": {
+      "message": "How was your experience using SessionBox One?"
+   },
+   "USER_REVIEW_QUESTION3": {
+      "message": "Were the interface and navigation of Sessionbox One user-friendly?"
+   },
+   "USER_REVIEW_QUESTION4": {
+      "message": "How would you rate the performance  and speed of Sessionbox One?"
+   },
+   "USER_REVIEW_QUESTION5": {
+      "message": "Which specific features of Sessionbox One do you find the most useful?"
+   },
+   "USER_REVIEW_QUESTION6": {
+      "message": "Are there any additional features you would like to see in Sessionbox One?"
+   },
+   "USER_REVIEW_QUESTION7": {
+      "message": "How reliable has Sessionbox One been in managing your accounts?"
+   },
+   "USER_REVIEW_QUESTION8": {
+      "message": "Have you encountered any bugs or glitches while using Sessionbox One?"
+   },
+   "USER_REVIEW_QUESTION9": {
+      "message": "How well does Sessionbox One integrate with browsers you use?"
+   },
+   "USER_REVIEW_START": {
+      "message": "Let’s Start!"
+   },
+   "USER_REVIEW_SUB_TITLE": {
+      "message": "Fill out our survey and get rewarded for helping us improve our software"
+   },
+   "USER_REVIEW_TITLE1": {
+      "message": "Overall satisfaction"
+   },
+   "USER_REVIEW_TITLE2": {
+      "message": "ease of use"
+   },
+   "USER_REVIEW_TITLE3": {
+      "message": "performance"
+   },
+   "USER_REVIEW_TITLE4": {
+      "message": "features & functionality"
+   },
+   "USER_REVIEW_TITLE5": {
+      "message": "Reliability"
+   },
+   "USER_REVIEW_TITLE6": {
+      "message": "Integration"
+   },
+   "USER_REVIEW_TITLE7": {
+      "message": "Likelihood to recommend"
+   },
+   "USER_REVIEW_TITLE8": {
+      "message": "improvements"
+   },
+   "USE_OS_THEME": {
+      "message": "Use OS theme"
+   },
+   "USE_THEME": {
+      "message": "Application theme"
+   },
+   "WAIT_FOR_PROFILE": {
+      "message": "Please wait while we download and prepare your profile."
+   },
+   "WAIT_FOR_WEB_PAGE": {
+      "message": "Please wait for the web page to load."
+   },
+   "WARNING_TEXT_SHORTCUTS": {
+      "message": "\u003C{{ shortcut }}> is already used by \u003C{{ item }}>"
+   },
+   "WEBRTC_IP_LEAK": {
+      "message": "WebRTC IP Leak"
+   },
+   "WEBRTC_IP_LEAK_DESCRIPTION": {
+      "message": "Prevents your IP address from leaking though WebRTC"
+   },
+   "WEB_RTC_FULL_PROTECTION": {
+      "message": "Full protection"
+   },
+   "WEB_RTC_LOCAL_PUBLIC": {
+      "message": "Show local and public IP"
+   },
+   "WEB_RTC_PUBLIC_ONLY": {
+      "message": "Hide local IP"
+   },
+   "WELCOME_TO": {
+      "message": "Welcome to "
+   },
+   "WELCOME_TRIAL": {
+      "message": "Welcome to SessionBox One"
+   },
+   "WELCOME_TRIAL_CANCEL": {
+      "message": "Close for now"
+   },
+   "WELCOME_TRIAL_LEARNING": {
+      "message": "Let's dive into it"
+   },
+   "WELCOME_TRIAL_PILL": {
+      "message": "Let's start our journey with learning"
+   },
+   "WELCOME_TRIAL_SUBTITLE": {
+      "message": "We've activated your trial subscription to access all SessionBox One features for free! Once your trial ends, you can choose a SessionBox One package that best fits your needs."
+   },
+   "WORKSTATION_BROWSER": {
+      "message": "SessionBox Workstation"
+   },
+   "YOUR_PROFILES": {
+      "message": "My Profiles"
+   }
+}

@@ -1,0 +1,12 @@
+cd C:\Users\ASUS\Documents\SpotifyBot
+python spotify_automation.py
+
+primo account fake
+cipapeb435@baxima.com
+Nigrociolo1
+
+secondo account
+kojodab153@ethsms.com
+Cagaech3r4!
+
+python "Trova Coordinate Fast.py"

@@ -1,0 +1,622 @@
+2025-06-02 21:41:37,931 - INFO - Avvio automazione Spotify
+2025-06-02 21:41:37,932 - INFO - Usando Brave Browser
+2025-06-02 21:41:41,230 - ERROR - Errore creazione driver: Message: session not created: Chrome failed to start: crashed.
+  (session not created: DevToolsActivePort file doesn't exist)
+  (The process started from chrome location C:\Program Files\BraveSoftware\Brave-Browser\Application\brave.exe is no longer running, so ChromeDriver is assuming that Chrome has crashed.)
+Stacktrace:
+	GetHandleVerifier [0x0x7ff630a66f65+78965]
+	GetHandleVerifier [0x0x7ff630a66fc0+79056]
+	(No symbol) [0x0x7ff6307f9dda]
+	(No symbol) [0x0x7ff630836efe]
+	(No symbol) [0x0x7ff63083297d]
+	(No symbol) [0x0x7ff6308865be]
+	(No symbol) [0x0x7ff630885d50]
+	(No symbol) [0x0x7ff630878443]
+	(No symbol) [0x0x7ff630841311]
+	(No symbol) [0x0x7ff6308420a3]
+	GetHandleVerifier [0x0x7ff630d1e26d+2926461]
+	GetHandleVerifier [0x0x7ff630d18993+2903715]
+	GetHandleVerifier [0x0x7ff630d36aed+3026941]
+	GetHandleVerifier [0x0x7ff630a816fe+187406]
+	GetHandleVerifier [0x0x7ff630a896ef+220159]
+	GetHandleVerifier [0x0x7ff630a6faf4+114692]
+	GetHandleVerifier [0x0x7ff630a6fca9+115129]
+	GetHandleVerifier [0x0x7ff630a564d8+10728]
+	BaseThreadInitThunk [0x0x7fffc629e8d7+23]
+	RtlUserThreadStart [0x0x7fffc6d3c5dc+44]
+
+2025-06-02 21:41:41,232 - ERROR - Errore setup iniziale
+2025-06-02 21:42:56,104 - INFO - Avvio automazione Spotify
+2025-06-02 21:42:56,104 - INFO - Usando proxy: proxy1.example.com:8080
+2025-06-02 21:42:56,104 - INFO - Usando Brave Browser
+2025-06-02 21:42:57,570 - ERROR - Errore setup schede: Message: unknown error: net::ERR_PROXY_CONNECTION_FAILED
+  (Session info: chrome=137.0.7151.61)
+Stacktrace:
+	GetHandleVerifier [0x0x7ff630a66f65+78965]
+	GetHandleVerifier [0x0x7ff630a66fc0+79056]
+	(No symbol) [0x0x7ff6307f9dda]
+	(No symbol) [0x0x7ff6307f684f]
+	(No symbol) [0x0x7ff6307e7529]
+	(No symbol) [0x0x7ff6307e92e1]
+	(No symbol) [0x0x7ff6307e7846]
+	(No symbol) [0x0x7ff6307e72a6]
+	(No symbol) [0x0x7ff6307e6f6a]
+	(No symbol) [0x0x7ff6307e4b38]
+	(No symbol) [0x0x7ff6307e53bc]
+	(No symbol) [0x0x7ff6307fdd8a]
+	(No symbol) [0x0x7ff6308a1afe]
+	(No symbol) [0x0x7ff63087866a]
+	(No symbol) [0x0x7ff6308a0dbe]
+	(No symbol) [0x0x7ff630878443]
+	(No symbol) [0x0x7ff630841311]
+	(No symbol) [0x0x7ff6308420a3]
+	GetHandleVerifier [0x0x7ff630d1e26d+2926461]
+	GetHandleVerifier [0x0x7ff630d18993+2903715]
+	GetHandleVerifier [0x0x7ff630d36aed+3026941]
+	GetHandleVerifier [0x0x7ff630a816fe+187406]
+	GetHandleVerifier [0x0x7ff630a896ef+220159]
+	GetHandleVerifier [0x0x7ff630a6faf4+114692]
+	GetHandleVerifier [0x0x7ff630a6fca9+115129]
+	GetHandleVerifier [0x0x7ff630a564d8+10728]
+	BaseThreadInitThunk [0x0x7fffc629e8d7+23]
+	RtlUserThreadStart [0x0x7fffc6d3c5dc+44]
+
+2025-06-02 21:46:57,682 - INFO - Cambio per timeout (4 min)
+2025-06-02 21:47:02,429 - INFO - Usando proxy: proxy2.example.com:8080
+2025-06-02 21:47:02,430 - INFO - Usando Brave Browser
+2025-06-02 21:47:03,694 - ERROR - Errore setup schede: Message: unknown error: net::ERR_PROXY_CONNECTION_FAILED
+  (Session info: chrome=137.0.7151.61)
+Stacktrace:
+	GetHandleVerifier [0x0x7ff630a66f65+78965]
+	GetHandleVerifier [0x0x7ff630a66fc0+79056]
+	(No symbol) [0x0x7ff6307f9dda]
+	(No symbol) [0x0x7ff6307f684f]
+	(No symbol) [0x0x7ff6307e7529]
+	(No symbol) [0x0x7ff6307e92e1]
+	(No symbol) [0x0x7ff6307e7846]
+	(No symbol) [0x0x7ff6307e72a6]
+	(No symbol) [0x0x7ff6307e6f6a]
+	(No symbol) [0x0x7ff6307e4b38]
+	(No symbol) [0x0x7ff6307e53bc]
+	(No symbol) [0x0x7ff6307fdd8a]
+	(No symbol) [0x0x7ff6308a1afe]
+	(No symbol) [0x0x7ff63087866a]
+	(No symbol) [0x0x7ff6308a0dbe]
+	(No symbol) [0x0x7ff630878443]
+	(No symbol) [0x0x7ff630841311]
+	(No symbol) [0x0x7ff6308420a3]
+	GetHandleVerifier [0x0x7ff630d1e26d+2926461]
+	GetHandleVerifier [0x0x7ff630d18993+2903715]
+	GetHandleVerifier [0x0x7ff630d36aed+3026941]
+	GetHandleVerifier [0x0x7ff630a816fe+187406]
+	GetHandleVerifier [0x0x7ff630a896ef+220159]
+	GetHandleVerifier [0x0x7ff630a6faf4+114692]
+	GetHandleVerifier [0x0x7ff630a6fca9+115129]
+	GetHandleVerifier [0x0x7ff630a564d8+10728]
+	BaseThreadInitThunk [0x0x7fffc629e8d7+23]
+	RtlUserThreadStart [0x0x7fffc6d3c5dc+44]
+
+2025-06-02 21:51:03,823 - INFO - Cambio per timeout (4 min)
+2025-06-02 21:51:08,455 - INFO - Usando proxy: proxy3.example.com:8080
+2025-06-02 21:51:08,455 - INFO - Usando Brave Browser
+2025-06-02 21:51:09,709 - ERROR - Errore setup schede: Message: unknown error: net::ERR_PROXY_CONNECTION_FAILED
+  (Session info: chrome=137.0.7151.61)
+Stacktrace:
+	GetHandleVerifier [0x0x7ff630a66f65+78965]
+	GetHandleVerifier [0x0x7ff630a66fc0+79056]
+	(No symbol) [0x0x7ff6307f9dda]
+	(No symbol) [0x0x7ff6307f684f]
+	(No symbol) [0x0x7ff6307e7529]
+	(No symbol) [0x0x7ff6307e92e1]
+	(No symbol) [0x0x7ff6307e7846]
+	(No symbol) [0x0x7ff6307e72a6]
+	(No symbol) [0x0x7ff6307e6f6a]
+	(No symbol) [0x0x7ff6307e4b38]
+	(No symbol) [0x0x7ff6307e53bc]
+	(No symbol) [0x0x7ff6307fdd8a]
+	(No symbol) [0x0x7ff6308a1afe]
+	(No symbol) [0x0x7ff63087866a]
+	(No symbol) [0x0x7ff6308a0dbe]
+	(No symbol) [0x0x7ff630878443]
+	(No symbol) [0x0x7ff630841311]
+	(No symbol) [0x0x7ff6308420a3]
+	GetHandleVerifier [0x0x7ff630d1e26d+2926461]
+	GetHandleVerifier [0x0x7ff630d18993+2903715]
+	GetHandleVerifier [0x0x7ff630d36aed+3026941]
+	GetHandleVerifier [0x0x7ff630a816fe+187406]
+	GetHandleVerifier [0x0x7ff630a896ef+220159]
+	GetHandleVerifier [0x0x7ff630a6faf4+114692]
+	GetHandleVerifier [0x0x7ff630a6fca9+115129]
+	GetHandleVerifier [0x0x7ff630a564d8+10728]
+	BaseThreadInitThunk [0x0x7fffc629e8d7+23]
+	RtlUserThreadStart [0x0x7fffc6d3c5dc+44]
+
+2025-06-02 21:53:43,677 - INFO - Avvio automazione Spotify
+2025-06-02 21:53:43,677 - INFO - Tentativo cambio IP via riconnessione di rete...
+2025-06-02 21:53:43,677 - INFO - Tentativo cambio IP via riconnessione...
+2025-06-02 21:54:04,421 - WARNING - Errore nella riconnessione di rete
+2025-06-02 21:54:04,421 - INFO - Usando Brave Browser
+2025-06-02 21:54:12,848 - INFO - Prima scheda Spotify aperta
+2025-06-02 21:54:16,848 - INFO - Scheda 2 Spotify aperta
+2025-06-02 21:54:20,265 - INFO - Scheda 3 Spotify aperta
+2025-06-02 21:54:20,267 - INFO - Setup completato: 3 schede
+2025-06-02 21:54:20,269 - INFO - Cambiato configurazione e scheda
+2025-06-02 21:54:20,269 - ERROR - Errore nell'automazione: 'SpotifyAutomation' object has no attribute 'get_current_track'
+2025-06-02 21:54:23,025 - INFO - Driver chiuso
+2025-06-02 21:59:17,989 - INFO - Avvio automazione Spotify
+2025-06-02 21:59:18,963 - INFO - IP attuale: 93.40.242.31
+2025-06-02 21:59:18,964 - INFO - Tentativo cambio IP con: _restart_wifi_netsh
+2025-06-02 21:59:27,745 - INFO - Tentativo cambio IP con: _restart_wifi_powershell
+2025-06-02 21:59:39,836 - INFO - Tentativo cambio IP con: _release_renew_ip
+2025-06-02 22:00:05,720 - INFO - Nuovo IP: 93.40.242.31
+2025-06-02 22:00:05,721 - WARNING - IP non � cambiato, provo metodo successivo...
+2025-06-02 22:00:05,721 - INFO - Tentativo cambio IP con: _restart_network_adapter
+2025-06-02 22:00:06,056 - WARNING - IP non cambiato, continuo comunque...
+2025-06-02 22:00:06,056 - INFO - Usando Brave Browser
+2025-06-02 22:00:17,626 - INFO - Prima scheda Spotify aperta
+2025-06-02 22:00:21,084 - INFO - Scheda 2 Spotify aperta
+2025-06-02 22:00:24,509 - INFO - Scheda 3 Spotify aperta
+2025-06-02 22:00:24,511 - INFO - Setup completato: 5 schede
+2025-06-02 22:04:04,717 - INFO - Avvio automazione Spotify
+2025-06-02 22:04:10,279 - INFO - IP attuale: 93.40.242.31
+2025-06-02 22:04:10,279 - INFO - Tentativo cambio IP con: _restart_wifi_netsh
+2025-06-02 22:04:19,058 - INFO - Tentativo cambio IP con: _restart_wifi_powershell
+2025-06-02 22:04:29,747 - INFO - Tentativo cambio IP con: _release_renew_ip
+2025-06-02 22:05:00,643 - INFO - Nuovo IP: 93.40.242.31
+2025-06-02 22:05:00,643 - WARNING - IP non è cambiato, provo metodo successivo...
+2025-06-02 22:05:00,643 - INFO - Tentativo cambio IP con: _restart_network_adapter
+2025-06-02 22:05:01,008 - INFO - Tentativo cambio IP con: _flush_dns_and_renew
+2025-06-02 22:05:45,515 - INFO - Nuovo IP: None
+2025-06-02 22:05:45,515 - WARNING - IP non è cambiato, provo metodo successivo...
+2025-06-02 22:05:45,515 - INFO - Tentativo cambio IP con: _force_dhcp_release
+2025-06-02 22:05:45,850 - WARNING - [FAILED] Nessun metodo è riuscito a cambiare l'IP
+2025-06-02 22:05:45,850 - INFO - Aspetto 30 secondi prima di continuare...
+2025-06-02 22:06:15,851 - WARNING - IP non cambiato, continuo comunque...
+2025-06-02 22:06:15,852 - INFO - Usando Brave Browser
+2025-06-02 22:07:14,225 - ERROR - Errore setup schede: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=137.0.7151.61)
+Stacktrace:
+	GetHandleVerifier [0x0x7ff630a66f65+78965]
+	GetHandleVerifier [0x0x7ff630a66fc0+79056]
+	(No symbol) [0x0x7ff6307f9dda]
+	(No symbol) [0x0x7ff6307d20d1]
+	(No symbol) [0x0x7ff63087ff4e]
+	(No symbol) [0x0x7ff6308a06cd]
+	(No symbol) [0x0x7ff630878443]
+	(No symbol) [0x0x7ff630841311]
+	(No symbol) [0x0x7ff6308420a3]
+	GetHandleVerifier [0x0x7ff630d1e26d+2926461]
+	GetHandleVerifier [0x0x7ff630d18993+2903715]
+	GetHandleVerifier [0x0x7ff630d36aed+3026941]
+	GetHandleVerifier [0x0x7ff630a816fe+187406]
+	GetHandleVerifier [0x0x7ff630a896ef+220159]
+	GetHandleVerifier [0x0x7ff630a6faf4+114692]
+	GetHandleVerifier [0x0x7ff630a6fca9+115129]
+	GetHandleVerifier [0x0x7ff630a564d8+10728]
+	BaseThreadInitThunk [0x0x7fffc629e8d7+23]
+	RtlUserThreadStart [0x0x7fffc6d3c5dc+44]
+
+2025-06-02 22:07:14,225 - WARNING - Nessuna scheda Spotify disponibile
+2025-06-02 22:11:14,255 - INFO - Cambio per timeout (4 min)
+2025-06-02 22:11:19,984 - INFO - IP attuale: 93.40.242.31
+2025-06-02 22:11:19,984 - INFO - Tentativo cambio IP con: _restart_wifi_netsh
+2025-06-02 22:11:28,727 - INFO - Tentativo cambio IP con: _restart_wifi_powershell
+2025-06-02 22:11:39,264 - INFO - Tentativo cambio IP con: _release_renew_ip
+2025-06-02 22:12:13,089 - INFO - Nuovo IP: 93.40.242.31
+2025-06-02 22:12:13,089 - WARNING - IP non è cambiato, provo metodo successivo...
+2025-06-02 22:12:13,089 - INFO - Tentativo cambio IP con: _restart_network_adapter
+2025-06-02 22:12:13,389 - INFO - Tentativo cambio IP con: _flush_dns_and_renew
+2025-06-02 22:12:49,797 - INFO - Nuovo IP: 93.40.242.31
+2025-06-02 22:12:49,798 - WARNING - IP non è cambiato, provo metodo successivo...
+2025-06-02 22:12:49,798 - INFO - Tentativo cambio IP con: _force_dhcp_release
+2025-06-02 22:12:50,093 - WARNING - [FAILED] Nessun metodo è riuscito a cambiare l'IP
+2025-06-02 22:12:50,093 - INFO - Aspetto 30 secondi prima di continuare...
+2025-06-02 22:13:20,094 - WARNING - IP non cambiato, continuo comunque...
+2025-06-02 22:13:20,094 - INFO - Usando Brave Browser
+2025-06-02 22:15:32,761 - ERROR - Errore creazione driver: HTTPConnectionPool(host='localhost', port=50496): Read timed out. (read timeout=120)
+2025-06-02 22:15:32,761 - ERROR - Impossibile creare nuovo driver
+2025-06-02 22:22:57,580 - INFO - Avvio automazione Spotify
+2025-06-02 22:23:00,942 - INFO - IP attuale: 93.40.242.31
+2025-06-02 22:23:00,943 - INFO - Tentativo cambio IP con: _restart_wifi_netsh
+2025-06-02 22:23:22,625 - INFO - Avvio automazione Spotify
+2025-06-02 22:23:24,659 - INFO - IP attuale prima del cambio: 93.40.242.31
+2025-06-02 22:23:24,659 - INFO - Tentativo cambio IP con: _release_renew_ip
+2025-06-02 22:23:55,305 - INFO - Nuovo IP: None
+2025-06-02 22:23:55,306 - WARNING - IP non è cambiato, provo metodo successivo...
+2025-06-02 22:23:55,306 - INFO - Tentativo cambio IP con: _flush_dns_and_renew
+2025-06-02 22:24:32,135 - INFO - Nuovo IP: 93.40.242.31
+2025-06-02 22:24:32,136 - WARNING - IP non è cambiato, provo metodo successivo...
+2025-06-02 22:24:32,136 - INFO - Tentativo cambio IP con: _force_dhcp_release
+2025-06-02 22:24:32,469 - INFO - Tentativo cambio IP con: _restart_ethernet_adapter
+2025-06-02 22:24:32,798 - INFO - Tentativo cambio IP con: _reset_network_stack
+2025-06-02 22:25:11,711 - INFO - Nuovo IP: 93.40.242.31
+2025-06-02 22:25:11,711 - WARNING - IP non è cambiato, provo metodo successivo...
+2025-06-02 22:25:11,711 - WARNING - [FAILED] Nessun metodo è riuscito a cambiare l'IP
+2025-06-02 22:25:11,711 - WARNING - IP non cambiato, continuo comunque...
+2025-06-02 22:25:11,712 - INFO - Usando Brave Browser
+2025-06-02 22:25:24,097 - INFO - Prima scheda Spotify aperta
+2025-06-02 22:25:27,933 - INFO - Scheda 2 Spotify aperta
+2025-06-02 22:25:31,642 - INFO - Scheda 3 Spotify aperta
+2025-06-02 22:25:31,644 - INFO - Setup completato: 5 schede
+2025-06-02 22:25:31,662 - INFO - [OK] Configurazione cambiata e scheda selezionata
+2025-06-02 22:30:31,835 - INFO - Cambio per timeout (5 min)
+2025-06-02 22:30:33,991 - INFO - IP attuale prima del cambio: 93.40.242.31
+2025-06-02 22:30:33,991 - INFO - Tentativo cambio IP con: _release_renew_ip
+2025-06-02 22:34:24,644 - INFO - Avvio automazione Spotify per connessione Ethernet
+2025-06-02 22:34:24,644 - INFO - Usando Brave Browser
+2025-06-02 22:34:32,140 - INFO - Prima scheda Spotify aperta
+2025-06-02 22:34:35,776 - INFO - Scheda 2 Spotify aperta
+2025-06-02 22:34:39,545 - INFO - Scheda 3 Spotify aperta
+2025-06-02 22:34:39,546 - INFO - Setup completato: 3 schede
+2025-06-02 22:34:39,564 - INFO - [OK] Sessione iniziale configurata
+2025-06-02 22:34:39,645 - INFO - PRIMA TRACCIA rilevata: No No
+2025-06-02 22:34:57,683 - ERROR - Errore rilevamento traccia: argument of type 'NoneType' is not iterable
+2025-06-02 22:35:03,685 - ERROR - Errore rilevamento traccia: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=137.0.7151.61)
+Stacktrace:
+	GetHandleVerifier [0x0x7ff630a66f65+78965]
+	GetHandleVerifier [0x0x7ff630a66fc0+79056]
+	(No symbol) [0x0x7ff6307f9dda]
+	(No symbol) [0x0x7ff6307d20d1]
+	(No symbol) [0x0x7ff63087ff4e]
+	(No symbol) [0x0x7ff6308a06cd]
+	(No symbol) [0x0x7ff630878443]
+	(No symbol) [0x0x7ff630841311]
+	(No symbol) [0x0x7ff6308420a3]
+	GetHandleVerifier [0x0x7ff630d1e26d+2926461]
+	GetHandleVerifier [0x0x7ff630d18993+2903715]
+	GetHandleVerifier [0x0x7ff630d36aed+3026941]
+	GetHandleVerifier [0x0x7ff630a816fe+187406]
+	GetHandleVerifier [0x0x7ff630a896ef+220159]
+	GetHandleVerifier [0x0x7ff630a6faf4+114692]
+	GetHandleVerifier [0x0x7ff630a6fca9+115129]
+	GetHandleVerifier [0x0x7ff630a564d8+10728]
+	BaseThreadInitThunk [0x0x7fffc629e8d7+23]
+	RtlUserThreadStart [0x0x7fffc6d3c5dc+44]
+
+2025-06-02 22:35:09,687 - ERROR - Errore rilevamento traccia: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=137.0.7151.61)
+Stacktrace:
+	GetHandleVerifier [0x0x7ff630a66f65+78965]
+	GetHandleVerifier [0x0x7ff630a66fc0+79056]
+	(No symbol) [0x0x7ff6307f9dda]
+	(No symbol) [0x0x7ff6307d20d1]
+	(No symbol) [0x0x7ff63087ff4e]
+	(No symbol) [0x0x7ff6308a06cd]
+	(No symbol) [0x0x7ff630878443]
+	(No symbol) [0x0x7ff630841311]
+	(No symbol) [0x0x7ff6308420a3]
+	GetHandleVerifier [0x0x7ff630d1e26d+2926461]
+	GetHandleVerifier [0x0x7ff630d18993+2903715]
+	GetHandleVerifier [0x0x7ff630d36aed+3026941]
+	GetHandleVerifier [0x0x7ff630a816fe+187406]
+	GetHandleVerifier [0x0x7ff630a896ef+220159]
+	GetHandleVerifier [0x0x7ff630a6faf4+114692]
+	GetHandleVerifier [0x0x7ff630a6fca9+115129]
+	GetHandleVerifier [0x0x7ff630a564d8+10728]
+	BaseThreadInitThunk [0x0x7fffc629e8d7+23]
+	RtlUserThreadStart [0x0x7fffc6d3c5dc+44]
+
+2025-06-02 22:35:15,688 - ERROR - Errore rilevamento traccia: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=137.0.7151.61)
+Stacktrace:
+	GetHandleVerifier [0x0x7ff630a66f65+78965]
+	GetHandleVerifier [0x0x7ff630a66fc0+79056]
+	(No symbol) [0x0x7ff6307f9dda]
+	(No symbol) [0x0x7ff6307d20d1]
+	(No symbol) [0x0x7ff63087ff4e]
+	(No symbol) [0x0x7ff6308a06cd]
+	(No symbol) [0x0x7ff630878443]
+	(No symbol) [0x0x7ff630841311]
+	(No symbol) [0x0x7ff6308420a3]
+	GetHandleVerifier [0x0x7ff630d1e26d+2926461]
+	GetHandleVerifier [0x0x7ff630d18993+2903715]
+	GetHandleVerifier [0x0x7ff630d36aed+3026941]
+	GetHandleVerifier [0x0x7ff630a816fe+187406]
+	GetHandleVerifier [0x0x7ff630a896ef+220159]
+	GetHandleVerifier [0x0x7ff630a6faf4+114692]
+	GetHandleVerifier [0x0x7ff630a6fca9+115129]
+	GetHandleVerifier [0x0x7ff630a564d8+10728]
+	BaseThreadInitThunk [0x0x7fffc629e8d7+23]
+	RtlUserThreadStart [0x0x7fffc6d3c5dc+44]
+
+2025-06-02 22:35:21,690 - ERROR - Errore rilevamento traccia: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=137.0.7151.61)
+Stacktrace:
+	GetHandleVerifier [0x0x7ff630a66f65+78965]
+	GetHandleVerifier [0x0x7ff630a66fc0+79056]
+	(No symbol) [0x0x7ff6307f9dda]
+	(No symbol) [0x0x7ff6307d20d1]
+	(No symbol) [0x0x7ff63087ff4e]
+	(No symbol) [0x0x7ff6308a06cd]
+	(No symbol) [0x0x7ff630878443]
+	(No symbol) [0x0x7ff630841311]
+	(No symbol) [0x0x7ff6308420a3]
+	GetHandleVerifier [0x0x7ff630d1e26d+2926461]
+	GetHandleVerifier [0x0x7ff630d18993+2903715]
+	GetHandleVerifier [0x0x7ff630d36aed+3026941]
+	GetHandleVerifier [0x0x7ff630a816fe+187406]
+	GetHandleVerifier [0x0x7ff630a896ef+220159]
+	GetHandleVerifier [0x0x7ff630a6faf4+114692]
+	GetHandleVerifier [0x0x7ff630a6fca9+115129]
+	GetHandleVerifier [0x0x7ff630a564d8+10728]
+	BaseThreadInitThunk [0x0x7fffc629e8d7+23]
+	RtlUserThreadStart [0x0x7fffc6d3c5dc+44]
+
+2025-06-02 22:35:27,691 - ERROR - Errore rilevamento traccia: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=137.0.7151.61)
+Stacktrace:
+	GetHandleVerifier [0x0x7ff630a66f65+78965]
+	GetHandleVerifier [0x0x7ff630a66fc0+79056]
+	(No symbol) [0x0x7ff6307f9dda]
+	(No symbol) [0x0x7ff6307d20d1]
+	(No symbol) [0x0x7ff63087ff4e]
+	(No symbol) [0x0x7ff6308a06cd]
+	(No symbol) [0x0x7ff630878443]
+	(No symbol) [0x0x7ff630841311]
+	(No symbol) [0x0x7ff6308420a3]
+	GetHandleVerifier [0x0x7ff630d1e26d+2926461]
+	GetHandleVerifier [0x0x7ff630d18993+2903715]
+	GetHandleVerifier [0x0x7ff630d36aed+3026941]
+	GetHandleVerifier [0x0x7ff630a816fe+187406]
+	GetHandleVerifier [0x0x7ff630a896ef+220159]
+	GetHandleVerifier [0x0x7ff630a6faf4+114692]
+	GetHandleVerifier [0x0x7ff630a6fca9+115129]
+	GetHandleVerifier [0x0x7ff630a564d8+10728]
+	BaseThreadInitThunk [0x0x7fffc629e8d7+23]
+	RtlUserThreadStart [0x0x7fffc6d3c5dc+44]
+
+2025-06-02 22:35:33,693 - ERROR - Errore rilevamento traccia: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=137.0.7151.61)
+Stacktrace:
+	GetHandleVerifier [0x0x7ff630a66f65+78965]
+	GetHandleVerifier [0x0x7ff630a66fc0+79056]
+	(No symbol) [0x0x7ff6307f9dda]
+	(No symbol) [0x0x7ff6307d20d1]
+	(No symbol) [0x0x7ff63087ff4e]
+	(No symbol) [0x0x7ff6308a06cd]
+	(No symbol) [0x0x7ff630878443]
+	(No symbol) [0x0x7ff630841311]
+	(No symbol) [0x0x7ff6308420a3]
+	GetHandleVerifier [0x0x7ff630d1e26d+2926461]
+	GetHandleVerifier [0x0x7ff630d18993+2903715]
+	GetHandleVerifier [0x0x7ff630d36aed+3026941]
+	GetHandleVerifier [0x0x7ff630a816fe+187406]
+	GetHandleVerifier [0x0x7ff630a896ef+220159]
+	GetHandleVerifier [0x0x7ff630a6faf4+114692]
+	GetHandleVerifier [0x0x7ff630a6fca9+115129]
+	GetHandleVerifier [0x0x7ff630a564d8+10728]
+	BaseThreadInitThunk [0x0x7fffc629e8d7+23]
+	RtlUserThreadStart [0x0x7fffc6d3c5dc+44]
+
+2025-06-02 22:35:39,695 - ERROR - Errore rilevamento traccia: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=137.0.7151.61)
+Stacktrace:
+	GetHandleVerifier [0x0x7ff630a66f65+78965]
+	GetHandleVerifier [0x0x7ff630a66fc0+79056]
+	(No symbol) [0x0x7ff6307f9dda]
+	(No symbol) [0x0x7ff6307d20d1]
+	(No symbol) [0x0x7ff63087ff4e]
+	(No symbol) [0x0x7ff6308a06cd]
+	(No symbol) [0x0x7ff630878443]
+	(No symbol) [0x0x7ff630841311]
+	(No symbol) [0x0x7ff6308420a3]
+	GetHandleVerifier [0x0x7ff630d1e26d+2926461]
+	GetHandleVerifier [0x0x7ff630d18993+2903715]
+	GetHandleVerifier [0x0x7ff630d36aed+3026941]
+	GetHandleVerifier [0x0x7ff630a816fe+187406]
+	GetHandleVerifier [0x0x7ff630a896ef+220159]
+	GetHandleVerifier [0x0x7ff630a6faf4+114692]
+	GetHandleVerifier [0x0x7ff630a6fca9+115129]
+	GetHandleVerifier [0x0x7ff630a564d8+10728]
+	BaseThreadInitThunk [0x0x7fffc629e8d7+23]
+	RtlUserThreadStart [0x0x7fffc6d3c5dc+44]
+
+2025-06-02 22:35:45,697 - ERROR - Errore rilevamento traccia: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=137.0.7151.61)
+Stacktrace:
+	GetHandleVerifier [0x0x7ff630a66f65+78965]
+	GetHandleVerifier [0x0x7ff630a66fc0+79056]
+	(No symbol) [0x0x7ff6307f9dda]
+	(No symbol) [0x0x7ff6307d20d1]
+	(No symbol) [0x0x7ff63087ff4e]
+	(No symbol) [0x0x7ff6308a06cd]
+	(No symbol) [0x0x7ff630878443]
+	(No symbol) [0x0x7ff630841311]
+	(No symbol) [0x0x7ff6308420a3]
+	GetHandleVerifier [0x0x7ff630d1e26d+2926461]
+	GetHandleVerifier [0x0x7ff630d18993+2903715]
+	GetHandleVerifier [0x0x7ff630d36aed+3026941]
+	GetHandleVerifier [0x0x7ff630a816fe+187406]
+	GetHandleVerifier [0x0x7ff630a896ef+220159]
+	GetHandleVerifier [0x0x7ff630a6faf4+114692]
+	GetHandleVerifier [0x0x7ff630a6fca9+115129]
+	GetHandleVerifier [0x0x7ff630a564d8+10728]
+	BaseThreadInitThunk [0x0x7fffc629e8d7+23]
+	RtlUserThreadStart [0x0x7fffc6d3c5dc+44]
+
+2025-06-02 22:35:51,698 - ERROR - Errore rilevamento traccia: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=137.0.7151.61)
+Stacktrace:
+	GetHandleVerifier [0x0x7ff630a66f65+78965]
+	GetHandleVerifier [0x0x7ff630a66fc0+79056]
+	(No symbol) [0x0x7ff6307f9dda]
+	(No symbol) [0x0x7ff6307d20d1]
+	(No symbol) [0x0x7ff63087ff4e]
+	(No symbol) [0x0x7ff6308a06cd]
+	(No symbol) [0x0x7ff630878443]
+	(No symbol) [0x0x7ff630841311]
+	(No symbol) [0x0x7ff6308420a3]
+	GetHandleVerifier [0x0x7ff630d1e26d+2926461]
+	GetHandleVerifier [0x0x7ff630d18993+2903715]
+	GetHandleVerifier [0x0x7ff630d36aed+3026941]
+	GetHandleVerifier [0x0x7ff630a816fe+187406]
+	GetHandleVerifier [0x0x7ff630a896ef+220159]
+	GetHandleVerifier [0x0x7ff630a6faf4+114692]
+	GetHandleVerifier [0x0x7ff630a6fca9+115129]
+	GetHandleVerifier [0x0x7ff630a564d8+10728]
+	BaseThreadInitThunk [0x0x7fffc629e8d7+23]
+	RtlUserThreadStart [0x0x7fffc6d3c5dc+44]
+
+2025-06-02 22:35:57,699 - ERROR - Errore rilevamento traccia: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=137.0.7151.61)
+Stacktrace:
+	GetHandleVerifier [0x0x7ff630a66f65+78965]
+	GetHandleVerifier [0x0x7ff630a66fc0+79056]
+	(No symbol) [0x0x7ff6307f9dda]
+	(No symbol) [0x0x7ff6307d20d1]
+	(No symbol) [0x0x7ff63087ff4e]
+	(No symbol) [0x0x7ff6308a06cd]
+	(No symbol) [0x0x7ff630878443]
+	(No symbol) [0x0x7ff630841311]
+	(No symbol) [0x0x7ff6308420a3]
+	GetHandleVerifier [0x0x7ff630d1e26d+2926461]
+	GetHandleVerifier [0x0x7ff630d18993+2903715]
+	GetHandleVerifier [0x0x7ff630d36aed+3026941]
+	GetHandleVerifier [0x0x7ff630a816fe+187406]
+	GetHandleVerifier [0x0x7ff630a896ef+220159]
+	GetHandleVerifier [0x0x7ff630a6faf4+114692]
+	GetHandleVerifier [0x0x7ff630a6fca9+115129]
+	GetHandleVerifier [0x0x7ff630a564d8+10728]
+	BaseThreadInitThunk [0x0x7fffc629e8d7+23]
+	RtlUserThreadStart [0x0x7fffc6d3c5dc+44]
+
+2025-06-02 22:36:03,566 - INFO - Avvio automazione Spotify per connessione Ethernet
+2025-06-02 22:36:03,566 - INFO - Usando Brave Browser
+2025-06-02 22:36:03,701 - ERROR - Errore rilevamento traccia: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=137.0.7151.61)
+Stacktrace:
+	GetHandleVerifier [0x0x7ff630a66f65+78965]
+	GetHandleVerifier [0x0x7ff630a66fc0+79056]
+	(No symbol) [0x0x7ff6307f9dda]
+	(No symbol) [0x0x7ff6307d20d1]
+	(No symbol) [0x0x7ff63087ff4e]
+	(No symbol) [0x0x7ff6308a06cd]
+	(No symbol) [0x0x7ff630878443]
+	(No symbol) [0x0x7ff630841311]
+	(No symbol) [0x0x7ff6308420a3]
+	GetHandleVerifier [0x0x7ff630d1e26d+2926461]
+	GetHandleVerifier [0x0x7ff630d18993+2903715]
+	GetHandleVerifier [0x0x7ff630d36aed+3026941]
+	GetHandleVerifier [0x0x7ff630a816fe+187406]
+	GetHandleVerifier [0x0x7ff630a896ef+220159]
+	GetHandleVerifier [0x0x7ff630a6faf4+114692]
+	GetHandleVerifier [0x0x7ff630a6fca9+115129]
+	GetHandleVerifier [0x0x7ff630a564d8+10728]
+	BaseThreadInitThunk [0x0x7fffc629e8d7+23]
+	RtlUserThreadStart [0x0x7fffc6d3c5dc+44]
+
+2025-06-02 22:36:09,702 - ERROR - Errore rilevamento traccia: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=137.0.7151.61)
+Stacktrace:
+	GetHandleVerifier [0x0x7ff630a66f65+78965]
+	GetHandleVerifier [0x0x7ff630a66fc0+79056]
+	(No symbol) [0x0x7ff6307f9dda]
+	(No symbol) [0x0x7ff6307d20d1]
+	(No symbol) [0x0x7ff63087ff4e]
+	(No symbol) [0x0x7ff6308a06cd]
+	(No symbol) [0x0x7ff630878443]
+	(No symbol) [0x0x7ff630841311]
+	(No symbol) [0x0x7ff6308420a3]
+	GetHandleVerifier [0x0x7ff630d1e26d+2926461]
+	GetHandleVerifier [0x0x7ff630d18993+2903715]
+	GetHandleVerifier [0x0x7ff630d36aed+3026941]
+	GetHandleVerifier [0x0x7ff630a816fe+187406]
+	GetHandleVerifier [0x0x7ff630a896ef+220159]
+	GetHandleVerifier [0x0x7ff630a6faf4+114692]
+	GetHandleVerifier [0x0x7ff630a6fca9+115129]
+	GetHandleVerifier [0x0x7ff630a564d8+10728]
+	BaseThreadInitThunk [0x0x7fffc629e8d7+23]
+	RtlUserThreadStart [0x0x7fffc6d3c5dc+44]
+
+2025-06-02 22:36:10,139 - INFO - Prima scheda Spotify aperta
+2025-06-02 22:36:10,141 - ERROR - Errore setup schede: Message: tab crashed
+  (Session info: chrome=137.0.7151.61)
+Stacktrace:
+	GetHandleVerifier [0x0x7ff630a66f65+78965]
+	GetHandleVerifier [0x0x7ff630a66fc0+79056]
+	(No symbol) [0x0x7ff6307f9c0c]
+	(No symbol) [0x0x7ff6307e6f0b]
+	(No symbol) [0x0x7ff6307e4b38]
+	(No symbol) [0x0x7ff6307e559f]
+	(No symbol) [0x0x7ff6307f425e]
+	(No symbol) [0x0x7ff63080a631]
+	(No symbol) [0x0x7ff63081178a]
+	(No symbol) [0x0x7ff6307e5d3d]
+	(No symbol) [0x0x7ff630809e21]
+	(No symbol) [0x0x7ff6308a0c94]
+	(No symbol) [0x0x7ff630878443]
+	(No symbol) [0x0x7ff630841311]
+	(No symbol) [0x0x7ff6308420a3]
+	GetHandleVerifier [0x0x7ff630d1e26d+2926461]
+	GetHandleVerifier [0x0x7ff630d18993+2903715]
+	GetHandleVerifier [0x0x7ff630d36aed+3026941]
+	GetHandleVerifier [0x0x7ff630a816fe+187406]
+	GetHandleVerifier [0x0x7ff630a896ef+220159]
+	GetHandleVerifier [0x0x7ff630a6faf4+114692]
+	GetHandleVerifier [0x0x7ff630a6fca9+115129]
+	GetHandleVerifier [0x0x7ff630a564d8+10728]
+	BaseThreadInitThunk [0x0x7fffc629e8d7+23]
+	RtlUserThreadStart [0x0x7fffc6d3c5dc+44]
+
+2025-06-02 22:36:10,141 - WARNING - Nessuna scheda Spotify disponibile
+2025-06-02 22:36:10,141 - ERROR - Errore setup iniziale
+2025-06-02 22:36:16,009 - INFO - Avvio automazione Spotify per connessione Ethernet
+2025-06-02 22:36:16,009 - INFO - Usando Brave Browser
+2025-06-02 22:36:23,369 - INFO - Prima scheda Spotify aperta
+2025-06-02 22:36:27,059 - INFO - Scheda 2 Spotify aperta
+2025-06-02 22:36:30,676 - INFO - Scheda 3 Spotify aperta
+2025-06-02 22:36:30,678 - INFO - Setup completato: 3 schede
+2025-06-02 22:36:30,700 - INFO - [OK] Sessione iniziale configurata
+2025-06-02 22:36:30,733 - INFO - PRIMA TRACCIA rilevata: No No
+2025-06-02 22:38:01,304 - ERROR - Errore rilevamento traccia: Message: invalid session id: session deleted as the browser has closed the connection
+from disconnected: not connected to DevTools
+  (Session info: chrome=137.0.7151.61)
+Stacktrace:
+	GetHandleVerifier [0x0x7ff630a66f65+78965]
+	GetHandleVerifier [0x0x7ff630a66fc0+79056]
+	(No symbol) [0x0x7ff6307f9dda]
+	(No symbol) [0x0x7ff6307e5bc5]
+	(No symbol) [0x0x7ff63080ac04]
+	(No symbol) [0x0x7ff630880195]
+	(No symbol) [0x0x7ff6308a06cd]
+	(No symbol) [0x0x7ff630878443]
+	(No symbol) [0x0x7ff630841311]
+	(No symbol) [0x0x7ff6308420a3]
+	GetHandleVerifier [0x0x7ff630d1e26d+2926461]
+	GetHandleVerifier [0x0x7ff630d18993+2903715]
+	GetHandleVerifier [0x0x7ff630d36aed+3026941]
+	GetHandleVerifier [0x0x7ff630a816fe+187406]
+	GetHandleVerifier [0x0x7ff630a896ef+220159]
+	GetHandleVerifier [0x0x7ff630a6faf4+114692]
+	GetHandleVerifier [0x0x7ff630a6fca9+115129]
+	GetHandleVerifier [0x0x7ff630a564d8+10728]
+	BaseThreadInitThunk [0x0x7fffc629e8d7+23]
+	RtlUserThreadStart [0x0x7fffc6d3c5dc+44]
+
+2025-06-02 22:38:18,235 - INFO - Avvio automazione Spotify per connessione Ethernet
+2025-06-02 22:38:18,235 - INFO - Usando Brave Browser
+2025-06-02 22:38:29,462 - INFO - Prima scheda Spotify aperta
+2025-06-02 22:38:33,001 - INFO - Scheda 2 Spotify aperta
+2025-06-02 22:38:36,625 - INFO - Scheda 3 Spotify aperta
+2025-06-02 22:38:36,627 - INFO - Setup completato: 5 schede
+2025-06-02 22:38:36,640 - INFO - [OK] Sessione iniziale configurata
+2025-06-02 22:38:36,695 - INFO - PRIMA TRACCIA rilevata: No No
+2025-06-07 14:35:47,982 - INFO - Avvio automazione Spotify per connessione Ethernet
+2025-06-07 14:35:47,982 - INFO - Usando Brave Browser
+2025-06-07 14:38:02,733 - ERROR - Errore creazione driver: HTTPConnectionPool(host='localhost', port=54194): Read timed out. (read timeout=120)
+2025-06-07 14:38:24,307 - ERROR - Impossibile creare driver
+2025-06-07 14:38:24,307 - ERROR - Errore setup iniziale
