@@ -56,9 +56,17 @@ if (-not $?) {
     Write-Host " pip e' gia' presente."
 }
 
-# Installa le dipendenze dal requirements.txt
-Write-Host " Installo dipendenze da requirements.txt..."
-python -m pip install --upgrade pip
-python -m pip install -r requirements.txt
+# Lista delle dipendenze Python da installare direttamente nello script
+$dependencies = @(
+    "selenium",
+    "pyautogui",
+    "pynput"
+)
+
+Write-Host " Installo dipendenze specificate nello script..."
+
+foreach ($dep in $dependencies) {
+    python -m pip install $dep --upgrade
+}
 
 Write-Host "`nSetup completato! Puoi ora eseguire lo script Python."
