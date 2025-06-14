@@ -1,8 +1,8 @@
 @echo off
-REM Percorso della cartella dove si trova il batch (e il file .ps1)
+REM Imposta la cartella corrente dove si trova il .bat (e il .ps1)
 set SCRIPT_DIR=%~dp0
 
-REM Esegui lo script PowerShell con esecuzione bypassata per policy (solo per questo comando)
+REM Esegue il file PowerShell in modalità bypass per evitare restrizioni
 powershell.exe -NoProfile -ExecutionPolicy Bypass -File "%SCRIPT_DIR%setup_python.ps1"
 
 pause
