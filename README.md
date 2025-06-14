@@ -1,6 +1,6 @@
 # SpotifyBot - Setup Python Environment
 
-Questo script automatizza l'installazione di Python, pip e delle dipendenze dal file `requirements.txt` per il progetto SpotifyBot.
+Questo script automatizza l'installazione di Python, pip e delle dipendenze per il progetto SpotifyBot.
 
 ---
 
