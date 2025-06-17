@@ -10,3 +10,4 @@ kojodab153@ethsms.com
 Cagaech3r4!
 
 python "Trova Coordinate Fast.py"
+

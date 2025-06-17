@@ -1,56 +1,125 @@
-from selenium import webdriver # type: ignore
-from selenium.webdriver.chrome.service import Service # type: ignore
-from selenium.webdriver.chrome.options import Options # type: ignore
-from selenium.webdriver.common.by import By # type: ignore
+from selenium import webdriver  # type: ignore
+from selenium.webdriver.chrome.service import Service  # type: ignore
+from selenium.webdriver.chrome.options import Options  # type: ignore
+from selenium.webdriver.common.by import By  # type: ignore
 import time
-import pyautogui # type: ignore
+import pyautogui  # type: ignore
 import os
+import tempfile
+import shutil
+import sys
+import signal
+import win32gui
+import win32con
+import win32process
+import psutil
 
+# === COSTANTI ===
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-
 CHROMEDRIVER_PATH = os.path.join(BASE_DIR, "chromedriver.exe")
 EXTENSION_PATH = os.path.join(BASE_DIR, "CyberGhost.crx")
-USER_DATA_DIR = os.path.join(BASE_DIR, "UserDataChrome")
-EXTENSION_ID = "ffbkglfijbcbgblgflchnbphjdllaogb"
 
+# === CREA PROFILO TEMPORANEO ===
+temp_profile = tempfile.mkdtemp()
+
+# === OPZIONI CHROME ===
 options = Options()
 options.add_argument("--start-maximized")
+options.add_argument(f'--user-data-dir={temp_profile}')  # profilo temporaneo
 options.add_extension(EXTENSION_PATH)
-options.add_argument(f'--user-data-dir={USER_DATA_DIR}')
+options.add_argument("--disable-dev-shm-usage")
+options.add_argument("--no-sandbox")
 
-# Avvia il browser con le opzioni specificate
 service = Service(CHROMEDRIVER_PATH)
-driver = webdriver.Chrome(service=service, options=options)
+
+driver = None
+
+def cleanup_and_exit(signum=None, frame=None):
+    global driver, temp_profile
+    print("\n[INFO] Arresto script, chiudo Chrome e cancello profilo temporaneo...")
+    if driver:
+        try:
+            driver.quit()
+        except:
+            pass
+    if os.path.exists(temp_profile):
+        shutil.rmtree(temp_profile)
+        print("[INFO] Profilo temporaneo eliminato.")
+    else:
+        print("[INFO] Profilo temporaneo già rimosso.")
+    sys.exit(0)
+
+# === FUNZIONI PER TROVARE LA FINESTRA DI CHROME DAL PID ===
+def get_hwnds_for_pid(pid):
+    hwnds = []
+    def enum_window_callback(hwnd, hwnds):
+        if win32gui.IsWindowVisible(hwnd):
+            _, found_pid = win32process.GetWindowThreadProcessId(hwnd)
+            if found_pid == pid:
+                hwnds.append(hwnd)
+        return True
+    win32gui.EnumWindows(enum_window_callback, hwnds)
+    return hwnds
+
+def focus_chrome_window():
+    try:
+        chromedriver_pid = driver.service.process.pid
+        p = psutil.Process(chromedriver_pid)
+        child_pids = [child.pid for child in p.children(recursive=True)]
+        child_pids.append(chromedriver_pid)
+
+        for pid in child_pids:
+            hwnds = get_hwnds_for_pid(pid)
+            if hwnds:
+                hwnd = hwnds[0]
+                win32gui.ShowWindow(hwnd, win32con.SW_RESTORE)
+                win32gui.ShowWindow(hwnd, win32con.SW_MAXIMIZE)  # <-- Aggiunto
+                win32gui.SetForegroundWindow(hwnd)
+                print(f"[🪟] Finestra con PID {pid} massimizzata e portata in primo piano.")
+                return
+        print("[⚠️] Nessuna finestra Chrome trovata tra i processi figli.")
+    except Exception as e:
+        print("[⚠️] Errore durante il focus della finestra:", e)
+
+# Cattura segnali di interruzione (CTRL+C) e terminazione
+signal.signal(signal.SIGINT, cleanup_and_exit)
+signal.signal(signal.SIGTERM, cleanup_and_exit)
+
+# === AVVIO CHROME ===
+try:
+    driver = webdriver.Chrome(service=service, options=options)
+except Exception as e:
+    print("[ERRORE] Chrome non si è avviato correttamente:\n", e)
+    cleanup_and_exit()
 
 # === APRI SPOTIFY ===
 driver.get("https://open.spotify.com")
 print("Avvia manualmente una canzone su Spotify...")
 time.sleep(10)
 
-# === FUNZIONI ===
-def to_seconds(t): 
+# === FUNZIONI DI SUPPORTO ===
+def to_seconds(t):
     mins, secs = map(int, t.split(':'))
     return mins * 60 + secs
 
 def change_ip():
     try:
         print("[🔌 VPN] Apro l'estensione CyberGhost con clic GUI...")
-        # Posizione dell'icona dell'estensione nella barra: personalizza queste coordinate
-        pyautogui.moveTo(1735, 60)  # Cambia con le coordinate effettive del tuo schermo
+        focus_chrome_window()
+        pyautogui.moveTo(1737, 61)  # ← personalizza se necessario
         pyautogui.click()
-        time.sleep(4)
+        time.sleep(2)
 
         print("[🔒 VPN] Disconnetto...")
-        pyautogui.moveTo(1592, 260)  # Coordinate del pulsante "Connect"
+        pyautogui.moveTo(1595, 260)
         pyautogui.click()
-        time.sleep(10)
+        time.sleep(3)
 
-        print("[🌍 VPN] Seleziono Connect...")
-        pyautogui.moveTo(1592, 260)  # Coordinate del pulsante "Connect"
+        print("[🌍 VPN] Riconnetto...")
+        pyautogui.moveTo(1595, 260)
         pyautogui.click()
         time.sleep(3)
         print("[✅ VPN] Connessione stabilita.")
-
     except Exception as e:
         print("Errore nel cambio IP/VPN (GUI):", e)
 
@@ -89,7 +158,7 @@ def wait_song_or_track_change():
             print(f"Canzone in riproduzione: tempo rimanente {remaining} secondi")
 
             if last_remaining is not None and remaining > last_remaining + 1:
-                print("Nuova canzone rilevata (tempo rimanente è aumentato).")
+                print("Nuova canzone rilevata.")
                 break
 
             if remaining <= 0:

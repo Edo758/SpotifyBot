@@ -1,3 +1,6 @@
-2025/06/14-15:43:22.887 6ac8 Reusing MANIFEST C:\Users\ASUS\Documents\SpotifyBot\UserDataChrome\Default\shared_proto_db/MANIFEST-000001
-2025/06/14-15:43:22.887 6ac8 Recovering log #3
-2025/06/14-15:43:22.889 6ac8 Reusing old log C:\Users\ASUS\Documents\SpotifyBot\UserDataChrome\Default\shared_proto_db/000003.log 
+2025/06/17-19:20:24.876 1f0 Reusing MANIFEST C:\Users\ASUS\Documents\SpotifyBot\UserDataChrome\Default\shared_proto_db/MANIFEST-000001
+2025/06/17-19:20:24.877 1f0 Recovering log #3
+2025/06/17-19:20:24.878 1f0 Reusing old log C:\Users\ASUS\Documents\SpotifyBot\UserDataChrome\Default\shared_proto_db/000003.log 
+2025/06/17-19:20:31.243 1f0 Level-0 table #5: started
+2025/06/17-19:20:31.247 1f0 Level-0 table #5: 115717 bytes OK
+2025/06/17-19:20:31.253 1f0 Delete type=0 #3

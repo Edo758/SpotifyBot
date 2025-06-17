@@ -60,7 +60,8 @@ if (-not $?) {
 $dependencies = @(
     "selenium",
     "pyautogui",
-    "pynput"
+    "pywin32",
+    "psutil"
 )
 
 Write-Host " Installo dipendenze specificate nello script..."

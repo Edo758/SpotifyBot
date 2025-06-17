@@ -1,3 +1,45 @@
-2025/06/14-15:26:30.131 74ac Reusing MANIFEST C:\Users\ASUS\Documents\SpotifyBot\UserDataChrome\Default\IndexedDB\https_open.spotify.com_0.indexeddb.leveldb/MANIFEST-000001
-2025/06/14-15:26:30.131 74ac Recovering log #262
-2025/06/14-15:26:30.166 74ac Reusing old log C:\Users\ASUS\Documents\SpotifyBot\UserDataChrome\Default\IndexedDB\https_open.spotify.com_0.indexeddb.leveldb/000262.log 
+2025/06/17-19:20:26.491 7054 Reusing MANIFEST C:\Users\ASUS\Documents\SpotifyBot\UserDataChrome\Default\IndexedDB\https_open.spotify.com_0.indexeddb.leveldb/MANIFEST-000001
+2025/06/17-19:20:26.492 7054 Recovering log #270
+2025/06/17-19:20:26.495 7054 Reusing old log C:\Users\ASUS\Documents\SpotifyBot\UserDataChrome\Default\IndexedDB\https_open.spotify.com_0.indexeddb.leveldb/000270.log 
+2025/06/17-19:20:26.504 762c Compacting 1@1 + 1@2 files
+2025/06/17-19:20:26.519 762c Generated table #273@1: 6399 keys, 685922 bytes
+2025/06/17-19:20:26.519 762c Compacted 1@1 + 1@2 files => 685922 bytes
+2025/06/17-19:20:26.520 762c compacted to: files[ 0 0 1 0 0 0 0 ]
+2025/06/17-19:20:27.063 70e8 Level-0 table #275: started
+2025/06/17-19:20:27.226 70e8 Level-0 table #275: 4271245 bytes OK
+2025/06/17-19:20:27.287 70e8 Delete type=2 #269
+2025/06/17-19:20:27.288 70e8 Delete type=0 #270
+2025/06/17-19:20:27.288 70e8 Delete type=2 #271
+2025/06/17-19:20:27.290 1f0 Compacting 1@1 + 1@2 files
+2025/06/17-19:20:27.361 1f0 Generated table #276@1: 6402 keys, 688352 bytes
+2025/06/17-19:20:27.361 1f0 Compacted 1@1 + 1@2 files => 688352 bytes
+2025/06/17-19:20:27.361 1f0 compacted to: files[ 0 0 1 0 0 0 0 ]
+2025/06/17-19:20:27.362 1f0 Delete type=2 #273
+2025/06/17-19:20:27.362 1f0 Delete type=2 #275
+2025/06/17-19:20:29.908 762c Level-0 table #278: started
+2025/06/17-19:20:30.026 762c Level-0 table #278: 4152982 bytes OK
+2025/06/17-19:20:30.030 762c Delete type=0 #274
+2025/06/17-19:20:30.034 762c Compacting 1@1 + 1@2 files
+2025/06/17-19:20:30.055 762c Generated table #279@1: 6421 keys, 690412 bytes
+2025/06/17-19:20:30.055 762c Compacted 1@1 + 1@2 files => 690412 bytes
+2025/06/17-19:20:30.056 762c compacted to: files[ 0 0 1 0 0 0 0 ]
+2025/06/17-19:21:10.611 762c Level-0 table #281: started
+2025/06/17-19:21:10.677 762c Level-0 table #281: 4140442 bytes OK
+2025/06/17-19:21:10.679 762c Delete type=2 #276
+2025/06/17-19:21:10.679 762c Delete type=0 #277
+2025/06/17-19:21:10.679 762c Delete type=2 #278
+2025/06/17-19:21:10.682 762c Compacting 1@1 + 1@2 files
+2025/06/17-19:21:10.744 762c Generated table #282@1: 6469 keys, 704140 bytes
+2025/06/17-19:21:10.744 762c Compacted 1@1 + 1@2 files => 704140 bytes
+2025/06/17-19:21:10.745 762c compacted to: files[ 0 0 1 0 0 0 0 ]
+2025/06/17-19:21:10.746 762c Delete type=2 #279
+2025/06/17-19:21:10.746 762c Delete type=2 #281
+2025/06/17-19:21:10.863 762c Level-0 table #284: started
+2025/06/17-19:21:10.931 762c Level-0 table #284: 4247595 bytes OK
+2025/06/17-19:21:10.935 762c Delete type=0 #280
+2025/06/17-19:21:10.946 762c Compacting 1@1 + 1@2 files
+2025/06/17-19:21:10.966 762c Generated table #285@1: 6470 keys, 704264 bytes
+2025/06/17-19:21:10.966 762c Compacted 1@1 + 1@2 files => 704264 bytes
+2025/06/17-19:21:11.014 762c compacted to: files[ 0 0 1 0 0 0 0 ]
+2025/06/17-19:21:11.015 762c Delete type=2 #282
+2025/06/17-19:21:11.015 762c Delete type=2 #284

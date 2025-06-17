@@ -1,3 +1,6 @@
-2025/06/14-15:43:22.801 7368 Reusing MANIFEST C:\Users\ASUS\Documents\SpotifyBot\UserDataChrome\Default\Local Storage\leveldb/MANIFEST-000001
-2025/06/14-15:43:22.807 7368 Recovering log #104
-2025/06/14-15:43:22.811 7368 Reusing old log C:\Users\ASUS\Documents\SpotifyBot\UserDataChrome\Default\Local Storage\leveldb/000104.log 
+2025/06/17-19:20:24.796 bfc Reusing MANIFEST C:\Users\ASUS\Documents\SpotifyBot\UserDataChrome\Default\Local Storage\leveldb/MANIFEST-000001
+2025/06/17-19:20:24.802 bfc Recovering log #108
+2025/06/17-19:20:24.807 bfc Reusing old log C:\Users\ASUS\Documents\SpotifyBot\UserDataChrome\Default\Local Storage\leveldb/000108.log 
+2025/06/17-19:21:24.817 4c28 Level-0 table #112: started
+2025/06/17-19:21:24.822 4c28 Level-0 table #112: 64454 bytes OK
+2025/06/17-19:21:24.824 4c28 Delete type=0 #108
