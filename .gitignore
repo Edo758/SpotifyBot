@@ -1,0 +1,5 @@
+UserDataChrome/
+UserData/
+*.log
+*.ldb
+__pycache__/
