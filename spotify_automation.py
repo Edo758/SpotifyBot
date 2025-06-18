@@ -13,6 +13,8 @@ import win32gui
 import win32con
 import win32process
 import psutil
+import winreg
+
 
 # === COSTANTI ===
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -22,6 +24,54 @@ EXTENSION_PATH = os.path.join(BASE_DIR, "CyberGhost.crx")
 # === CREA PROFILO TEMPORANEO ===
 temp_profile = tempfile.mkdtemp()
 
+def find_browser_path_from_registry(browser_exe_name):
+    try:
+        key_path = rf"SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\{browser_exe_name}"
+        with winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, key_path) as key:
+            path, _ = winreg.QueryValueEx(key, "")
+            return path
+    except Exception:
+        try:
+            with winreg.OpenKey(winreg.HKEY_CURRENT_USER, key_path) as key:
+                path, _ = winreg.QueryValueEx(key, "")
+                return path
+        except Exception:
+            return None
+
+def find_browser_path_default(browser_name):
+    possibles = [
+        rf"C:\Program Files\{browser_name}\Application\{browser_name}.exe",
+        rf"C:\Program Files (x86)\{browser_name}\Application\{browser_name}.exe",
+    ]
+    for path in possibles:
+        if os.path.isfile(path):
+            return path
+    return None
+
+def find_brave_path():
+    path = find_browser_path_from_registry("brave.exe")
+    if path:
+        return path
+    return find_browser_path_default("BraveSoftware\\Brave-Browser")
+
+def find_chrome_path():
+    path = find_browser_path_from_registry("chrome.exe")
+    if path:
+        return path
+    return find_browser_path_default("Google\\Chrome")
+
+browser_path = find_brave_path()
+if browser_path:
+    print("[INFO] Brave trovato:")
+else:
+    browser_path = find_chrome_path()
+    if browser_path:
+        print("[INFO] Brave non trovato, uso Chrome:", browser_path)
+    else:
+        print("[ERRORE] Né Brave né Chrome sono stati trovati. Esco.")
+        sys.exit(1)
+
+
 # === OPZIONI CHROME ===
 options = Options()
 options.add_argument("--start-maximized")
@@ -29,7 +79,7 @@ options.add_argument(f'--user-data-dir={temp_profile}')  # profilo temporaneo
 options.add_extension(EXTENSION_PATH)
 options.add_argument("--disable-dev-shm-usage")
 options.add_argument("--no-sandbox")
-options.binary_location = "C:\\Program Files\\BraveSoftware\\Brave-Browser\\Application\\brave.exe"
+options.binary_location = browser_path
 
 service = Service(CHROMEDRIVER_PATH)
 
