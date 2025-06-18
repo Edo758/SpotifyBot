@@ -2,6 +2,7 @@ from selenium import webdriver  # type: ignore
 from selenium.webdriver.chrome.service import Service  # type: ignore
 from selenium.webdriver.chrome.options import Options  # type: ignore
 from selenium.webdriver.common.by import By  # type: ignore
+from vpn_lock_manager import VPNLock
 import time
 import pyautogui  # type: ignore
 import os
@@ -154,10 +155,13 @@ def to_seconds(t):
     return mins * 60 + secs
 
 def change_ip():
+    lock = VPNLock()
+    lock.acquire()
+
     try:
         print("[🔌 VPN] Apro l'estensione CyberGhost con clic GUI...")
         focus_chrome_window()
-        pyautogui.moveTo(1690, 57)  # ← personalizza in base alla risoluzione
+        pyautogui.moveTo(1690, 57)  # ← personalizza
         pyautogui.click()
         time.sleep(0.5)
 
@@ -173,6 +177,8 @@ def change_ip():
         print("[✅ VPN] Connessione stabilita.")
     except Exception as e:
         print("Errore nel cambio IP/VPN (GUI):", e)
+    finally:
+        lock.release()
 
 def log_current_ip():
     try:
