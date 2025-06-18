@@ -108,7 +108,7 @@ def change_ip():
         focus_chrome_window()
         pyautogui.moveTo(1737, 61)  # ← personalizza se necessario
         pyautogui.click()
-        time.sleep(2)
+        time.sleep(0.5)
 
         print("[🔒 VPN] Disconnetto...")
         pyautogui.moveTo(1595, 260)
