@@ -29,6 +29,7 @@ options.add_argument(f'--user-data-dir={temp_profile}')  # profilo temporaneo
 options.add_extension(EXTENSION_PATH)
 options.add_argument("--disable-dev-shm-usage")
 options.add_argument("--no-sandbox")
+options.binary_location = "C:\\Program Files\\BraveSoftware\\Brave-Browser\\Application\\brave.exe"
 
 service = Service(CHROMEDRIVER_PATH)
 
@@ -106,17 +107,17 @@ def change_ip():
     try:
         print("[🔌 VPN] Apro l'estensione CyberGhost con clic GUI...")
         focus_chrome_window()
-        pyautogui.moveTo(1737, 61)  # ← personalizza se necessario
+        pyautogui.moveTo(1690, 57)  # ← personalizza in base alla risoluzione
         pyautogui.click()
         time.sleep(0.5)
 
         print("[🔒 VPN] Disconnetto...")
-        pyautogui.moveTo(1595, 260)
+        pyautogui.moveTo(1544, 247)
         pyautogui.click()
         time.sleep(3)
 
         print("[🌍 VPN] Riconnetto...")
-        pyautogui.moveTo(1595, 260)
+        pyautogui.moveTo(1544, 247)
         pyautogui.click()
         time.sleep(3)
         print("[✅ VPN] Connessione stabilita.")
