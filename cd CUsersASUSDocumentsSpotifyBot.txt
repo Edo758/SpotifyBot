@@ -1,8 +1,10 @@
 cd C:\Users\ASUS\Documents\SpotifyBot
 python spotify_automation.py
 
+python "Trova Coordinate Fast.py"
+
 primo account fake
-cipapeb435@baxima.com
+cipapeb436@baxima.com
 Nigrociolo1
 
 secondo account
@@ -10,12 +12,27 @@ kojodab153@ethsms.com
 Cagaech3r4!
 
 3 Account
-xelatiw274@finfave.com
+xelatiw275@infave.com
 Borolei28%
 
 4 account
-ciolonstv@gmail.com
+ciolontv@gmail.com
 Jrg847?fdfgv
 
-python "Trova Coordinate Fast.py"
+5 account
+mussolin1@msn.com
+Negrini78#
 
+6 account
+troion1@cags.com
+dajeroma!1
+
+7 account
+culos1@porco.com
+Slimencl0!
+
+8 account
+figas@porca.com
+Ngrcia"2rt
+
+63.667 stream
