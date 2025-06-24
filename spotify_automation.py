@@ -2,6 +2,8 @@ from selenium import webdriver  # type: ignore
 from selenium.webdriver.chrome.service import Service  # type: ignore
 from selenium.webdriver.chrome.options import Options  # type: ignore
 from selenium.webdriver.common.by import By  # type: ignore
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 from vpn_lock_manager import VPNLock
 import time
 import pyautogui  # type: ignore
@@ -15,6 +17,7 @@ import win32con
 import win32process
 import psutil
 import winreg
+import ctypes
 
 
 # === COSTANTI ===
@@ -125,13 +128,24 @@ def focus_chrome_window():
             if hwnds:
                 hwnd = hwnds[0]
                 win32gui.ShowWindow(hwnd, win32con.SW_RESTORE)
-                win32gui.ShowWindow(hwnd, win32con.SW_MAXIMIZE)  # <-- Aggiunto
-                win32gui.SetForegroundWindow(hwnd)
+                win32gui.ShowWindow(hwnd, win32con.SW_MAXIMIZE)
+                try:
+                    ctypes.windll.user32.AllowSetForegroundWindow(-1)
+                    win32gui.SetForegroundWindow(hwnd)
+                except Exception as fe:
+                    print(f"[⚠️] SetForegroundWindow fallito, provo fallback: {fe}")
+                    try:
+                        win32gui.BringWindowToTop(hwnd)
+                        win32gui.SetActiveWindow(hwnd)
+                    except Exception as fallback_e:
+                        print(f"[⚠️] Fallback fallito: {fallback_e}")
                 print(f"[🪟] Finestra con PID {pid} massimizzata e portata in primo piano.")
                 return
+
         print("[⚠️] Nessuna finestra Chrome trovata tra i processi figli.")
     except Exception as e:
         print("[⚠️] Errore durante il focus della finestra:", e)
+
 
 # Cattura segnali di interruzione (CTRL+C) e terminazione
 signal.signal(signal.SIGINT, cleanup_and_exit)
@@ -190,15 +204,51 @@ def log_current_ip():
         print("Errore nel rilevamento IP:", e)
 
 def play_song():
-    track_url = "https://open.spotify.com/track/25J3gcZhNjzBwcaDfZjQli"
+    track_url = "https://open.spotify.com/intl-it/track/5FOu14GMTVsuIvdbsNOonJ?si=c6ee16115c6445e9"
     driver.get(track_url)
-    time.sleep(2)
+
+    print("🔄 Caricamento della pagina del brano...")
+
     try:
-        play_button = driver.find_element(By.CSS_SELECTOR, 'button[aria-label="Play"]')
-        play_button.click()
-        print("Canzone avviata.")
+        wait = WebDriverWait(driver, 30)
+        wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, 'button[aria-label]')))
+        time.sleep(1)
+
+        for attempt in range(3):  # solo 3 tentativi
+            buttons = driver.find_elements(By.CSS_SELECTOR, 'button[aria-label]')
+            play_button = None
+            is_playing = False
+
+            for btn in buttons:
+                label = btn.get_attribute("aria-label")
+                if label == "Pause":
+                    is_playing = True
+                    break
+                elif label == "Play" and play_button is None:
+                    play_button = btn
+
+            if is_playing:
+                print("✅ Canzone in riproduzione confermata.")
+                return
+
+            if play_button:
+                print(f"▶️ Tentativo {attempt+1}: clic sul pulsante Play...")
+                try:
+                    play_button.click()
+                    time.sleep(2)
+                except Exception as e:
+                    print("⚠️ Errore nel clic:", e)
+            else:
+                print(f"🔁 Tentativo {attempt+1}: pulsante Play non trovato. Riprovo...")
+
+            time.sleep(2)
+
+        print("❌ Impossibile avviare la canzone dopo 3 tentativi.")
+
     except Exception as e:
-        print("Errore nell'avviare la canzone:", e)
+        print("❌ Errore durante il caricamento o l'avvio:", e)
+
+
 
 def wait_song_or_track_change():
     last_remaining = None
@@ -227,6 +277,14 @@ def wait_song_or_track_change():
         except Exception as e:
             print("Errore nel recupero tempi o stato canzone, riprovo...", e)
             time.sleep(5)
+
+#Attesa iniziale di 20 secondi
+
+print("🕒 Attendere 32 secondi prima dell'inizio del ciclo...")
+for i in range(20, 0, -1):
+    print(f"Inizio in {i} secondi...", end='\r')
+    time.sleep(1)
+print("\n✅ Inizio del ciclo principale.\n")
 
 # === LOOP PRINCIPALE ===
 while True:
