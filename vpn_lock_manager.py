@@ -1,28 +1,34 @@
 import os
 import time
 
-LOCK_FILE = os.path.join(os.path.dirname(__file__), "vpn_change.lock")
+LOCK_FILE = "vpn_change.lock"
 
 class VPNLock:
-    def __init__(self, wait_interval=1):
-        self.wait_interval = wait_interval
-        self.lock_acquired = False
+    def __init__(self):
+        self.fd = None
 
-    def acquire(self):
+    def acquire(self, timeout=60):
+        start_time = time.time()
         while True:
             try:
-                # modalità 'x' fallisce se il file esiste
                 self.fd = os.open(LOCK_FILE, os.O_CREAT | os.O_EXCL | os.O_RDWR)
-                self.lock_acquired = True
-                print("[🔒] Lock acquisito per cambio IP")
+                print("[] Lock acquisito per cambio IP.")
                 break
             except FileExistsError:
-                print("[⏳] In attesa del lock per cambio IP...")
-                time.sleep(self.wait_interval)
+                if time.time() - start_time > timeout:
+                    print(f"[!] Timeout: lock ancora presente dopo {timeout} secondi. Lo elimino forzatamente.")
+                    try:
+                        os.remove(LOCK_FILE)
+                    except Exception as e:
+                        print("[!] Errore nel cancellare il lock file:", e)
+                    continue  # riprova subito
+                print("[] In attesa del lock per cambio IP...")
+                time.sleep(1)
+
+                        
 
     def release(self):
-        if self.lock_acquired:
+        if self.fd:
             os.close(self.fd)
             os.remove(LOCK_FILE)
-            self.lock_acquired = False
-            print("[✅] Lock rilasciato dopo cambio IP")
+            print("[] Lock rilasciato.")

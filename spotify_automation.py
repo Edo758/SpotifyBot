@@ -11,6 +11,7 @@ import os
 import tempfile
 import shutil
 import sys
+sys.stdout.reconfigure(encoding='utf-8')
 import signal
 import win32gui
 import win32con
@@ -133,18 +134,30 @@ def focus_chrome_window():
                     ctypes.windll.user32.AllowSetForegroundWindow(-1)
                     win32gui.SetForegroundWindow(hwnd)
                 except Exception as fe:
-                    print(f"[⚠️] SetForegroundWindow fallito, provo fallback: {fe}")
+                    print(f"[] SetForegroundWindow fallito, provo fallback: {fe}")
                     try:
                         win32gui.BringWindowToTop(hwnd)
                         win32gui.SetActiveWindow(hwnd)
                     except Exception as fallback_e:
-                        print(f"[⚠️] Fallback fallito: {fallback_e}")
-                print(f"[🪟] Finestra con PID {pid} massimizzata e portata in primo piano.")
+                        print(f"[] Fallback fallito: {fallback_e}")
+                print(f"[] Finestra con PID {pid} massimizzata e portata in primo piano.")
                 return
 
-        print("[⚠️] Nessuna finestra Chrome trovata tra i processi figli.")
+        print("[] Nessuna finestra Chrome trovata tra i processi figli.")
     except Exception as e:
-        print("[⚠️] Errore durante il focus della finestra:", e)
+        print("[] Errore durante il focus della finestra:", e)
+
+def safe_get(url, retries=3, delay=5):
+    for attempt in range(retries):  # ripeti fino a 3 tentativi
+        try:
+            driver.get(url)  # prova ad aprire la pagina
+            return True  # se va, esci subito
+        except Exception as e:
+            print(f"[!] Tentativo {attempt+1}] Errore nel caricamento URL: {e}")
+            time.sleep(delay)  # aspetta qualche secondo e riprova
+    print(f"[X] Impossibile raggiungere {url} dopo {retries} tentativi.")
+    return False  # dopo 3 fallimenti, restituisci False
+
 
 
 # Cattura segnali di interruzione (CTRL+C) e terminazione
@@ -159,7 +172,11 @@ except Exception as e:
     cleanup_and_exit()
 
 # === APRI SPOTIFY ===
-driver.get("https://open.spotify.com")
+if not safe_get("https://open.spotify.com"):
+    # esci dallo script se non riesce a caricare
+    driver.quit()
+    exit()
+
 print("Avvia manualmente una canzone su Spotify...")
 time.sleep(10)
 
@@ -170,44 +187,49 @@ def to_seconds(t):
 
 def change_ip():
     lock = VPNLock()
-    lock.acquire()
+
 
     try:
-        print("[🔌 VPN] Apro l'estensione CyberGhost con clic GUI...")
+        lock.acquire()
+        print("[ VPN] Apro l'estensione CyberGhost con clic GUI...")
         focus_chrome_window()
-        pyautogui.moveTo(1690, 57)  # ← personalizza
+        pyautogui.moveTo(1641, 57)  # ← personalizza
         pyautogui.click()
         time.sleep(0.5)
 
-        print("[🔒 VPN] Disconnetto...")
-        pyautogui.moveTo(1544, 247)
+        print("[ VPN] Disconnetto...")
+        pyautogui.moveTo(1489, 247)
         pyautogui.click()
         time.sleep(3)
 
-        print("[🌍 VPN] Riconnetto...")
-        pyautogui.moveTo(1544, 247)
+        print("[ VPN] Riconnetto...")
+        pyautogui.moveTo(1489, 247)
         pyautogui.click()
         time.sleep(3)
-        print("[✅ VPN] Connessione stabilita.")
+        print("[ VPN] Connessione stabilita.")
     except Exception as e:
         print("Errore nel cambio IP/VPN (GUI):", e)
     finally:
-        lock.release()
+        try:
+            lock.release()
+        except Exception as e:
+            print("Errore nel rilascio del lock:", e)
+
 
 def log_current_ip():
     try:
         driver.get("https://api.ipify.org?format=text")
         time.sleep(3)
         ip = driver.find_element(By.TAG_NAME, "body").text
-        print(f"[🆕 NUOVO IP] {ip}")
+        print(f"[ NUOVO IP] {ip}")
     except Exception as e:
         print("Errore nel rilevamento IP:", e)
 
 def play_song():
-    track_url = "https://open.spotify.com/intl-it/track/5FOu14GMTVsuIvdbsNOonJ?si=c6ee16115c6445e9"
+    track_url = "https://open.spotify.com/intl-it/track/2IUePLNmTEAXB7swaR9J2b?si=adf2ec19d0ea4e84"
     driver.get(track_url)
 
-    print("🔄 Caricamento della pagina del brano...")
+    print(" Caricamento della pagina del brano...")
 
     try:
         wait = WebDriverWait(driver, 30)
@@ -228,25 +250,25 @@ def play_song():
                     play_button = btn
 
             if is_playing:
-                print("✅ Canzone in riproduzione confermata.")
+                print(" Canzone in riproduzione confermata.")
                 return
 
             if play_button:
-                print(f"▶️ Tentativo {attempt+1}: clic sul pulsante Play...")
+                print(f" Tentativo {attempt+1}: clic sul pulsante Play...")
                 try:
                     play_button.click()
                     time.sleep(2)
                 except Exception as e:
-                    print("⚠️ Errore nel clic:", e)
+                    print(" Errore nel clic:", e)
             else:
-                print(f"🔁 Tentativo {attempt+1}: pulsante Play non trovato. Riprovo...")
+                print(f" Tentativo {attempt+1}: pulsante Play non trovato. Riprovo...")
 
             time.sleep(2)
 
-        print("❌ Impossibile avviare la canzone dopo 3 tentativi.")
+        print(" Impossibile avviare la canzone dopo 3 tentativi.")
 
     except Exception as e:
-        print("❌ Errore durante il caricamento o l'avvio:", e)
+        print(" Errore durante il caricamento o l'avvio:", e)
 
 
 
@@ -280,11 +302,11 @@ def wait_song_or_track_change():
 
 #Attesa iniziale di 20 secondi
 
-print("🕒 Attendere 32 secondi prima dell'inizio del ciclo...")
+print(" Attendere 20 secondi prima dell'inizio del ciclo...")
 for i in range(20, 0, -1):
     print(f"Inizio in {i} secondi...", end='\r')
     time.sleep(1)
-print("\n✅ Inizio del ciclo principale.\n")
+print("\n Inizio del ciclo principale.\n")
 
 # === LOOP PRINCIPALE ===
 while True:
