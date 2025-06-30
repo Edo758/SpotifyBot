@@ -12,6 +12,15 @@ import tempfile
 import shutil
 import sys
 sys.stdout.reconfigure(encoding='utf-8')
+
+# === PREFISSO ISTANZA ===
+if len(sys.argv) > 1:
+    ISTANZA_ID = sys.argv[1]
+else:
+    ISTANZA_ID = "?"
+def printi(*args, **kwargs):
+    print(f"[ISTANZA {ISTANZA_ID}]", *args, flush=True, **kwargs)
+
 import signal
 import win32gui
 import win32con
@@ -27,6 +36,12 @@ CHROMEDRIVER_PATH = os.path.join(BASE_DIR, "chromedriver.exe")
 EXTENSION_PATH = os.path.join(BASE_DIR, "CyberGhost.crx")
 
 # === CREA PROFILO TEMPORANEO ===
+# Leggi l'ID istanza dal primo argomento della riga di comando, se presente
+if len(sys.argv) > 1:
+    ISTANZA_ID = sys.argv[1]
+else:
+    ISTANZA_ID = "?"
+
 temp_profile = tempfile.mkdtemp()
 
 def find_browser_path_from_registry(browser_exe_name):
@@ -67,13 +82,13 @@ def find_chrome_path():
 
 browser_path = find_brave_path()
 if browser_path:
-    print("[INFO] Brave trovato:")
+    printi("[INFO] Brave trovato:")
 else:
     browser_path = find_chrome_path()
     if browser_path:
-        print("[INFO] Brave non trovato, uso Chrome:", browser_path)
+        printi("[INFO] Brave non trovato, uso Chrome:", browser_path)
     else:
-        print("[ERRORE] Né Brave né Chrome sono stati trovati. Esco.")
+        printi("[ERRORE] Né Brave né Chrome sono stati trovati. Esco.")
         sys.exit(1)
 
 
@@ -84,6 +99,8 @@ options.add_argument(f'--user-data-dir={temp_profile}')  # profilo temporaneo
 options.add_extension(EXTENSION_PATH)
 options.add_argument("--disable-dev-shm-usage")
 options.add_argument("--no-sandbox")
+options.add_argument("--disable-features=ExternalProtocolRequestPrompt")  # Disabilita la notifica "Apri nell'app"
+options.add_argument("--disable-external-intent-requests")  # Blocca richieste intent esterne
 options.binary_location = browser_path
 
 service = Service(CHROMEDRIVER_PATH)
@@ -92,7 +109,7 @@ driver = None
 
 def cleanup_and_exit(signum=None, frame=None):
     global driver, temp_profile
-    print("\n[INFO] Arresto script, chiudo Chrome e cancello profilo temporaneo...")
+    printi("\n[INFO] Arresto script, chiudo Chrome e cancello profilo temporaneo...")
     if driver:
         try:
             driver.quit()
@@ -100,9 +117,9 @@ def cleanup_and_exit(signum=None, frame=None):
             pass
     if os.path.exists(temp_profile):
         shutil.rmtree(temp_profile)
-        print("[INFO] Profilo temporaneo eliminato.")
+        printi("[INFO] Profilo temporaneo eliminato.")
     else:
-        print("[INFO] Profilo temporaneo già rimosso.")
+        printi("[INFO] Profilo temporaneo già rimosso.")
     sys.exit(0)
 
 # === FUNZIONI PER TROVARE LA FINESTRA DI CHROME DAL PID ===
@@ -134,18 +151,18 @@ def focus_chrome_window():
                     ctypes.windll.user32.AllowSetForegroundWindow(-1)
                     win32gui.SetForegroundWindow(hwnd)
                 except Exception as fe:
-                    print(f"[] SetForegroundWindow fallito, provo fallback: {fe}")
+                    printi(f"[] SetForegroundWindow fallito, provo fallback: {fe}")
                     try:
                         win32gui.BringWindowToTop(hwnd)
                         win32gui.SetActiveWindow(hwnd)
                     except Exception as fallback_e:
-                        print(f"[] Fallback fallito: {fallback_e}")
-                print(f"[] Finestra con PID {pid} massimizzata e portata in primo piano.")
+                        printi(f"[] Fallback fallito: {fallback_e}")
+                printi(f"[] Finestra con PID {pid} massimizzata e portata in primo piano.")
                 return
 
-        print("[] Nessuna finestra Chrome trovata tra i processi figli.")
+        printi("[] Nessuna finestra Chrome trovata tra i processi figli.")
     except Exception as e:
-        print("[] Errore durante il focus della finestra:", e)
+        printi("[] Errore durante il focus della finestra:", e)
 
 def safe_get(url, retries=3, delay=5):
     for attempt in range(retries):  # ripeti fino a 3 tentativi
@@ -153,9 +170,9 @@ def safe_get(url, retries=3, delay=5):
             driver.get(url)  # prova ad aprire la pagina
             return True  # se va, esci subito
         except Exception as e:
-            print(f"[!] Tentativo {attempt+1}] Errore nel caricamento URL: {e}")
+            printi(f"[!] Tentativo {attempt+1}] Errore nel caricamento URL: {e}")
             time.sleep(delay)  # aspetta qualche secondo e riprova
-    print(f"[X] Impossibile raggiungere {url} dopo {retries} tentativi.")
+    printi(f"[X] Impossibile raggiungere {url} dopo {retries} tentativi.")
     return False  # dopo 3 fallimenti, restituisci False
 
 
@@ -168,7 +185,7 @@ signal.signal(signal.SIGTERM, cleanup_and_exit)
 try:
     driver = webdriver.Chrome(service=service, options=options)
 except Exception as e:
-    print("[ERRORE] Chrome non si è avviato correttamente:\n", e)
+    printi("[ERRORE] Chrome non si è avviato correttamente:\n", e)
     cleanup_and_exit()
 
 # === APRI SPOTIFY ===
@@ -177,7 +194,7 @@ if not safe_get("https://open.spotify.com"):
     driver.quit()
     exit()
 
-print("Avvia manualmente una canzone su Spotify...")
+printi("Avvia manualmente una canzone su Spotify...")
 time.sleep(10)
 
 # === FUNZIONI DI SUPPORTO ===
@@ -191,29 +208,29 @@ def change_ip():
 
     try:
         lock.acquire()
-        print("[ VPN] Apro l'estensione CyberGhost con clic GUI...")
+        printi("[ VPN] Apro l'estensione CyberGhost con clic GUI...")
         focus_chrome_window()
         pyautogui.moveTo(1641, 57)  # ← personalizza
         pyautogui.click()
         time.sleep(0.5)
 
-        print("[ VPN] Disconnetto...")
+        printi("[ VPN] Disconnetto...")
         pyautogui.moveTo(1489, 247)
         pyautogui.click()
         time.sleep(3)
 
-        print("[ VPN] Riconnetto...")
+        printi("[ VPN] Riconnetto...")
         pyautogui.moveTo(1489, 247)
         pyautogui.click()
         time.sleep(3)
-        print("[ VPN] Connessione stabilita.")
+        printi("[ VPN] Connessione stabilita.")
     except Exception as e:
-        print("Errore nel cambio IP/VPN (GUI):", e)
+        printi("Errore nel cambio IP/VPN (GUI):", e)
     finally:
         try:
             lock.release()
         except Exception as e:
-            print("Errore nel rilascio del lock:", e)
+            printi("Errore nel rilascio del lock:", e)
 
 
 def log_current_ip():
@@ -221,15 +238,19 @@ def log_current_ip():
         driver.get("https://api.ipify.org?format=text")
         time.sleep(3)
         ip = driver.find_element(By.TAG_NAME, "body").text
-        print(f"[ NUOVO IP] {ip}")
+        printi(f"[ NUOVO IP] {ip}")
     except Exception as e:
-        print("Errore nel rilevamento IP:", e)
+        printi("Errore nel rilevamento IP:", e)
 
 def play_song():
     track_url = "https://open.spotify.com/intl-it/track/2IUePLNmTEAXB7swaR9J2b?si=adf2ec19d0ea4e84"
     driver.get(track_url)
-
-    print(" Caricamento della pagina del brano...")
+    # Prova a chiudere eventuali popup di protocollo
+    try:
+        driver.execute_script("window.onbeforeunload = null;")
+    except Exception:
+        pass
+    printi(" Caricamento della pagina del brano...")
 
     try:
         wait = WebDriverWait(driver, 30)
@@ -250,25 +271,25 @@ def play_song():
                     play_button = btn
 
             if is_playing:
-                print(" Canzone in riproduzione confermata.")
+                printi(" Canzone in riproduzione confermata.")
                 return
 
             if play_button:
-                print(f" Tentativo {attempt+1}: clic sul pulsante Play...")
+                printi(f" Tentativo {attempt+1}: clic sul pulsante Play...")
                 try:
                     play_button.click()
                     time.sleep(2)
                 except Exception as e:
-                    print(" Errore nel clic:", e)
+                    printi(" Errore nel clic:", e)
             else:
-                print(f" Tentativo {attempt+1}: pulsante Play non trovato. Riprovo...")
+                printi(f" Tentativo {attempt+1}: pulsante Play non trovato. Riprovo...")
 
             time.sleep(2)
 
-        print(" Impossibile avviare la canzone dopo 3 tentativi.")
+        printi(" Impossibile avviare la canzone dopo 3 tentativi.")
 
     except Exception as e:
-        print(" Errore durante il caricamento o l'avvio:", e)
+        printi(" Errore durante il caricamento o l'avvio:", e)
 
 
 
@@ -284,40 +305,40 @@ def wait_song_or_track_change():
             total_sec = to_seconds(total_time)
             remaining = total_sec - current_sec
 
-            print(f"Canzone in riproduzione: tempo rimanente {remaining} secondi")
+            printi(f"Canzone in riproduzione: tempo rimanente {remaining} secondi")
 
             if last_remaining is not None and remaining > last_remaining + 1:
-                print("Nuova canzone rilevata.")
+                printi("Nuova canzone rilevata.")
                 break
 
             if remaining <= 0:
-                print("Canzone terminata.")
+                printi("Canzone terminata.")
                 break
 
             last_remaining = remaining
 
         except Exception as e:
-            print("Errore nel recupero tempi o stato canzone, riprovo...", e)
+            printi("Errore nel recupero tempi o stato canzone, riprovo...", e)
             time.sleep(5)
 
-#Attesa iniziale di 20 secondi
-
-print(" Attendere 20 secondi prima dell'inizio del ciclo...")
+# Ottimizzazione attesa iniziale
+printi(" Attendere 20 secondi prima dell'inizio del ciclo...")
 for i in range(20, 0, -1):
-    print(f"Inizio in {i} secondi...", end='\r')
+    printi(f"Inizio in {i} secondi...", end='\r', flush=True)
     time.sleep(1)
-print("\n Inizio del ciclo principale.\n")
+printi("")
+printi("\n Inizio del ciclo principale.\n")
 
 # === LOOP PRINCIPALE ===
 while True:
-    print("Aspetto che la canzone finisca o cambi...")
+    printi("Aspetto che la canzone finisca o cambi...")
     wait_song_or_track_change()
 
-    print("Cambiando IP...")
+    printi("Cambiando IP...")
     change_ip()
 
-    print("Verifico l’IP corrente...")
+    printi("Verifico l’IP corrente...")
     log_current_ip()
 
-    print("Avvio nuova canzone...")
+    printi("Avvio nuova canzone...")
     play_song()
