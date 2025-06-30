@@ -7,7 +7,6 @@ import sys
 NUM_INSTANZE = 5
 SCRIPT_PATH = os.path.join(os.getcwd(), "spotify_automation.py")
 LOG_DIR = os.path.join(os.getcwd(), "log_istanze")
-
 processi = []
 
 # Crea la cartella log se non esiste
@@ -28,7 +27,7 @@ def cleanup():
 # Intercetta CTRL+C
 signal.signal(signal.SIGINT, lambda sig, frame: cleanup())
 
-print(f"\n Avvio di {NUM_INSTANZE} istanze di spotify_automation.py...\n")
+print(f"\nAvvio di {NUM_INSTANZE} istanze di spotify_automation.py...\n")
 
 for i in range(1, NUM_INSTANZE + 1):
     log_file_path = os.path.join(LOG_DIR, f"log_{i}.txt")
@@ -42,7 +41,7 @@ for i in range(1, NUM_INSTANZE + 1):
         )
         processi.append(p)
 
-print("\n Tutte le istanze sono state avviate.")
+print("\nTutte le istanze sono state avviate.")
 print(" Premi CTRL+C per terminare tutte le istanze.")
 
 # Mantieni vivo il launcher finché le istanze girano
