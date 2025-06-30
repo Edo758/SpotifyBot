@@ -1,34 +1,53 @@
 import subprocess
-import time
 import os
+import signal
+import time
+import sys
 
-SCRIPT_NAME = "spotify_automation.py"
-NUM_ISTANZE = 5 # numero di istanze da avviare
-DELAY_AVVIO = 2  # secondi tra un lancio e l'altro
-LOG_DIR = "log_istanze"
+NUM_INSTANZE = 5
+SCRIPT_PATH = os.path.join(os.getcwd(), "spotify_automation.py")
+LOG_DIR = os.path.join(os.getcwd(), "log_istanze")
 
-def assicurati_cartella_log():
-    if not os.path.exists(LOG_DIR):
-        os.makedirs(LOG_DIR)
+processi = []
 
-def avvia_istanze():
-    assicurati_cartella_log()
-    
-    for i in range(1, NUM_ISTANZE + 1):
-        log_file = os.path.join(LOG_DIR, f"log_{i}.txt")
-        print(f"[] Avvio istanza {i}... (log in {log_file})")
+# Crea la cartella log se non esiste
+os.makedirs(LOG_DIR, exist_ok=True)
 
-        # Avvia il processo in background con output redirezionato
-        subprocess.Popen(
-            ["python", SCRIPT_NAME],
-            stdout=open(log_file, "w"),
-            stderr=subprocess.STDOUT,
-            creationflags=subprocess.CREATE_NO_WINDOW  # Nessuna finestra cmd
+def cleanup():
+    print("\n[LAUNCHER] Terminazione in corso...")
+    for p in processi:
+        if p.poll() is None:
+            try:
+                os.kill(p.pid, signal.SIGTERM)  # Invia segnale di terminazione
+                print(f"[LAUNCHER] Terminato PID {p.pid}")
+            except Exception as e:
+                print(f"[ERRORE] Impossibile terminare PID {p.pid}: {e}")
+    print("[LAUNCHER] Tutti i processi chiusi. Esco.")
+    sys.exit(0)
+
+# Intercetta CTRL+C
+signal.signal(signal.SIGINT, lambda sig, frame: cleanup())
+
+print(f"\n Avvio di {NUM_INSTANZE} istanze di spotify_automation.py...\n")
+
+for i in range(1, NUM_INSTANZE + 1):
+    log_file_path = os.path.join(LOG_DIR, f"log_{i}.txt")
+    with open(log_file_path, "w") as log_file:
+        print(f"[] Avvio istanza {i}... (log in {log_file_path})")
+        p = subprocess.Popen(
+            [sys.executable, SCRIPT_PATH],
+            stdout=log_file,
+            stderr=log_file,
+            creationflags=subprocess.CREATE_NEW_PROCESS_GROUP  # consente terminazione pulita
         )
+        processi.append(p)
 
-        time.sleep(DELAY_AVVIO)
+print("\n Tutte le istanze sono state avviate.")
+print(" Premi CTRL+C per terminare tutte le istanze.")
 
-if __name__ == "__main__":
-    print(f" Avvio di {NUM_ISTANZE} istanze di {SCRIPT_NAME}...\n")
-    avvia_istanze()
-    print("\n Tutte le istanze sono state avviate.")
+# Mantieni vivo il launcher finché le istanze girano
+try:
+    while True:
+        time.sleep(1)
+except KeyboardInterrupt:
+    cleanup()
