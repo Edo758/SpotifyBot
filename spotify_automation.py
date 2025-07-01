@@ -19,7 +19,9 @@ if len(sys.argv) > 1:
 else:
     ISTANZA_ID = "?"
 def printi(*args, **kwargs):
-    print(f"[ISTANZA {ISTANZA_ID}]", *args, flush=True, **kwargs)
+    if 'flush' not in kwargs:
+        kwargs['flush'] = True
+    print(f"[ISTANZA {ISTANZA_ID}]", *args, **kwargs)
 
 import signal
 import win32gui
@@ -148,8 +150,11 @@ def focus_chrome_window():
                 win32gui.ShowWindow(hwnd, win32con.SW_RESTORE)
                 win32gui.ShowWindow(hwnd, win32con.SW_MAXIMIZE)
                 try:
-                    ctypes.windll.user32.AllowSetForegroundWindow(-1)
+                    ctypes.windll.user32.AllowSetForegroundWindow(pid)
                     win32gui.SetForegroundWindow(hwnd)
+                    if win32gui.GetForegroundWindow() != hwnd:
+                        raise Exception("Finestra non in primo piano dopo SetForegroundWindow")
+
                 except Exception as fe:
                     printi(f"[] SetForegroundWindow fallito, provo fallback: {fe}")
                     try:
@@ -208,6 +213,7 @@ def change_ip():
 
     try:
         lock.acquire()
+        printi("[ VPN] Lock acquisito.")
         printi("[ VPN] Apro l'estensione CyberGhost con clic GUI...")
         focus_chrome_window()
         pyautogui.moveTo(1641, 57)  # ← personalizza
