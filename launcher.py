@@ -3,10 +3,13 @@ import os
 import signal
 import time
 import sys
+import random
 
-NUM_INSTANZE = 1
+NUM_INSTANZE = 10
 SCRIPT_PATH = os.path.join(os.getcwd(), "spotify_automation.py")
 processi = []
+
+ritardo = random.uniform(3, 6) # Ritardo casuale tra 3 e 6 secondi
 
 # Funzione di cleanup
 def cleanup():
@@ -36,6 +39,9 @@ for i in range(1, NUM_INSTANZE + 1):
         creationflags=subprocess.CREATE_NEW_PROCESS_GROUP
     )
     processi.append(p)
+    if i < NUM_INSTANZE:  # Evita il delay dopo l'ultima istanza
+        print(f"[LAUNCHER] Attesa di {ritardo:.2f} secondi prima della prossima istanza.")
+        time.sleep(ritardo)
 
 print("\nTutte le istanze sono state avviate.")
 print(" Premi CTRL+C per terminare tutte le istanze.")

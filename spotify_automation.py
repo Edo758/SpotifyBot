@@ -1,12 +1,12 @@
-from selenium import webdriver  # type: ignore
-from selenium.webdriver.chrome.service import Service  # type: ignore
-from selenium.webdriver.chrome.options import Options  # type: ignore
-from selenium.webdriver.common.by import By  # type: ignore
+from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from vpn_lock_manager import VPNLock
 import time
-import pyautogui  # type: ignore
+import pyautogui
 import os
 import tempfile
 import shutil
@@ -35,7 +35,7 @@ import ctypes
 # === COSTANTI ===
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 CHROMEDRIVER_PATH = os.path.join(BASE_DIR, "chromedriver.exe")
-EXTENSION_PATH = os.path.join(BASE_DIR, "CyberGhost.crx")
+EXTENSION_PATH = os.path.join(BASE_DIR, "Windscribe.crx")
 
 # === CREA PROFILO TEMPORANEO ===
 # Leggi l'ID istanza dal primo argomento della riga di comando, se presente
@@ -136,6 +136,24 @@ def get_hwnds_for_pid(pid):
     win32gui.EnumWindows(enum_window_callback, hwnds)
     return hwnds
 
+def minimize_chrome_window():
+    try:
+        chromedriver_pid = driver.service.process.pid
+        p = psutil.Process(chromedriver_pid)
+        child_pids = [child.pid for child in p.children(recursive=True)]
+        child_pids.append(chromedriver_pid)
+
+        for pid in child_pids:
+            hwnds = get_hwnds_for_pid(pid)
+            if hwnds:
+                hwnd = hwnds[0]
+                win32gui.ShowWindow(hwnd, win32con.SW_MINIMIZE)
+                printi(f"[INFO] Finestra Chrome minimizzata (PID={pid}).")
+                return
+        printi("[INFO] Nessuna finestra trovata da minimizzare.")
+    except Exception as e:
+        printi(f"[ERRORE] Errore durante la minimizzazione: {e}")
+
 def focus_chrome_window():
     try:
         chromedriver_pid = driver.service.process.pid
@@ -214,19 +232,20 @@ def change_ip():
     try:
         lock.acquire()
         printi("[ VPN] Lock acquisito.")
-        printi("[ VPN] Apro l'estensione CyberGhost con clic GUI...")
+        printi("[ VPN] Apro l'estensione Windscribe con clic GUI...")
         focus_chrome_window()
-        pyautogui.moveTo(1641, 57)  # ← personalizza
+        time.sleep(0.7)
+        pyautogui.moveTo(1731, 61)  # ← icona estensione Windscribe
         pyautogui.click()
-        time.sleep(0.5)
+        time.sleep(0.7)
 
         printi("[ VPN] Disconnetto...")
-        pyautogui.moveTo(1489, 247)
+        pyautogui.moveTo(1689, 180) # ← tasto ON/OFF
         pyautogui.click()
-        time.sleep(3)
+        time.sleep(2)
 
         printi("[ VPN] Riconnetto...")
-        pyautogui.moveTo(1489, 247)
+        pyautogui.moveTo(1689, 180) # ← tasto ON/OFF
         pyautogui.click()
         time.sleep(3)
         printi("[ VPN] Connessione stabilita.")
@@ -345,6 +364,7 @@ while True:
 
     printi("Verifico l’IP corrente...")
     log_current_ip()
+    minimize_chrome_window()
 
     printi("Avvio nuova canzone...")
     play_song()
