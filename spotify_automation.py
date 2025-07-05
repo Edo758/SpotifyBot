@@ -35,7 +35,7 @@ import ctypes
 # === COSTANTI ===
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 CHROMEDRIVER_PATH = os.path.join(BASE_DIR, "chromedriver.exe")
-EXTENSION_PATH = os.path.join(BASE_DIR, "Windscribe.crx")
+EXTENSION_DIR = os.path.join(BASE_DIR, "CyberGhost")
 
 # === CREA PROFILO TEMPORANEO ===
 # Leggi l'ID istanza dal primo argomento della riga di comando, se presente
@@ -98,7 +98,7 @@ else:
 options = Options()
 options.add_argument("--start-maximized")
 options.add_argument(f'--user-data-dir={temp_profile}')  # profilo temporaneo
-options.add_extension(EXTENSION_PATH)
+options.add_argument(f"--load-extension={EXTENSION_DIR}")
 options.add_argument("--disable-dev-shm-usage")
 options.add_argument("--no-sandbox")
 options.add_argument("--disable-features=ExternalProtocolRequestPrompt")  # Disabilita la notifica "Apri nell'app"
@@ -227,25 +227,23 @@ def to_seconds(t):
 
 def change_ip():
     lock = VPNLock()
-
-
     try:
         lock.acquire()
         printi("[ VPN] Lock acquisito.")
-        printi("[ VPN] Apro l'estensione Windscribe con clic GUI...")
+        printi("[ VPN] Apro l'estensione CyberGhost con clic GUI...")
         focus_chrome_window()
-        time.sleep(0.7)
-        pyautogui.moveTo(1731, 61)  # ← icona estensione Windscribe
-        pyautogui.click()
+        time.sleep(0.3)
+        # 🔑 Simula scorciatoia tastiera: Ctrl + Shift + Y
+        pyautogui.hotkey('ctrl', 'shift', 'y')
         time.sleep(0.7)
 
         printi("[ VPN] Disconnetto...")
-        pyautogui.moveTo(1689, 180) # ← tasto ON/OFF
+        pyautogui.moveTo(1582, 252) # ← tasto ON/OFF
         pyautogui.click()
-        time.sleep(2)
+        time.sleep(3)
 
         printi("[ VPN] Riconnetto...")
-        pyautogui.moveTo(1689, 180) # ← tasto ON/OFF
+        pyautogui.moveTo(1582, 252) # ← tasto ON/OFF
         pyautogui.click()
         time.sleep(3)
         printi("[ VPN] Connessione stabilita.")
