@@ -3,205 +3,85 @@ python spotify_automation.py
 
 python "Trova Coordinate Fast.py"
 
-primo account fake
-cipapeb437@baxima.com
-Nigrociolo1
+1 account
+c5qar27bs@yahoo.com
+e4?hE#QcQ0
 
-secondo account
-kojodab153@ethsms.com
-Cagaech3r4!
+2 account
+gb0mndez@gmail.com
+Adl8wC6&8q
 
-3 Account
-xelatiw276@infave.com
-Borolei28%
+3 account
+37cw68@icloud.com
+Dv#bR!9D22
 
 4 account
-ciolontv@gmail.com
-Jrg847?fdfgv
+18edi@yahoo.com
+Gw57aGO3Iq
 
 5 account
-mussolin1@msn.com
-Negrini78#
+1ybxuqwm@gmail.com
+?iYSn4kcpQ
 
 6 account
-troion2@cags.com
-dajeroma!1
+vell2v@yahoo.com
+OauFn0fD!O
 
 7 account
-culos2@porco.com
-Slimencl0!
+2le1fp@outlook.com
+CA4M?xrS?O
 
 8 account
-figas1@porca.com
-Ngrcia"2rt
+qsrga0l0@icloud.com
+J?kbfMd3cW
 
 9 account
-ciolo@icloud.com
-CoioniCa/9?
+qtl52j56@yahoo.com
+cvBu9zFhhP
 
 10 account
-mecoioni@gmail.com
-Cagasdotto09"
+cbka2s3ui@icloud.com
+SgsMoG0nAi
 
 11 account
-smerdone@outlook.com
-Smerdatoma#4!
+u9min@outlook.com
+kznpXdA5us
 
 12 account
-slimencioo@yahoo.com
-Cazzojne66&
+yhaoanpw5g@outlook.com
+VilOnCB2En
 
 13 account
-eva_vos@hotmail.com
-troieopute98"
+33iaja7kd@outlook.com
+cx!5LppkG3
 
 14 account
-smerdone@gmail.com
-Cazzone78/
+jsr7fz@icloud.com
+yLH25heutA
 
 15 account
-segaccio@outlook.com
-Sborrata&5#
+euixv@gmail.com
+qvHYggJ3rb
 
 16 account
-dildode@plastica.com
-HitlerFree87/
+n55jz@icloud.com
+fu4BNAPGbD
 
 17 account
-soldigang@icloud.com
-Cartoina8976/
+ufjb7pdsu@yahoo.com
+4G0dhw1yFQ
 
 18 account
-dopegnag@outlook.com
-Alphak3675&
+vp03yg@outlook.com
+tco0I9#4kj
 
 19 account
-Snigerirs@gmail.com
-Stracazoone676"
+uiry62@gmail.com
+39iRiRzceB
 
 20 account
-xu1xpmsoi@yahoo.com
-rn8oamlM6i
-
-21 account
-hqaz46@outlook.com
-RKvfxmYdt&s
-
-22 account
-5mh8c6k64@yahoo.com
-1CXBOJXHQiI
-
-23 account
-n1r8c0rl4u@outlook.com
-1ohxX8YVhBJ
-
-24 account
-4tmbr@gmail.com
-Y7#fEuE13Yj
-
-25 account
-adi4um@icloud.com
-D4LQaBDrfGw
-
-26 account
-qrop0@yahoo.com
-OCNKfp1LBd2
-
-27 account
-il7og@icloud.com
-tEVF4i6gEbR
-
-28 account
-qvu7vmi@outlook.com
-FUQyhXG49rx
-
-29 account
-w2yzh2b2t@yahoo.com
-s6jAkVO84UR
-
-30 account
-3yqc5cbz@yahoo.com
-fOp8T2xobRe
-
-31 account
-3um6iy3v@yahoo.com
-gv3QayZ33MU
-
-32 account
-w785nu@outlook.com
-e1uDo!o697Y
-
-33 account
-hol0hpil@icloud.com
-bM92TU!1T8I
-
-34 account
-1v2mdvn1@icloud.com
-otNBzya#aA4
-
-35 account
-lgdm0lzcay@yahoo.com
-xkm&dFtQpg&
-
-36 account
-3k7aqwa@yahoo.com
-nmj!S#g&DIF
-
-37 account
-y9svk@outlook.com
-U2tFgsDyB&1
-
-38 account
-codapjy@icloud.com
-boLkqr&N8iu
-
-39 account
-fnb5g24p@yahoo.com
-RYMsA6oN?ds
-
-40 account
-dz68uiz@outlook.com
-d#HfbuIcvTi
-
-41 account
-o8trhn9i@icloud.com
-7GykgAC6qH5
-
-42 account
-gaszue@icloud.com
-ed7O7B23z#1
-
-43 account
-l21zj4g6t@gmail.com
-Mp?t6kN9m#D
-
-44 account
-n2wqwk27o@yahoo.com
-cc!j22qfb!p
-
-45 account
-3xpv0y3@yahoo.com
-2Yqs!x2lm!0
-
-46 account
-twnbihejc@yahoo.com
-0cokzqW17!2
-
-47 account
-e021gm@icloud.com
-2ctNk&NHD!4
-
-48 account
-4es1bra@gmail.com
-dlACTM9&5s8
-
-49 account
-sjnaufvw@outlook.com
-YeVT9BQ3av&
-
-50 account
-1rvkv@yahoo.com
-5IKao6v52il
+t7m43mc6@gmail.com
+gk?JO9DiF3
 
 Windscribe 1: Username: Edo759
 	    Password: Gianfrancioschio23!
@@ -209,3 +89,5 @@ Windscribe 2: Username: Gian758
 	    Password: Ciccionaia78"
 Windscribe 3: Username: Sky561
 	    Password: Cianurc78&
+
+brave://components/ se servisse
