@@ -5,7 +5,7 @@ import time
 import sys
 import random
 
-NUM_INSTANZE = 10
+NUM_INSTANZE = 20
 SCRIPT_PATH = os.path.join(os.getcwd(), "spotify_automation.py")
 processi = []
 
@@ -17,10 +17,7 @@ def cleanup():
     for p in processi:
         if p.poll() is None:
             try:
-                if os.name == 'nt':
-                    os.kill(p.pid, signal.CTRL_BREAK_EVENT)
-                else:
-                    p.terminate()
+                p.terminate()  # Invia SIGTERM anche su Windows ai processi Python
                 print(f"[LAUNCHER] Terminato PID {p.pid}")
             except Exception as e:
                 print(f"[ERRORE] Impossibile terminare PID {p.pid}: {e}")

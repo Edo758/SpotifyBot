@@ -11,6 +11,8 @@ import os
 import tempfile
 import shutil
 import sys
+import atexit
+import glob
 sys.stdout.reconfigure(encoding='utf-8')
 
 # === PREFISSO ISTANZA ===
@@ -109,8 +111,13 @@ service = Service(CHROMEDRIVER_PATH)
 
 driver = None
 
-def cleanup_and_exit(signum=None, frame=None):
-    global driver, temp_profile
+done_cleanup = False
+
+def cleanup_and_exit(signum=None, frame=None, from_atexit=False):
+    global driver, temp_profile, done_cleanup
+    if done_cleanup:
+        return
+    done_cleanup = True
     printi("\n[INFO] Arresto script, chiudo Chrome e cancello profilo temporaneo...")
     if driver:
         try:
@@ -122,7 +129,16 @@ def cleanup_and_exit(signum=None, frame=None):
         printi("[INFO] Profilo temporaneo eliminato.")
     else:
         printi("[INFO] Profilo temporaneo già rimosso.")
-    sys.exit(0)
+
+    temp_dir = tempfile.gettempdir()
+    for pattern in ['chrome_url_fetcher_*', 'scoped_dir*', 'tmp*']:
+        for folder in glob.glob(os.path.join(temp_dir, pattern)):
+            try:
+                shutil.rmtree(folder)
+            except Exception:
+                pass
+    if not from_atexit:
+        sys.exit(0)
 
 # === FUNZIONI PER TROVARE LA FINESTRA DI CHROME DAL PID ===
 def get_hwnds_for_pid(pid):
@@ -200,9 +216,14 @@ def safe_get(url, retries=3, delay=5):
 
 
 
-# Cattura segnali di interruzione (CTRL+C) e terminazione
+# Cattura segnali di interruzione (CTRL+C), terminazione e break (Windows)
 signal.signal(signal.SIGINT, cleanup_and_exit)
 signal.signal(signal.SIGTERM, cleanup_and_exit)
+if hasattr(signal, 'SIGBREAK'):
+    signal.signal(signal.SIGBREAK, cleanup_and_exit)
+
+# Registra la funzione di cleanup anche con atexit
+atexit.register(lambda: cleanup_and_exit(from_atexit=True))
 
 # === AVVIO CHROME ===
 try:
@@ -214,8 +235,7 @@ except Exception as e:
 # === APRI SPOTIFY ===
 if not safe_get("https://open.spotify.com"):
     # esci dallo script se non riesce a caricare
-    driver.quit()
-    exit()
+    cleanup_and_exit()
 
 printi("Avvia manualmente una canzone su Spotify...")
 time.sleep(10)
@@ -243,6 +263,8 @@ def change_ip():
         time.sleep(3)
 
         printi("[ VPN] Riconnetto...")
+        pyautogui.hotkey('ctrl', 'shift', 'y') # Riapre il popus dell'estensione se si chiudesse (se fosse ancora aperto non si chiude)
+        time.sleep(0.1)
         pyautogui.moveTo(1582, 252) # ← tasto ON/OFF
         pyautogui.click()
         time.sleep(3)
