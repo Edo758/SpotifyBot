@@ -9,7 +9,7 @@ NUM_INSTANZE = 20
 SCRIPT_PATH = os.path.join(os.getcwd(), "spotify_automation.py")
 processi = []
 
-ritardo = random.uniform(3, 6) # Ritardo casuale tra 3 e 6 secondi
+ritardo = random.uniform(4, 9) # Ritardo casuale tra 3 e 6 secondi
 
 # Funzione di cleanup
 def cleanup():

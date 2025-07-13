@@ -4,6 +4,7 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.common.exceptions import NoSuchElementException
 from vpn_lock_manager import VPNLock
 import time
 import pyautogui
@@ -287,6 +288,25 @@ def log_current_ip():
     except Exception as e:
         printi("Errore nel rilevamento IP:", e)
 
+def switch_to_spotify_tab_or_none():
+    """
+    Cerca tra tutte le schede aperte una di Spotify,
+    se la trova la seleziona e ritorna True,
+    altrimenti ritorna False.
+    """
+    handles = driver.window_handles
+    for handle in handles:
+        try:
+            driver.switch_to.window(handle)
+            url = driver.current_url
+            if "open.spotify.com" in url:
+                print("[INFO] Trovata scheda Spotify:", url)
+                return True
+        except Exception as e:
+            print("[WARN] Scheda non disponibile o chiusa:", handle, e)
+            continue
+    return False
+
 def play_song():
     track_url = "https://open.spotify.com/intl-it/track/2IUePLNmTEAXB7swaR9J2b?si=adf2ec19d0ea4e84"
     driver.get(track_url)
@@ -350,25 +370,40 @@ def wait_song_or_track_change():
             total_sec = to_seconds(total_time)
             remaining = total_sec - current_sec
 
-            printi(f"Canzone in riproduzione: tempo rimanente {remaining} secondi")
+            print(f"Canzone in riproduzione: tempo rimanente {remaining} secondi")
 
             if last_remaining is not None and remaining > last_remaining + 1:
-                printi("Nuova canzone rilevata.")
+                print("Nuova canzone rilevata.")
                 break
 
             if remaining <= 0:
-                printi("Canzone terminata.")
+                print("Canzone terminata.")
                 break
 
             last_remaining = remaining
 
         except Exception as e:
-            printi("Errore nel recupero tempi o stato canzone, riprovo...", e)
-            time.sleep(5)
+            # Se il problema è che la scheda è chiusa
+            if "no such window" in str(e).lower():
+                print("[WARN] Scheda chiusa o non più disponibile, cerco un'altra scheda Spotify...")
+                if switch_to_spotify_tab_or_none():
+                    print("[INFO] Passato a nuova scheda Spotify, continuo...")
+                    continue
+                else:
+                    print("[ERRORE] Nessuna scheda Spotify trovata, ricarico Spotify...")
+                    try:
+                        driver.get("https://open.spotify.com")
+                        time.sleep(5)
+                    except Exception as e2:
+                        print("[ERRORE] Impossibile ricaricare Spotify:", e2)
+                    continue
+            else:
+                print("[ERRORE] Errore imprevisto:", e)
+                time.sleep(5)
 
 # Ottimizzazione attesa iniziale
 printi(" Attendere 20 secondi prima dell'inizio del ciclo...")
-for i in range(20, 0, -1):
+for i in range(5, 0, -1):
     printi(f"Inizio in {i} secondi...", end='\r', flush=True)
     time.sleep(1)
 printi("")
