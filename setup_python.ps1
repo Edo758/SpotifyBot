@@ -3,7 +3,7 @@
 # Scarica la pagina ufficiale dei download Python per Windows
 $downloadPage = Invoke-WebRequest -Uri "https://www.python.org/downloads/windows/" -UseBasicParsing
 
-# Estrae l'ultima versione stabile di Python 3 (es. 3.13.2)
+# Estrae l'ultima versione stabile di Python 3 (es. 3.13.5)
 $latestVersion = ""
 if ($downloadPage.Content -match 'Latest Python 3 Release - Python ([\d\.]+)') {
     $latestVersion = $Matches[1]
@@ -22,8 +22,8 @@ try {
         $currentVersion = $Matches[1]
         $pythonInstalled = $true
         Write-Host " Python installato: $currentVersion"
-    }  # <-- questa parentesi chiude l'if
-}  # <-- questa parentesi chiude il try
+    }
+} 
 catch {
     Write-Host " Python non è installato o non è nel PATH."
 }
@@ -71,3 +71,20 @@ foreach ($dep in $dependencies) {
 }
 
 Write-Host "`nSetup completato! Puoi ora eseguire lo script Python."
+Write-Host "`n✅ Verifico che Python sia nel PATH..."
+
+try {
+    $pythonVersion = python --version 2>&1
+    Write-Host " Python trovato: $pythonVersion"
+} catch {
+    Write-Host "❌ ERRORE: Python non risulta nel PATH. Riavvia il terminale o verifica l'installazione."
+}
+
+try {
+    $pipVersion = pip --version 2>&1
+    Write-Host " pip trovato: $pipVersion"
+} catch {
+    Write-Host "❌ ERRORE: pip non risulta nel PATH. Riavvia il terminale o verifica l'installazione."
+}
+
+Write-Host "`n🚀 Setup completato! Puoi ora eseguire lo script Python."
