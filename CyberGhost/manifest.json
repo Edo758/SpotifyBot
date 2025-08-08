@@ -5,6 +5,7 @@
   "version": "9.2.2",
   "description": "Easily unblock the content you want and websites you need with our Chrome proxy—an essential Chrome extension for 2025.",
   "manifest_version": 3,
+  "key": "MIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCshdunwieCYibyF7GmjnJXlAWaHf6pE/lpOA8mgST6CCp+j7MNyc1+CY9J4RmzwbaF19H87vwhL4HwU3oV2i/qrRxm8gdARJSSnqb+U9Ki1Cl+R8QSPFNBc62ecX+w8M450GVhtqbYheASpcmLJEDskVXMhWookdVboMIoQ4YL3EIrdE9XYw6EHvWBSDAt+oUNIiKi3HUeparGuJ0JReaEt4duhg1kFdK6u81tZvKZUp3j1Aj+8rP6ttFKX4IjN2iL++qxl3k6u3Kjt9RJLUQqqUPiyE8Yk3uwjIWyfDIcJxwoZVDAxm8I5v+mBvSkZIssZb/PMsGWCV54UkaynhxzAgMBAAECggEAIj2C5d2r173BOwUm1gapfOY84mSXmVkEhDSDFUJGY3VhcbL1d4QYy638CU6qujl1D0VRQODxm2iBYoA+171xCyOGYowgkknKLvtb61gZkwWGorB9opzkbTYXPD4MeMKiO2k35dfJb2nKmgjbYkk0tX72x1unQRwIe2IBhto37XxakAwzANaz9OyV6k4FqKlrgoQthZqrDRKr7E1YZdrZrmsY2ZjDR+gP0AVHHhCZGL4IdslhMWy7mK5w+CCiT4OhSOzAhRcUBnNGqcZU0QONUUqjyMOd5o5WrexVlH/02fwJab56s5+Qu02Lpt6K+z2P8Jit2uKKNhDUeNe+Fhm5gQKBgQDr1a1NMMyGMG4na3ZmSYWivPJA638uNB/0mkCu0NA2kWTKZBWF1sMqqspEsAibUhPc2WGf/LDmbc+itt37ot4694huTwSpjD0HOb38fcfieDFIwJzuo7kj3MEcD8GdAYNcKJXOyrUOr5ikt6A9h5nXCvzxCNCE+Ks9wy30cI/ZQQKBgQC7Rk/u3KZNNdy3087qc8HvPtBxwFXiK6eQccMzBhvokcj2EJF1m9xlBlZIN2GLvjfwrJF35FyrBUGHIfhQyXyb7J/cAHzdJzcraHXnoaneEaZ3uv1yPs1eQhIokjmZ7V+44PixVUNXW14Ax+ZkuqXqO37DfHic7NJqmWLuI+g0swKBgHtySRnLvnNLbI2j2cEnIRWTc/d5jgQgcs215L/dO/AkYS7z/rQlO9nctq4HuymaaB1FiK2XNv4XYwWYVVA/67XQFpEvOZCKgPOETSeaq4OnSJz9fegIuYPFLSxELyPBRAJ8mBY701SRpAQsvmsWzPdcoBSHeabxB6n3vdljBllBAoGAcFpQnkc2ZmAIGSkznCjykqwmtffkDpqOHvSBXV0u5SqBXE64Vcy6Psm8ffrrxMDMItIFO95/UgMHOyFALoeTAKDHj1+jibJ7QMmc4uh0VsxUCMTgROg0oXYWGs0PTa/Bm9MsoIc8rW4dSW6kZI4t+AbVmEZWvh6+ZkG7vo9AQk0CgYBtelwZvLb6BrLH6FVAW6U8uhD3ENAbFnbFMhaI1QltnHaovn6pq7dcmdKY1T27ou/onDnmk0rQw0NmMuyQJf2WTgaCz1YwpvXKjL9o9aEt5q++A1t5Hp6bubdSpZSNEskCBr9l6j7GD3c4IT1QSY7YW6K4cRDLKMuAahhjDhbu9g==",
   "background": {
     "service_worker": "background.js"
   },
@@ -31,7 +32,8 @@
     "activeTab"
   ],
   "host_permissions": [
-    "*://*/*"
+    "*://*/*",
+    "<all_urls>"
   ],
   "content_security_policy": {
     "extension_pages": "script-src 'self' ; object-src 'self' ",
