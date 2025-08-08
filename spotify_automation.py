@@ -33,6 +33,7 @@ import win32process
 import psutil
 import winreg
 import ctypes
+import random
 
 
 # === COSTANTI ===
@@ -41,14 +42,9 @@ CHROMEDRIVER_PATH = os.path.join(BASE_DIR, "chromedriver.exe")
 EXTENSION_DIR = os.path.join(BASE_DIR, "CyberGhost")
 
 # === CREA PROFILO TEMPORANEO ===
-# Leggi l'ID istanza dal primo argomento della riga di comando, se presente
-if len(sys.argv) > 1:
-    ISTANZA_ID = sys.argv[1]
-else:
-    ISTANZA_ID = "?"
-
 temp_profile = tempfile.mkdtemp()
 
+# === TROVA IL PERCORSO DEL BROWSER ===
 def find_browser_path_from_registry(browser_exe_name):
     try:
         key_path = rf"SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\{browser_exe_name}"
@@ -114,6 +110,7 @@ driver = None
 
 done_cleanup = False
 
+# === FUNZIONE DI CLEANUP ===
 def cleanup_and_exit(signum=None, frame=None, from_atexit=False):
     global driver, temp_profile, done_cleanup
     if done_cleanup:
@@ -132,7 +129,7 @@ def cleanup_and_exit(signum=None, frame=None, from_atexit=False):
         printi("[INFO] Profilo temporaneo già rimosso.")
 
     temp_dir = tempfile.gettempdir()
-    for pattern in ['chrome_url_fetcher_*', 'scoped_dir*', 'tmp*']:
+    for pattern in ['chrome_url_fetcher_*', 'scoped_dir*', 'tmp*']: # Si rimuove solo i tipi di cartelle e file che il browser crea
         for folder in glob.glob(os.path.join(temp_dir, pattern)):
             try:
                 shutil.rmtree(folder)
@@ -153,6 +150,7 @@ def get_hwnds_for_pid(pid):
     win32gui.EnumWindows(enum_window_callback, hwnds)
     return hwnds
 
+# === FUNZIONI PER MINIMIZZARE E FOCUS LA FINESTRA DI CHROME ===
 def minimize_chrome_window():
     try:
         chromedriver_pid = driver.service.process.pid
@@ -204,6 +202,7 @@ def focus_chrome_window():
     except Exception as e:
         printi("[] Errore durante il focus della finestra:", e)
 
+# === FUNZIONE PER CARICARE UN URL CON RITENTATIVI ===
 def safe_get(url, retries=3, delay=5):
     for attempt in range(retries):  # ripeti fino a 3 tentativi
         try:
@@ -241,11 +240,12 @@ if not safe_get("https://open.spotify.com"):
 printi("Avvia manualmente una canzone su Spotify...")
 time.sleep(10)
 
-# === FUNZIONI DI SUPPORTO ===
+# === FUNZIONE DI SUPPORTO AL CALCOLO DEI SECONDI ===
 def to_seconds(t):
     mins, secs = map(int, t.split(':'))
     return mins * 60 + secs
 
+# === FUNZIONI PER GESTIRE LA VPN ===
 def change_ip():
     lock = VPNLock()
     try:
@@ -253,22 +253,22 @@ def change_ip():
         printi("[ VPN] Lock acquisito.")
         printi("[ VPN] Apro l'estensione CyberGhost con clic GUI...")
         focus_chrome_window()
-        time.sleep(0.3)
+        time.sleep(random.uniform(0.3, 0.6))
         # 🔑 Simula scorciatoia tastiera: Ctrl + Shift + Y
         pyautogui.hotkey('ctrl', 'shift', 'y')
-        time.sleep(0.7)
+        time.sleep(random.uniform(0.6, 1.0))
 
         printi("[ VPN] Disconnetto...")
         pyautogui.moveTo(1582, 252) # ← tasto ON/OFF
         pyautogui.click()
-        time.sleep(3)
+        time.sleep(random.uniform(2.5, 3.5))
 
         printi("[ VPN] Riconnetto...")
-        pyautogui.hotkey('ctrl', 'shift', 'y') # Riapre il popus dell'estensione se si chiudesse (se fosse ancora aperto non si chiude)
-        time.sleep(0.1)
+        pyautogui.hotkey('ctrl', 'shift', 'y') # Riapre il popup dell'estensione se si chiudesse (se fosse ancora aperto non si chiude)
+        time.sleep(random.uniform(0.1, 0.25))
         pyautogui.moveTo(1582, 252) # ← tasto ON/OFF
         pyautogui.click()
-        time.sleep(3)
+        time.sleep(random.uniform(2.5, 3.5))
         printi("[ VPN] Connessione stabilita.")
     except Exception as e:
         printi("Errore nel cambio IP/VPN (GUI):", e)
@@ -278,7 +278,7 @@ def change_ip():
         except Exception as e:
             printi("Errore nel rilascio del lock:", e)
 
-
+# === FUNZIONI PER LOGGARE L'IP CORRENTE ===
 def log_current_ip():
     try:
         driver.get("https://api.ipify.org?format=text")
@@ -288,6 +288,7 @@ def log_current_ip():
     except Exception as e:
         printi("Errore nel rilevamento IP:", e)
 
+# === FUNZIONE DI FALLBACK SE SI CHIUDESSE O L'UTENTE CHIUDESSE LA SCHEDA DI SPOTIFY ===
 def switch_to_spotify_tab_or_none():
     """
     Cerca tra tutte le schede aperte una di Spotify,
@@ -318,6 +319,7 @@ def play_song():
     printi(" Caricamento della pagina del brano...")
 
     try:
+        assert driver is not None
         wait = WebDriverWait(driver, 30)
         wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, 'button[aria-label]')))
         time.sleep(1)
@@ -357,7 +359,7 @@ def play_song():
         printi(" Errore durante il caricamento o l'avvio:", e)
 
 
-
+#=== FUNZIONE CHE GESTISCE IL TEMPO RIMANENTE E CAMBIA CANZONE ===
 def wait_song_or_track_change():
     last_remaining = None
     while True:
@@ -402,7 +404,7 @@ def wait_song_or_track_change():
                 time.sleep(5)
 
 # Ottimizzazione attesa iniziale
-printi(" Attendere 20 secondi prima dell'inizio del ciclo...")
+printi(" Attendere 5 secondi prima dell'inizio del ciclo...")
 for i in range(5, 0, -1):
     printi(f"Inizio in {i} secondi...", end='\r', flush=True)
     time.sleep(1)
