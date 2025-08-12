@@ -7,13 +7,15 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import NoSuchElementException
 from vpn_lock_manager import VPNLock
 import time
-import pyautogui
 import os
 import tempfile
 import shutil
 import sys
 import atexit
 import glob
+import signal
+import winreg
+import random
 sys.stdout.reconfigure(encoding='utf-8')
 
 # === PREFISSO ISTANZA ===
@@ -25,16 +27,6 @@ def printi(*args, **kwargs):
     if 'flush' not in kwargs:
         kwargs['flush'] = True
     print(f"[ISTANZA {ISTANZA_ID}]", *args, **kwargs)
-
-import signal
-import win32gui
-import win32con
-import win32process
-import psutil
-import winreg
-import ctypes
-import random
-
 
 # === COSTANTI ===
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -139,70 +131,6 @@ def cleanup_and_exit(signum=None, frame=None, from_atexit=False):
     if not from_atexit:
         sys.exit(0)
 
-# === FUNZIONI PER TROVARE LA FINESTRA DI CHROME DAL PID ===
-def get_hwnds_for_pid(pid):
-    hwnds = []
-    def enum_window_callback(hwnd, hwnds):
-        if win32gui.IsWindowVisible(hwnd):
-            _, found_pid = win32process.GetWindowThreadProcessId(hwnd)
-            if found_pid == pid:
-                hwnds.append(hwnd)
-        return True
-    win32gui.EnumWindows(enum_window_callback, hwnds)
-    return hwnds
-
-# === FUNZIONI PER MINIMIZZARE E FOCUS LA FINESTRA DI CHROME ===
-def minimize_chrome_window():
-    try:
-        chromedriver_pid = driver.service.process.pid
-        p = psutil.Process(chromedriver_pid)
-        child_pids = [child.pid for child in p.children(recursive=True)]
-        child_pids.append(chromedriver_pid)
-
-        for pid in child_pids:
-            hwnds = get_hwnds_for_pid(pid)
-            if hwnds:
-                hwnd = hwnds[0]
-                win32gui.ShowWindow(hwnd, win32con.SW_MINIMIZE)
-                printi(f"[INFO] Finestra Chrome minimizzata (PID={pid}).")
-                return
-        printi("[INFO] Nessuna finestra trovata da minimizzare.")
-    except Exception as e:
-        printi(f"[ERRORE] Errore durante la minimizzazione: {e}")
-
-def focus_chrome_window():
-    try:
-        chromedriver_pid = driver.service.process.pid
-        p = psutil.Process(chromedriver_pid)
-        child_pids = [child.pid for child in p.children(recursive=True)]
-        child_pids.append(chromedriver_pid)
-
-        for pid in child_pids:
-            hwnds = get_hwnds_for_pid(pid)
-            if hwnds:
-                hwnd = hwnds[0]
-                win32gui.ShowWindow(hwnd, win32con.SW_RESTORE)
-                win32gui.ShowWindow(hwnd, win32con.SW_MAXIMIZE)
-                try:
-                    ctypes.windll.user32.AllowSetForegroundWindow(pid)
-                    win32gui.SetForegroundWindow(hwnd)
-                    if win32gui.GetForegroundWindow() != hwnd:
-                        raise Exception("Finestra non in primo piano dopo SetForegroundWindow")
-
-                except Exception as fe:
-                    printi(f"[] SetForegroundWindow fallito, provo fallback: {fe}")
-                    try:
-                        win32gui.BringWindowToTop(hwnd)
-                        win32gui.SetActiveWindow(hwnd)
-                    except Exception as fallback_e:
-                        printi(f"[] Fallback fallito: {fallback_e}")
-                printi(f"[] Finestra con PID {pid} massimizzata e portata in primo piano.")
-                return
-
-        printi("[] Nessuna finestra Chrome trovata tra i processi figli.")
-    except Exception as e:
-        printi("[] Errore durante il focus della finestra:", e)
-
 # === FUNZIONE PER CARICARE UN URL CON RITENTATIVI ===
 def safe_get(url, retries=3, delay=5):
     for attempt in range(retries):  # ripeti fino a 3 tentativi
@@ -214,8 +142,6 @@ def safe_get(url, retries=3, delay=5):
             time.sleep(delay)
     printi(f"[X] Impossibile raggiungere {url} dopo {retries} tentativi.")
     return False  # dopo 3 fallimenti
-
-
 
 # Cattura segnali di interruzione (CTRL+C), terminazione e break (Windows)
 signal.signal(signal.SIGINT, cleanup_and_exit)
@@ -268,7 +194,7 @@ def change_ip():
 
         printi("[VPN] Connessione ai Paesi Bassi...")
         driver.execute_script("vpn.connect('nl')")
-        time.sleep(4)
+        time.sleep(random.uniform(3.8, 4.5))
 
         # Log IP attuale e ripristina index.html della VPN
         log_current_ip()
@@ -289,7 +215,7 @@ def change_ip():
 def log_current_ip():
     try:
         driver.get("https://api.ipify.org?format=text")
-        time.sleep(3)
+        time.sleep(random.uniform(2.5, 3.2))
         ip = driver.find_element(By.TAG_NAME, "body").text
         printi(f"[ NUOVO IP] {ip}")
     except Exception as e:
@@ -352,7 +278,7 @@ def play_song():
                 printi(f" Tentativo {attempt+1}: clic sul pulsante Play...")
                 try:
                     play_button.click()
-                    time.sleep(2)
+                    time.sleep(random.uniform(1.8, 2.4))
                 except Exception as e:
                     printi(" Errore nel clic:", e)
             else:
@@ -425,10 +351,6 @@ while True:
 
     printi("Cambiando IP...")
     change_ip()
-
-    printi("Verifico l’IP corrente...")
-    log_current_ip()
-    minimize_chrome_window()
 
     printi("Avvio nuova canzone...")
     play_song()
