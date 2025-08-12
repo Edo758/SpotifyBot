@@ -8,6 +8,7 @@ from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
+import time
 
 # === CONFIG ===
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -71,48 +72,48 @@ def cleanup():
         shutil.rmtree(temp_profile)
     print("[INFO] Pulizia completata.")
 
-# === FUNZIONI PER LOGGARE L'IP CORRENTE ===
+# === LOG IP ===
 def log_current_ip():
     try:
         driver.get("https://api.ipify.org?format=text")
-        time.sleep(3)
+        time.sleep(2)
         ip = driver.find_element(By.TAG_NAME, "body").text
         printi(f"[ NUOVO IP] {ip}")
+        return ip
     except Exception as e:
         printi("Errore nel rilevamento IP:", e)
+        return None
+
+# === POLLING LOG CONSOLE ===
+def wait_for_console_message(driver, keyword, timeout=15):
+    start = time.time()
+    while time.time() - start < timeout:
+        logs = driver.get_log("browser")
+        for entry in logs:
+            if keyword in entry["message"]:
+                printi(f"[LOG MATCH] '{keyword}' trovato")
+                return True
+        time.sleep(0.3)
+    printi(f"[TIMEOUT] Nessun match per '{keyword}'")
+    return False
 
 # === VERIFICA ESTENSIONE ===
 def verify_extension_loaded():
-    """Verifica che l'estensione sia caricata correttamente"""
-    try:
-        # Verifica che la cartella dell'estensione esista
-        if not os.path.exists(EXTENSION_DIR):
-            printi(f"[ERRORE] Cartella estensione non trovata: {EXTENSION_DIR}")
-            return False
-        
-        # Verifica che esista il manifest.json
-        manifest_path = os.path.join(EXTENSION_DIR, "manifest.json")
-        if not os.path.exists(manifest_path):
-            printi(f"[ERRORE] manifest.json non trovato: {manifest_path}")
-            return False
-            
-        printi(f"[OK] Estensione trovata in: {EXTENSION_DIR}")
-        return True
-    except Exception as e:
-        printi(f"[ERRORE] Errore nella verifica estensione: {e}")
+    if not os.path.exists(EXTENSION_DIR):
+        printi(f"[ERRORE] Cartella estensione non trovata: {EXTENSION_DIR}")
         return False
+    manifest_path = os.path.join(EXTENSION_DIR, "manifest.json")
+    if not os.path.exists(manifest_path):
+        printi(f"[ERRORE] manifest.json non trovato: {manifest_path}")
+        return False
+    printi(f"[OK] Estensione trovata in: {EXTENSION_DIR}")
+    return True
 
 # === TROVA BROWSER ===
-browser_path = find_brave_path()
-if browser_path:
-    printi(f"[INFO] Brave trovato: {browser_path}")
-else:
-    browser_path = find_chrome_path()
-    if browser_path:
-        printi(f"[INFO] Brave non trovato, uso Chrome: {browser_path}")
-    else:
-        printi("[ERRORE] Né Brave né Chrome sono stati trovati. Esco.")
-        sys.exit(1)
+browser_path = find_brave_path() or find_chrome_path()
+if not browser_path:
+    printi("[ERRORE] Né Brave né Chrome sono stati trovati. Esco.")
+    sys.exit(1)
 
 # === VERIFICA ESTENSIONE PRIMA DI INIZIARE ===
 if not verify_extension_loaded():
@@ -123,13 +124,11 @@ if not verify_extension_loaded():
 options = Options()
 options.add_argument("--start-maximized")
 options.add_argument(f'--user-data-dir={temp_profile}')
-options.add_argument(f"--load-extension={EXTENSION_DIR}")  # ← CARICA ESTENSIONE
+options.add_argument(f"--load-extension={EXTENSION_DIR}")
 options.add_argument("--disable-dev-shm-usage")
 options.add_argument("--no-sandbox")
 options.add_argument("--disable-features=ExternalProtocolRequestPrompt")
 options.add_argument("--disable-external-intent-requests")
-
-# Imposta il percorso del browser trovato automaticamente
 options.binary_location = browser_path
 
 service = Service(CHROMEDRIVER_PATH)
@@ -137,50 +136,38 @@ service = Service(CHROMEDRIVER_PATH)
 try:
     driver = webdriver.Chrome(service=service, options=options)
     printi("[OK] Browser avviato con estensione caricata.")
-    
-    # === ASPETTA CHE L'ESTENSIONE SIA CARICATA ===
-    printi("[INFO] Attendo 5 secondi per il caricamento dell'estensione...")
     time.sleep(5)
 
-    # === VERIFICA CHE L'ESTENSIONE SIA ACCESSIBILE ===
-    try:
-        printi(f"[TEST] Tentativo accesso a: chrome-extension://{EXTENSION_ID}/index.html")
-        driver.get(f"chrome-extension://{EXTENSION_ID}/index.html")
-        printi("[OK] Estensione accessibile!")
-    except Exception as e:
-        printi(f"[WARN] Impossibile accedere all'estensione: {e}")
-        printi("[INFO] Provo ad aprire chrome://extensions per verificare...")
-        driver.get("chrome://extensions/")
-        time.sleep(2)
-        input("Verifica manualmente se l'estensione è caricata e premi invio...")
-
-    # === LOG IP INIZIALE ===
-    printi("IP prima del test")
-    log_current_ip()
-    time.sleep(2)
+    printi(f"[TEST] Tentativo accesso a: chrome-extension://{EXTENSION_ID}/index.html")
     driver.get(f"chrome-extension://{EXTENSION_ID}/index.html")
+    printi("[OK] Estensione accessibile!")
 
-    # === TEST CONNESSIONE ===
+    # === IP iniziale ===
+    printi("IP prima del test")
+    ip_before = log_current_ip()
+
+    # === DISCONNESSIONE ===
+    
+
+    # === CONNESSIONE ===
+    driver.get(f"chrome-extension://{EXTENSION_ID}/index.html")
     printi("[TEST] Connessione alla VPN (NL)...")
-    try:
-        driver.execute_script("vpn.connect('nl')")
-        time.sleep(4)
-        log_current_ip()
-        driver.get(f"chrome-extension://{EXTENSION_ID}/index.html")
-        time.sleep(1.5)
-    except Exception as e:
-        printi(f"[ERRORE] Errore nella connessione VPN: {e}")
+    driver.execute_script("vpn.connect('nl')")
+    wait_for_console_message(driver, "forced handshake to the proxy server successfully", timeout=15)
+    ip_after_connect = log_current_ip()
 
-    # === TEST DISCONNESSIONE ===
-    printi("[TEST] Disconnessione dalla VPN...")
-    try:
-        driver.execute_script("vpn.disconnect()")
-        time.sleep(4)
-        log_current_ip()
-    except Exception as e:
-        printi(f"[ERRORE] Errore nella disconnessione VPN: {e}")
+    # === DISCONNESSIONE ===
+    driver.get(f"chrome-extension://{EXTENSION_ID}/index.html")
+    printi("[TEST] Disconnessione VPN...")
+    driver.execute_script("vpn.disconnect()")
+    if wait_for_console_message(driver, "-- connection disabled"):
+        time.sleep(2)  # margine di sicurezza
+    ip_after_disconnect = log_current_ip()
+    
+    printi(f"IP iniziale: {ip_before}")
+    printi(f"IP dopo disconnessione: {ip_after_disconnect}")
+    printi(f"IP dopo connessione: {ip_after_connect}")
 
-    printi("[OK] Test completato.")
     input("Premi invio per chiudere...")
 
 except Exception as e:
