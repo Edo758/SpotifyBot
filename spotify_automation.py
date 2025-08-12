@@ -98,6 +98,7 @@ options = Options()
 options.add_argument("--start-maximized")
 options.add_argument(f'--user-data-dir={temp_profile}')  # profilo temporaneo
 options.add_argument(f"--load-extension={EXTENSION_DIR}")
+EXTENSION_ID = "clnceilhfmekjpiacjjlmdohilnogoej"
 options.add_argument("--disable-dev-shm-usage")
 options.add_argument("--no-sandbox")
 options.add_argument("--disable-features=ExternalProtocolRequestPrompt")  # Disabilita la notifica "Apri nell'app"
@@ -210,9 +211,9 @@ def safe_get(url, retries=3, delay=5):
             return True  # se va, esci subito
         except Exception as e:
             printi(f"[!] Tentativo {attempt+1}] Errore nel caricamento URL: {e}")
-            time.sleep(delay)  # aspetta qualche secondo e riprova
+            time.sleep(delay)
     printi(f"[X] Impossibile raggiungere {url} dopo {retries} tentativi.")
-    return False  # dopo 3 fallimenti, restituisci False
+    return False  # dopo 3 fallimenti
 
 
 
@@ -232,10 +233,16 @@ except Exception as e:
     printi("[ERRORE] Chrome non si è avviato correttamente:\n", e)
     cleanup_and_exit()
 
-# === APRI SPOTIFY ===
-if not safe_get("https://open.spotify.com"):
-    # esci dallo script se non riesce a caricare
-    cleanup_and_exit()
+# === APRI ESTENSIONE VPN ===
+printi("[INFO] Apro scheda estensione CyberGhost...")
+driver.get(f"chrome-extension://{EXTENSION_ID}/index.html")
+tab_vpn = driver.current_window_handle  # Memorizza handle VPN
+
+# === APRI SPOTIFY IN UNA NUOVA SCHEDA===
+printi("[INFO] Apro nuova scheda Spotify...")
+driver.switch_to.new_window('tab')
+driver.get("https://open.spotify.com")
+tab_spotify = driver.current_window_handle  # Memorizza handle Spotify
 
 printi("Avvia manualmente una canzone su Spotify...")
 time.sleep(10)
@@ -251,25 +258,25 @@ def change_ip():
     try:
         lock.acquire()
         printi("[ VPN] Lock acquisito.")
-        printi("[ VPN] Apro l'estensione CyberGhost con clic GUI...")
-        focus_chrome_window()
-        time.sleep(random.uniform(0.3, 0.6))
-        # 🔑 Simula scorciatoia tastiera: Ctrl + Shift + Y
-        pyautogui.hotkey('ctrl', 'shift', 'y')
-        time.sleep(random.uniform(0.6, 1.0))
 
-        printi("[ VPN] Disconnetto...")
-        pyautogui.moveTo(1582, 252) # ← tasto ON/OFF
-        pyautogui.click()
-        time.sleep(random.uniform(2.5, 3.5))
+         # Passa alla scheda dell'estensione VPN
+        driver.switch_to.window(tab_vpn)
 
-        printi("[ VPN] Riconnetto...")
-        pyautogui.hotkey('ctrl', 'shift', 'y') # Riapre il popup dell'estensione se si chiudesse (se fosse ancora aperto non si chiude)
-        time.sleep(random.uniform(0.1, 0.25))
-        pyautogui.moveTo(1582, 252) # ← tasto ON/OFF
-        pyautogui.click()
-        time.sleep(random.uniform(2.5, 3.5))
-        printi("[ VPN] Connessione stabilita.")
+        printi("[VPN] Disconnessione...")
+        driver.execute_script("vpn.disconnect()")
+        time.sleep(3.5) 
+
+        printi("[VPN] Connessione ai Paesi Bassi...")
+        driver.execute_script("vpn.connect('nl')")
+        time.sleep(4)
+
+        # Log IP attuale e ripristina index.html della VPN
+        log_current_ip()
+        driver.get(f"chrome-extension://{EXTENSION_ID}/index.html")
+
+        # Torna a Spotify
+        driver.switch_to.window(tab_spotify)
+
     except Exception as e:
         printi("Errore nel cambio IP/VPN (GUI):", e)
     finally:
