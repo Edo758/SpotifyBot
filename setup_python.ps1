@@ -59,9 +59,7 @@ if (-not $?) {
 # Lista delle dipendenze Python da installare direttamente nello script
 $dependencies = @(
     "selenium",
-    "pyautogui",
-    "pywin32",
-    "psutil"
+    "rich"
 )
 
 Write-Host " Installo dipendenze specificate nello script..."

@@ -23,10 +23,15 @@ if len(sys.argv) > 1:
     ISTANZA_ID = sys.argv[1]
 else:
     ISTANZA_ID = "?"
+
 def printi(*args, **kwargs):
     if 'flush' not in kwargs:
         kwargs['flush'] = True
     print(f"[ISTANZA {ISTANZA_ID}]", *args, **kwargs)
+
+def log_state(stato, dettaglio="-"):
+    """Invia lo stato al launcher"""
+    print(f"STATE|{stato}|{dettaglio}", flush=True)
 
 # === COSTANTI ===
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -103,6 +108,21 @@ driver = None
 
 done_cleanup = False
 
+# === URL DELLE CANZONI DA RIPRODURRE RANDOM ===
+TRACKS = [
+    {"title": "Rockstar", "url": "https://open.spotify.com/intl-it/track/3js3wKPw8VxBWtcXtwyUnA"},
+    {"title": "Serpenti A Sonagli", "url": "https://open.spotify.com/intl-it/track/5Z0Mx6SeUAFA2rgZB9t1Nu"},
+    {"title": "Cupido (feat. Quavo)", "url": "https://open.spotify.com/intl-it/track/0dLToDou8YHYJpQltj3Ijy"},
+    {"title": "XNX", "url": "https://open.spotify.com/intl-it/track/0W2dRTfCkaanZgRimFEMay"},
+    {"title": "Ricchi x Sempre", "url": "https://open.spotify.com/intl-it/track/0kHTkvGavvk2MjBTSUtOZx"},
+    {"title": "Uber", "url": "https://open.spotify.com/intl-it/track/4oZhBLWGhtIyBckervj3sb"},
+    {"title": "Leggenda", "url": "https://open.spotify.com/intl-it/track/17bXwlGLFeAGCaIMBwjq5k"},
+    {"title": "Bancomat", "url": "https://open.spotify.com/intl-it/track/0AQgJrBY3l12K49HTvnT99"},
+    {"title": "Sciroppo (feat. DrefGold)", "url": "https://open.spotify.com/intl-it/track/4VVG3HBGaqSNZqIpmewIA6"},
+    {"title": "20 Collane", "url": "https://open.spotify.com/intl-it/track/6cj01yz96YqEgsMX15H6FN"},
+    {"title": "Tran Tran", "url": "https://open.spotify.com/intl-it/track/3cGuiySfwJPXqvE15OiEEg"},
+]
+
 # === FUNZIONE DI CLEANUP ===
 def cleanup_and_exit(signum=None, frame=None, from_atexit=False):
     global driver, temp_profile, done_cleanup
@@ -128,6 +148,7 @@ def cleanup_and_exit(signum=None, frame=None, from_atexit=False):
                 shutil.rmtree(folder)
             except Exception:
                 pass
+    log_state("ATTESA", "-")
     if not from_atexit:
         sys.exit(0)
 
@@ -184,6 +205,7 @@ def change_ip():
     try:
         lock.acquire()
         printi("[ VPN] Lock acquisito.")
+        log_state("CAMBIO IP", "in corso...")
 
          # Passa alla scheda dell'estensione VPN
         driver.switch_to.window(tab_vpn)
@@ -202,6 +224,7 @@ def change_ip():
 
         # Torna a Spotify
         driver.switch_to.window(tab_spotify)
+        log_state("ATTESA", "-")
 
     except Exception as e:
         printi("Errore nel cambio IP/VPN (GUI):", e)
@@ -241,8 +264,17 @@ def switch_to_spotify_tab_or_none():
             continue
     return False
 
-def play_song():
-    track_url = "https://open.spotify.com/intl-it/track/2IUePLNmTEAXB7swaR9J2b?si=adf2ec19d0ea4e84"
+# === FUNZIONE PER RIPRODURRE UNA CANZONE FISSA (MAIN) ===
+def play_main_song():
+    main_track = "https://open.spotify.com/intl-it/track/2IUePLNmTEAXB7swaR9J2b?si=adf2ec19d0ea4e84"
+    _play_song_internal(main_track)
+
+# === FUNZIONE PER RIPRODURRE UNA CANZONE SPECIFICA (DA URL) ===
+def play_song(track_url):
+    _play_song_internal(track_url)
+
+# === FUNZIONE INTERNA CON LA LOGICA COMUNE ===
+def _play_song_internal(track_url):
     driver.get(track_url)
     # Prova a chiudere eventuali popup di protocollo
     try:
@@ -272,6 +304,7 @@ def play_song():
 
             if is_playing:
                 printi(" Canzone in riproduzione confermata.")
+                log_state("IN RIPRODUZIONE", "tempo rimanente sconosciuto")
                 return
 
             if play_button:
@@ -305,7 +338,8 @@ def wait_song_or_track_change():
             total_sec = to_seconds(total_time)
             remaining = total_sec - current_sec
 
-            print(f"Canzone in riproduzione: tempo rimanente {remaining} secondi")
+            #print(f"Canzone in riproduzione: tempo rimanente {remaining} secondi")
+            log_state("IN RIPRODUZIONE", f"{remaining}s rimanenti")
 
             if last_remaining is not None and remaining > last_remaining + 1:
                 print("Nuova canzone rilevata.")
@@ -349,8 +383,14 @@ while True:
     printi("Aspetto che la canzone finisca o cambi...")
     wait_song_or_track_change()
 
+    # Riproduci una canzone random dalla lista
+    next_track = random.choice(TRACKS)
+    printi(f"Caricamento della prossima canzone: {next_track['title']}")
+    play_song(next_track["url"])
+    wait_song_or_track_change()
+
     printi("Cambiando IP...")
     change_ip()
 
     printi("Avvio nuova canzone...")
-    play_song()
+    play_main_song()

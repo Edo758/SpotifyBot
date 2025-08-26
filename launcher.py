@@ -4,12 +4,44 @@ import signal
 import time
 import sys
 import random
+import threading
+from rich.live import Live
+from rich.table import Table
 
-NUM_INSTANZE = 20
+NUM_INSTANZE = 2
 SCRIPT_PATH = os.path.join(os.getcwd(), "spotify_automation.py")
 processi = []
+stati = {i: {"stato": "ATTESA", "dettaglio": "-"} for i in range(1, NUM_INSTANZE + 1)}
 
-ritardo = random.uniform(4, 9) # Ritardo casuale tra 3 e 6 secondi
+def build_table():
+    table = Table(title="Dashboard Istanze", expand=True)
+    table.add_column("Istanza", justify="center")
+    table.add_column("Stato", justify="center")
+    table.add_column("Dettaglio", justify="center")
+    for i in range(1, NUM_INSTANZE + 1):
+        table.add_row(str(i), stati[i]["stato"], stati[i]["dettaglio"])
+    return table
+
+def reader(pipe, idx):
+    for line in iter(pipe.readline, b''):
+        try:
+            line = line.decode("utf-8").strip()
+        except:
+            continue
+
+        # Se il log contiene un aggiornamento di stato
+        if line.startswith("STATE|"):
+            try:
+                _, stato, dettaglio = line.split("|", 2)
+                stati[idx]["stato"] = stato
+                stati[idx]["dettaglio"] = dettaglio
+            except:
+                pass
+        # Altrimenti è solo log normale → lo stampiamo a console
+        else:
+            print(line, flush=True)
+    pipe.close()
+
 
 # Funzione di cleanup
 def cleanup():
@@ -30,22 +62,24 @@ signal.signal(signal.SIGINT, lambda sig, frame: cleanup())
 print(f"\nAvvio di {NUM_INSTANZE} istanze di spotify_automation.py...\n")
 
 for i in range(1, NUM_INSTANZE + 1):
-    print(f"[] Avvio istanza {i}...")
     p = subprocess.Popen(
         [sys.executable, SCRIPT_PATH, str(i)],
-        creationflags=subprocess.CREATE_NEW_PROCESS_GROUP
+        stdout=subprocess.PIPE,
+        stderr=subprocess.STDOUT,
+        bufsize=1
     )
     processi.append(p)
-    if i < NUM_INSTANZE:  # Evita il delay dopo l'ultima istanza
-        print(f"[LAUNCHER] Attesa di {ritardo:.2f} secondi prima della prossima istanza.")
-        time.sleep(ritardo)
+    threading.Thread(target=reader, args=(p.stdout, i), daemon=True).start()
+    if i < NUM_INSTANZE:
+        time.sleep(random.uniform(4, 9))
 
 print("\nTutte le istanze sono state avviate.")
 print(" Premi CTRL+C per terminare tutte le istanze.")
 
-# Mantieni vivo il launcher finché le istanze girano
-try:
-    while True:
-        time.sleep(1)
-except KeyboardInterrupt:
-    cleanup()
+with Live(build_table(), refresh_per_second=4, screen=False) as live:
+    try:
+        while True:
+            live.update(build_table())
+            time.sleep(1)
+    except KeyboardInterrupt:
+        cleanup()
